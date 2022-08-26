@@ -7,12 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h3> 메인페이지 </h3>
-<a href="login.jsp"> 로그인</a>
-<a href="index.jsp"> GABOZAGO</a>
-<a href="login.jsp"> 가이드</a>
-<a href="login.jsp"> 교통</a>
-<a href="login.jsp"> 일정</a>
+<h3>GABOZAGO</h3>
+<a href="main.jsp"> 시작하기</a>
+<a href="login.jsp">로그인</a>
 <br>
 <br>
 <br>
@@ -24,6 +21,5 @@
 <br>
 <br>
 <%@ include file="footer.jsp" %>
-
 </body>
 </html>

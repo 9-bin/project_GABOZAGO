@@ -7,8 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h2>회원정보</h2>
-<%
+<h2>회원가입이 완료되었습니다.</h2>
+<%--
 request.setCharacterEncoding("UTF-8");
 
 String id = request.getParameter("id");
@@ -32,7 +32,9 @@ out.println("이메일: "+email);
 out.println("<br>");
 out.println("성별: "+gender);
 out.println("<br>");
-
-%>
+--%>
+<form action="main.jsp" method="post">
+<input type="submit" value="확인">
+</form>
 </body>
 </html>
