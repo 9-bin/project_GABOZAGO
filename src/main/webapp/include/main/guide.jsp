@@ -4,21 +4,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>guide</title>
 </head>
 <body>
-<h3>GABOZAGO</h3>
-<a href="main.jsp"> 시작하기</a>
-<a href="login.jsp">로그인</a>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<h2>가이드</h2>
 </body>
 </html>
