@@ -9,7 +9,7 @@
 <body>
 
 <div id="copyright" style="background-color: yellow">
-	© CJ CGV. All Rights Reserved
+	FOOTER
 
 </div>
 
