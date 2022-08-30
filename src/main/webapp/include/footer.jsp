@@ -9,7 +9,7 @@
 <body>
 
 <div id="copyright" style="background-color: yellow">
-	FOOTER111
+	FOOTER
 
 </div>
 
