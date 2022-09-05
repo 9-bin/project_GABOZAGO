@@ -16,9 +16,7 @@
 <p>
     <button onclick="selectOverlay('MARKER')">마커</button>
     <button onclick="selectOverlay('POLYLINE')">선</button>
-    <button onclick="selectOverlay('CIRCLE')">원</button>
-    <button onclick="selectOverlay('RECTANGLE')">사각형</button>
-    <button onclick="selectOverlay('POLYGON')">다각형</button>
+   
 </p>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406&libraries=drawing"></script>
 <script>
@@ -71,32 +69,6 @@ var options = { // Drawing Manager를 생성할 때 사용할 옵션입니다
         strokeColor: '#39f', // 선 색
         hintStrokeStyle: 'dash', // 그리중 마우스를 따라다니는 보조선의 선 스타일
         hintStrokeOpacity: 0.5  // 그리중 마우스를 따라다니는 보조선의 투명도
-    },
-    rectangleOptions: {
-        draggable: true,
-        removable: true,
-        editable: true,
-        strokeColor: '#39f', // 외곽선 색
-        fillColor: '#39f', // 채우기 색
-        fillOpacity: 0.5 // 채우기색 투명도
-    },
-    circleOptions: {
-        draggable: true,
-        removable: true,
-        editable: true,
-        strokeColor: '#39f',
-        fillColor: '#39f',
-        fillOpacity: 0.5
-    },
-    polygonOptions: {
-        draggable: true,
-        removable: true,
-        editable: true,
-        strokeColor: '#39f',
-        fillColor: '#39f',
-        fillOpacity: 0.5,
-        hintStrokeStyle: 'dash',
-        hintStrokeOpacity: 0.5
     }
 };
 
