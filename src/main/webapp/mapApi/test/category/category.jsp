@@ -42,7 +42,7 @@
 </p>
 <div class="map_wrap">
     <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    // 숙박/레저/카페/식당 => 변경하여 사용
+    // 레저/카페/식당 => 변경하여 사용
     <ul id="category">
         <li id="BK9" data-order="0"> 
             <span class="category_bg bank"></span>
