@@ -11,8 +11,17 @@
 <body>
 <!-- 부트스트랩 스크립트 -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
+<!-- 로그인부분 -->
+<div class="btn" style="padding:none;border: none;display:block;">
+    <form action="login.do" method="post">
+            <button id="btn_login" type="submit" style="padding:none;border: none;background: none; ">
+            <img src="emoji/btn_logout1.png" style="width:25px; height: 25px;">
+            </button>
+    </form>
+        
+</div>
 <!-- 메뉴 버튼 -->
+<div style="height:40px">
 <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
 	<!-- 버튼 아이콘 (부트 스트랩) --> 
 	<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
@@ -50,6 +59,6 @@
 		</ul>
 	</div>
 </div>
-
+</div>
 </body>
 </html>
