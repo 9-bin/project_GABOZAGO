@@ -14,7 +14,7 @@
     <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
     	<!--영역 안에서 세로로 나누기-->    
         <!--1(왼쪽)-->
-        <div class="left" style="float: left; width: 30%; height: 100vh;background-color: lightslategray;">
+        <div class="left" style="float: left; width: 30%; height: 100vh;background-color: whitesmoke;">
         <!-- 메뉴 -->
         <jsp:include page="menu/menu.jsp" flush="false"/>
         <!-- 페이지 이름 영역 -->

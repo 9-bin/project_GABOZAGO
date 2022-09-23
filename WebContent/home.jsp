@@ -8,31 +8,20 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <!--영역 나누기-->
+<!--영역 나누기-->
     <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
     	<!--영역 안에서 세로로 나누기-->    
-        <!--1-1(왼쪽)-->
-        <div class="left" style="float: left; width: 30%;  height: 100vh;background-color: lightslategray;">
-
-			<!-- 로그인영역 -->
-            <div style="float: left; width: 100%; height: 50px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table>
-                        <tr>
-                            <td><input type="submit" value="로그인" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='login.jsp'"></td>
-                        </tr>
-
-                    </table>
-                </form>
-            </div>
-            <!-- 페이지 이름 영역 -->
-            <div style="float: left; width: 100%; height: 50px;background-color:lightslategray;">
-                <h1 span style="border:5px double #DCDCDC; padding: 0.4em; text-align:center; font-size: 10px;">
-                    GABOZAGO</h1>
+        <!--1(왼쪽)-->
+        <div class="left" style="float: left; width: 30%; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
+			
+            <!-- 메뉴 -->
+            <div style="float: left; width: 100%; height: 100px;">
+                <!-- 부트스트랩 활용 include -->
+				<jsp:include page="menu/menu.jsp" flush="false"/>
+                    <hr>
             </div>
             <!-- 페이지이동1 "가이드" -->
-            <div style="float: left; width: 100%; height: 184px;background-color:lightslategray;">
+            <div style="float: left; width: 100%; height: 184px;">
                 <form action="login.do" method="post">
                     <table style=" margin:auto; " >
                         <tr>
@@ -45,7 +34,7 @@
             
             </div>
             <!-- 페이지이동2 "교통"-->
-            <div style="float: left; width: 100%; height: 184px;background-color:lightslategray;">
+            <div style="float: left; width: 100%; height: 184px;">
                 <form action="login.do" method="post">
                     <table style=" margin:auto; " >
                         <tr>
@@ -59,7 +48,7 @@
             </div>
             
             <!-- 페이지이동3 "일정"-->
-            <div style="float: left; width: 100%; height: 184px;background-color:lightslategray;">
+            <div style="float: left; width: 100%; height: 184px;">
                 <form action="login.do" method="post">
                     <table style=" margin:auto; " >
                         <tr>

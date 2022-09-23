@@ -7,10 +7,10 @@
 <title>로그인하기</title>
 </head>
 <body>
-<div style=" width: 100%; height: 650px;">
+<div style=" width: 100%; height: 100hv;">
         <!--1-1(왼쪽)-->
-        <div style="float: left; width: 30%; height: 650px; background-color: lightslategray;">
-            <h1 span style="border:0 padding: 0.4em; text-align:center">GABOZAGO</span></h1>
+        <div style="float: left; width: 30%; height: 100hv; background-color: whitesmoke;">
+            <h1> <span style="border:0 padding: 0.4em; text-align:center">GABOZAGO</span></h1>
     
         
         <form action="login.do" method="post">
@@ -37,23 +37,31 @@
 
          </div>
          
-         <!--1-2(오른쪽)--> 
-        <div style="float: right; width: 70%; height: 650px; background-color: whitesmoke;">
+        <!--2(오른쪽)--> 
+	<div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
+		<!-- 공유하기 -->
+		<div style="width:100%;height:10%;" >
+		<!-- 나중에 자바스크립트활용하여 구현 -->
+		<input type="button" value="공유하기" onclick="alert('로그인해주세요')" style="cursor:pointer; float: right;">
+		<input type="button" value="커뮤니티" onclick="alert('로그인해주세요')" style="cursor:pointer; float: right;">                 
+		</div>
+		<!-- 지도영역부분 -->
+		<div id="map" style="width:100%;height:90%;"></div>
+		
+		<script type="text/javascript" 
+		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406"></script>
+		<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		    mapOption = { 
+		        center: new kakao.maps.LatLng(36.450701, 127.570667), // 지도의 중심좌표
+		        level: 13 // 지도의 확대 레벨
+		    };
+		
+		// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+		var map = new kakao.maps.Map(mapContainer, mapOption); 
+		</script>
+		</div>
 
-            <div id="map" style="width:100%;height:650px;"></div>
-
-                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406"></script>
-                <script>
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                    mapOption = { 
-                        center: new kakao.maps.LatLng(36.450701, 127.570667), // 지도의 중심좌표
-                        level: 13 // 지도의 확대 레벨
-                    };
-
-                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-                var map = new kakao.maps.Map(mapContainer, mapOption); 
-                </script>
-        </div>
     
     </div>
 </body>

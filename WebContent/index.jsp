@@ -12,29 +12,23 @@
     <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
     	<!--영역 안에서 세로로 나누기-->    
         <!--1(왼쪽)-->
-        <div class="left" style="float: left; width: 30%; height: 100vh;background-color: lightslategray;">
+        <div class="left" style="float: left; width: 30%; height: 100vh;background-color: whitesmoke;">
 			<!-- 높이 650px / 5 = 130px 영역 나누기 -->
-			<!-- 1번 -->
-            <div style="float: left; width: 100%; height: 130px;background-color:lightslategray;"></div>
-			<!-- 2번 -->
-            <div style="float: left; width: 100%; height: 130px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table style=" margin:auto; " >
-                        <tr>
-                            <td><input type="submit" value="로그인" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='login.jsp'"></td>
-                        </tr>
-
-                    </table>
-                </form>
+			<!-- 1번/2번 메뉴 -->
+            <div style="float: left; width: 100%; height: 260px;">
+				<!-- 부트스트랩 활용 include -->
+				<jsp:include page="menu/menu.jsp" flush="false"/>
+                    <hr>
             </div>
+            
+
             <!-- 3번 -->
-            <div style="float: left; width: 100%; height: 130px;background-color:lightslategray;">
+            <div style="float: left; width: 100%; height: 130px;">
                 <h1 span style="border:5px double #DCDCDC; padding: 0.4em; text-align:center">
                     GABOZAGO</span></h1>
             </div>
             <!-- 4번 페이지 이동 "일정"-->
-            <div style="float: left; width: 100%; height: 130px;background-color:lightslategray;">
+            <div style="float: left; width: 100%; height: 130px;">
                 <form action="login.do" method="post">
                     <table style=" margin:auto; " >
                         <tr>
@@ -47,7 +41,7 @@
             
             </div>
             <!-- 5번 -->
-            <div style="float: left; width: 100%; height: 130px;background-color:lightslategray;"></div>
+            <div style="float: left; width: 100%; height: 130px;"></div>
 
 
         </div>

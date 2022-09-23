@@ -12,51 +12,18 @@
     <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
     	<!--영역 안에서 세로로 나누기-->    
         <!--1(왼쪽)-->
-        <div class="left" style="float: left; width: 30%; height: 100vh;background-color: lightslategray;">
-
-
-            <div style="float: left; width: 100%; height: 50px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table>
-                        <tr>
-                            <td><input type="submit" value="로그인" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='login.jsp'"></td>
-                        </tr>
-
-                    </table>
-                </form>
+        <div class="left" style="float: left; width: 30%; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
+			
+            <!-- 메뉴 -->
+            <div style="float: left; width: 100%; height: 100px;">
+                <!-- 부트스트랩 활용 include -->
+				<jsp:include page="menu/menu.jsp" flush="false"/>
+                    <hr>
             </div>
-            <div style="float: left; width: 100%; height: 50px;background-color:lightslategray;">
-                <h1 span style="border:5px double #DCDCDC; padding: 0.4em; text-align:center; font-size: 10px;">
-                    GABOZAGO</h1>
-            </div>
-            <div style="float: left; width: 100%; height: 37.5px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table style=" margin:auto; " >
-                        <tr>
-                            <td><input type="submit" value="일정생성" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='plan1.jsp'"></td>
-                        </tr>
 
-                    </table>
-                </form>
             
-            </div>
-            <div style="float: left; width: 100%; height: 37.5px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table style=" margin:auto; " >
-                        <tr>
-                            <td><input type="submit" value="가이드" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='guide.jsp'"></td>
-                            <td><input type="submit" value="교통" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='traffic.jsp'"></td>
-                        </tr>
-                    </table>
-                </form>
-				
-            </div>
             <!-- 새일정 만들기 -->
-            <div style="float: left; width: 100%; height: 40px;background-color:lightslategray; margin-top: 10px;">
+            <div style="float: left; width: 100%; height: 40px; margin-top: 10px;">
                 <form action="login.do" method="post">
                     <table>
                         <tr>
@@ -68,7 +35,7 @@
                 
             </div>
             <!-- 목록 보여주기 -->
-            <div style="float: left; width: 100%; height: 400px;background-color:lightslategray;">
+            <div style="float: left; width: 100%; height: 425px;">
 				<!-- 여기다가 목록 보여주기 -->
 				<hr>
             </div>

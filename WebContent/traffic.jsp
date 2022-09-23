@@ -7,51 +7,19 @@
 <title>GABOZAGO</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
-<body><!--  -->
-<!--영역 나누기-->
-    <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
-    	<!--영역 안에서 세로로 나누기-->    
-        <!--1(왼쪽)-->
-        <div class="left" style="float: left; width: 30%; height: 100vh;background-color: lightslategray;">
-
-			<!-- 로그인부분 -->
-            <div style="float: left; width: 100%; height: 50px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table>
-                        <tr>
-                            <td><input type="submit" value="로그인" style="font-size: 20px; text-align: center;"></td>
-                        </tr>
-
-                    </table>
-                </form>
-            </div>
-            <!-- 가보자고 시작페이지 링크 넣어주기 -->
-            <div style="float: left; width: 100%; height: 50px;background-color:lightslategray;">
-                <h1 span style="border:5px double #DCDCDC; padding: 0.4em; text-align:center; font-size: 10px;">
-                    GABOZAGO</h1>
-            </div>
-            <!-- 일정생성//가이드/교통 영역나눠서 테이블로 버튼생성 -->
-            <div style="float: left; width: 100%; height: 37.5px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table style=" margin:auto; " >
-                        <tr>
-                            <td><input type="submit" value="커뮤니티" style="font-size: 20px; text-align: center;"></td>
-                        </tr>
-
-                    </table>
-                </form>
-            
-            </div>
-            <div style="float: left; width: 100%; height: 37.5px;background-color:lightslategray;">
-                <form action="login.do" method="post">
-                    <table style=" margin:auto; " >
-                        <tr>
-                            <td><input type="submit" value="가이드" style="font-size: 20px; text-align: center;"></td>
-                            <td><input type="submit" value="교통" style="font-size: 20px; text-align: center;"></td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
+<body>
+	<!--영역 나누기-->
+	<div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
+		<!--영역 안에서 세로로 나누기-->    
+		<!--1(왼쪽)-->
+		<div class="left" style="float: left; width: 30%; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
+		
+			<!-- 메뉴 -->
+			<div style="float: left; width: 100%; height: 100px;">
+			<!-- 부트스트랩 활용 include -->
+			<jsp:include page="menu/menu.jsp" flush="false"/>
+			<hr>
+			</div>
 			<!-- 길찾기 -->
 			<!-- 길찾기 전체 height:100px -->
             <div style="width:95%; height:100px; margin: 20px 5px 5px 5px;">		<!--  수정!  -->
@@ -62,14 +30,14 @@
 	            <div style="float:left; width:80px; height:39px;float: right;">
 	                <div>
 	                    <input type="button" value="검색" 
-	                    style="font-size: 15px; text-align: center; margin-top: 20px; justify-content: flex-start; height: 110px;">
+	                    style="font-size: 15px; text-align: center; margin-top: 15px; justify-content: flex-start; height: 80px;">
 					</div>
 	            </div>  
 				
             </div>
             
             <!-- 경로 보여주는 부분 -->
-            <div style="float: left; width: 100%; height: 335px;background-color:lightslategray;">
+            <div style="float: left; width: 100%; height: 335px;">
 				<hr><!-- 여기다가 보여주기 -->
             </div>
 
