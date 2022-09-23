@@ -18,49 +18,9 @@
             <!--1-1(왼쪽)-->
             <div style="float: left; width: 30%; height: 100vh; background-color: lightgray;">
 
-                <!-- 메뉴 버튼 -->
-                <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                    <!-- 버튼 아이콘 (부트 스트랩) -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-list" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z" />
-                    </svg>
-                </button>
-                <!-- 열린 메뉴 창 -->
-                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight"
-                    aria-labelledby="offcanvasRightLabel">
-                    <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasRightLabel">메뉴</h5>
+				<jsp:include page="menu/menu.jsp" flush="false"/>
 
-                        <!-- 두 번 누르면 창 닫힘  -->
-                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
-                            aria-label="Close"></button>
-                    </div>
 
-                    <!-- 메뉴 내부 항목 -->
-                    <div class="offcanvas-body small">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#">일정</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">교통</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">공유하기</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">커뮤니티</a>
-                            </li>
-                            <hr>
-                            <li class="nav-item" id="admin">
-                                <a class="nav-link disabled">관리자</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
 
                 <form action="login.do" method="post">
                     <div style="margin: 80px 15px 5px 15px; height: 50px;">
