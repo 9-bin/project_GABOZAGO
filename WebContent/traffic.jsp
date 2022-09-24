@@ -22,7 +22,7 @@
 			</div>
 			<!-- 출발 도착 -->
         	<div class="direction" style="height: 140px;">
-        		<div style="height: 100px;">
+        		<div style="height: 200px;">
        				<div class="input-group mb-3" style = "width: 300px; margin: auto;">
  							<input type="text" class="form-control" placeholder="출발지 입력" aria-label="출발지 입력" aria-describedby="basic-addon2">
  							<div class="input-group-append">

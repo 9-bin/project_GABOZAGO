@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="margin: auto; border:1px solid black; width: 360px; height:70vh;">
+<div style="margin: auto; border:1px solid black; width: 360px; height:67vh;">
 출발지와 도착지를 설정해주세요.
 </div>
 
