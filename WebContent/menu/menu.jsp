@@ -25,7 +25,7 @@
 		</div>
 	</div>
 	
-<!-- 페이지 이름 영역 -->  <!-- dkjfalkjdklfjkajdslkfjaldskjfkljadlfkjalkdsjflkjsdkjfskdjfklsdjlkfjlskjdf -->
+<!-- 페이지 이름 영역 -->
 	<div>
 		<p>
 			<span style="border-radius: 15px 15px 15px 0; border: 3px solid #394653; padding: 0.5em 0.4em; color: #333b42; margin: 0 50px 0 100px;font-size: 16.5px;">
@@ -51,26 +51,41 @@
 	    <!-- 창 닫힘 버튼  -->
 	    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 	</div>
+	
+
+	<div style="margin: 0 15px 0 15px; font-size: 14px">
+		<!-- 로그인 시 노출되게 설정-servlet
+		(*^▽^*) NAME(userid) 님 반갑습니다  -->
+		<hr>
+	</div>
 
 <!-- 메뉴 내부 항목 -->
 	<div class="offcanvas-body small">
 		<ul class="nav flex-column">
+	
 			<li class="nav-item">
    				<a class="nav-link active" aria-current="page" href="plan.do">일정</a>
 	   		</li>
-	   <li class="nav-item">
-	   		<a class="nav-link" href="traffic.do">교통</a>
-	   </li>
-	   <li class="nav-item">
-		      <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a>
-	</li>
-	<li class="nav-item">
-   <a class="nav-link" href="#" onclick="alert('로그인해주세요')">커뮤니티</a>
-		   </li>
-		   <hr>
-		   <li class="nav-item" id="admin">
-		      <a class="nav-link disabled">관리자</a>
-		   </li>
+		    <li class="nav-item">
+		   		<a class="nav-link" href="traffic.do">교통</a>
+		    </li>
+		    <li class="nav-item">
+		   		<a class="nav-link" href="guide.do">가이드</a>
+		    </li>
+		    <br>
+		    <li class="nav-item">
+			    <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a>
+			 </li>
+			 <li class="nav-item">
+   				<a class="nav-link" href="#" onclick="alert('로그인해주세요')">커뮤니티</a>
+		   	 </li>
+		  	 <hr>
+		     <li class="nav-item" id="admin">
+		     	<a class="nav-link disabled">관리자</a>
+			</li>
+		     <li class="nav-item" id="admin"> <!-- 로그인 시 노출 - disabled 없애기 -->
+		     	<a class="nav-link disabled">회원정보 수정</a>
+			</li>
 		</ul>
 	</div>
 </div>
