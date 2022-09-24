@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>페이지네이션</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <style>
 	p { margin:20px 0px; }
@@ -13,7 +14,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col">
+			<div class="col" style="margin-left: 50px">
 				
 				<ul class="pagination">
 					<li class="page-item"><a class="page-link" href="#">&#60;</a></li>

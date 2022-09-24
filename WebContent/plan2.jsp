@@ -27,8 +27,13 @@
             </div>
             
             <!-- 목록 보여주기 -->
-            <div style="float: left; width: 100%; height: 400px;">
+            <div style="float: left; width: 100%; height: 600px;">
 				<!-- 여기다가 목록 보여주기 -->
+				<hr>
+            </div>
+            <div style="height: 25px;">
+				<!-- 부트스트랩 활용 페이징네이션 include -->
+				<jsp:include page="menu/pagination.jsp" flush="false"/>
             </div>
            
 
