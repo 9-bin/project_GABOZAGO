@@ -27,7 +27,14 @@
     <!-- 열린 메뉴 창 -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
         <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasRightLabel">메뉴</h5>
+               <!-- 로그인부분 -->
+    <div style="float: left; width: 100%; height: 50px;">
+        <form action="login.do" method="post">
+            <button id="btn_login" type="submit" style="padding:none;border: none; background: none; ">
+                <img src="emoji/btn_logout1.png" style="width:25px; height: 25px;">
+            </button>
+    </form> 
+    </div>
 
             <!-- 두 번 누르면 창 닫힘  -->
             <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -53,18 +60,7 @@
         </div>
     </div>
 
-    <!-- 로그인부분 -->
-    <div style="float: left; width: 100%; height: 50px;background-color: whitesmoke;">
-        <form action="login.do" method="post">
-            <table>
-                <tr>
-                    <td><input type="submit" value="로그인" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='login.jsp'"></td>
-                </tr>
 
-            </table>
-        </form>
-    </div>
 
 </body>
 
