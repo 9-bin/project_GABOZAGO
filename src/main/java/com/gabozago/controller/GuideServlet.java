@@ -27,7 +27,7 @@ public class GuideServlet extends HttpServlet {
 			
 		// forward로 페이지 이동(존나 중요 외우자)
 		RequestDispatcher dispatcher = 
-				request.getRequestDispatcher("tese/guid.jsp");	// 페이지로 이동 시켜줌
+				request.getRequestDispatcher("../guide.jsp");	// 페이지로 이동 시켜줌
 		dispatcher.forward(request, response);
 	}
 		

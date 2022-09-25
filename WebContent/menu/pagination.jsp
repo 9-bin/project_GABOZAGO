@@ -14,7 +14,7 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col" style="margin-left: 50px">
+			<div class="col" style="margin-left: 50px;">
 				
 				<ul class="pagination">
 					<li class="page-item"><a class="page-link" href="#">&#60;</a></li>
