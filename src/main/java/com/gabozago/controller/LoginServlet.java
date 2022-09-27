@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "login.jsp";		// 현재 url
+		String url = "/member/login.jsp";		// 현재 url
 		
 		// 세션 설정
 		HttpSession session = request.getSession();
@@ -39,7 +39,7 @@ public class LoginServlet extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
 		
-		String url = "login.jsp";	// 현재 경로
+		String url = "/member/login.jsp";	// 현재 경로
 		MemberDao mDao = MemberDao.getInstance();	// DB연동
 		
 		// 입력받은 아이디, 비밀번호
