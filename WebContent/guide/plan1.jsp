@@ -23,7 +23,7 @@
 
             <!-- 새일정 만들기 -->
             <div style="float: left; width: 100%; height: 40px; margin-top: 20px;">
-                <form action="guide.do">
+                <form action="../guide.do">
                     <table>
                         <tr>
                             <td><input type="submit" value="+ 새 일정 만들기" style="font-size: 20px; text-align: center;"></td>
@@ -37,7 +37,7 @@
             <div style="float: left; width: 100%; height: 550px;">
 				<br>
 				<!-- 여기다가 목록 보여주기 -->
-				<form action="guide.do" method="post">
+				<form action="../guide.do" method="post">
 					<a href="plan2.jsp">일정1</a>
 					<hr>
 					일정2
@@ -53,36 +53,13 @@
 				<!-- 부트스트랩 활용 페이징네이션 include -->
 				<jsp:include page="../menu/pagination.jsp" flush="false"/>
             </div>
-           
-
 
         </div>
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-        	<!-- 공유하기 -->
-        	<div style="width:100%;height:10%;" >
-        		 <!-- 나중에 자바스크립트활용하여 구현 -->
-	             <input type="button" value="공유하기" onclick="alert('로그인해주세요')" style="cursor:pointer; float: right;">
-	             <input type="button" value="커뮤니티" onclick="alert('로그인해주세요')" style="cursor:pointer; float: right;">
-                            
-        	</div>
-			<!-- 지도영역부분 -->
-            <div id="map" style="width:100%;height:90%;"></div>
-
-                <script type="text/javascript" 
-                src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406"></script>
-                <script>
-                var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                    mapOption = { 
-                        center: new kakao.maps.LatLng(36.450701, 127.570667), // 지도의 중심좌표
-                        level: 13 // 지도의 확대 레벨
-                    };
-
-                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-                var map = new kakao.maps.Map(mapContainer, mapOption); 
-                </script>
-        	</div>
+     		<jsp:include page="../menu/map.jsp" flush="false"/>
+       	</div>
 
     </div>
 
