@@ -13,14 +13,12 @@
     	<!--영역 안에서 세로로 나누기-->    
         <!--1(왼쪽)-->
         <div class="left" style="float: left; width: 30%; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
-			
             <!-- 메뉴 -->
             <div style="float: left; width: 100%; height: 100px;">
                 <!-- 부트스트랩 활용 include -->
 				<jsp:include page="../menu/menu.jsp" flush="false"/>
-                    <hr>
+                <hr>
             </div>
-
             <!-- 새일정 만들기 -->
             <div style="float: left; width: 100%; height: 40px; margin-top: 20px;">
                 <form action="../guide.do">
@@ -30,9 +28,7 @@
                         </tr>
                     </table>
                 </form>
-                
             </div>
-
             <!-- 목록 보여주기 -->
             <div style="float: left; width: 100%; height: 550px;">
 				<br>
@@ -48,14 +44,11 @@
 					<hr>
 				</form>
             </div>
-            
             <div style="height: 25px;">
 				<!-- 부트스트랩 활용 페이징네이션 include -->
 				<jsp:include page="../menu/pagination.jsp" flush="false"/>
             </div>
-
         </div>
-
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
      		<jsp:include page="../menu/map.jsp" flush="false"/>
@@ -63,6 +56,5 @@
 
     </div>
 
- 
 </body>
 </html>
