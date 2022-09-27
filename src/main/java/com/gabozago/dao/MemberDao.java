@@ -2,6 +2,7 @@ package com.gabozago.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 import com.gabozago.dto.MemberVo;
 import com.gabozago.util.DBManager;
@@ -22,6 +23,7 @@ public class MemberDao {
 	
 	// 회원가입 ( DB에 회원 정보 삽입 => 회원 관리 )
 	public int insertMember(MemberVo mVo) {
+
 		int result = -1;
 		Connection conn = null;
 		PreparedStatement pstmt = null; // 동적 쿼리
@@ -30,8 +32,8 @@ public class MemberDao {
 //		// 아이디, 비밀번호, 이름, 전화번호, 이메일, 성별, 어드민
 //		String sql_insert = "insert into MEMBER1 values(?,?,?,?,?,?,?)";
 		// 아이디, 비밀번호, 이름, 전화번호, 이메일, 성별
-		String sql_insert = "insert into MEMBER1 values(?,?,?,?,?,?)";
-		System.out.println(sql_insert); // 디버깅
+		String sql_insert = "insert into MEMBER1 values(?,?,?,?,?,?,?)";
+//		System.out.println(sql_insert); // 디버깅
 		
 		// DB연동 ( DBManager 사용 )
 		try {
@@ -45,8 +47,16 @@ public class MemberDao {
 			pstmt.setString(4, mVo.getPhone());
 			pstmt.setString(5, mVo.getEmail());
 //			pstmt.setString(6, mVo.getGender());
-			pstmt.setInt(6, mVo.getGender());
+			pstmt.setString(6, mVo.getGender());
 //			pstmt.setInt(7, mVo.getAdmin());		// admin 사용시 주석 해제
+			pstmt.setInt(7, 0);
+			
+			System.out.println("id : " + mVo.getUserid());
+			System.out.println("password : " + mVo.getPassword());
+			System.out.println("name : " + mVo.getName());
+			System.out.println("phone : " + mVo.getPhone());
+			System.out.println("email : " + mVo.getEmail());
+			System.out.println("gender : " + mVo.getGender());
 			
 			// 쿼리 수행
 			result = pstmt.executeUpdate();
@@ -59,4 +69,89 @@ public class MemberDao {
 		}		
 		return result;
 	}
+
+
+	// 사용자 조회 : 반환값 result (1:일치, 0:불일치, -1:가입필요)
+	public int checkUser(String userid, String pwd) {
+		// 데이터 베이스에서 가져올 내용
+		int result = -1;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		String sql = "select password from member1 where userid=?";
+		
+		try {
+			conn = DBManager.getConnection(); 		// 드라이버로드, 연결 객체 생성 과정
+			
+			pstmt = conn.prepareStatement(sql); 	// sql 객체 생성
+			pstmt.setString(1, userid);		// 조건문
+			
+			rs = pstmt.executeQuery();		// 조회(select)
+			
+			if (rs.next()) {
+				System.out.println(rs.getString("password")); // 디버깅용
+				
+				// 조회한 패스워드가 null 값이 아니면서 입력받은 pwd랑 같은 경우
+				if (rs.getString("password") != null && rs.getString("password").equals(pwd)) {
+					result = 1; 
+				} else { 	// 조회한 패스워드와 입력 받은 pwd 값이 일치하지 않는 경우
+					result = 0;
+				}
+			} else {	// DB에 아이디가 없는 경우 ( 조회 불가능 한 경우 )
+				result = -1;
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);		// 사용한 리소스 해제
+		}
+		
+		return result;
+	}
+
+
+	// 회원 정보 가져오기 - 로그인 한 정보 세션에 넘겨줄 때 사용
+	public MemberVo getMember(String userid) {
+		int result = -1;
+		String sql = "select * from member1 where userid=?";	// 쿼리문 작성
+		MemberVo mVo = null;
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = DBManager.getConnection();		// 드라이버 로드, 연결 객체 생성
+			
+			pstmt = conn.prepareStatement(sql);		//sql문 객체 생성
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				mVo = new MemberVo();
+				
+				mVo.setName(rs.getString("name"));		// 컬럼명 name인 객체 정보 mVo에 저장
+				mVo.setUserid(rs.getString("userid"));		
+				mVo.setPassword(rs.getString("password"));		
+				mVo.setEmail(rs.getString("email"));		
+				mVo.setPhone(rs.getString("phone"));		
+				mVo.setGender(rs.getString("gender"));		
+				mVo.setAdmin(rs.getInt("admin"));			
+			} else {
+				result = -1;		// DB에 아이디 없음
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return mVo;
+	}
+
+
+
+
 }

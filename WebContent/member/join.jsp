@@ -22,7 +22,7 @@
 
 
 
-                <form action="Join.do" method="post" name="frm">
+                <form action="../join.do" method="post" name="frm">
                     <div style="margin: 80px 15px 5px 15px; height: 50px;">
                         <h1 span style="border-bottom: 3px solid steelblue"> &nbsp 회원가입 </h1>
                     </div>
@@ -47,12 +47,12 @@
                             </div>
                             <div class="input-group mb-3" style="margin-top: 20px;">
                                 <span class="input-group-text" id="" basic-addon1">비 밀 번 호</span>
-                                <input type="text" class="form-control" placeholder="비밀번호" aria-label="비밀번호"
+                                <input type="password" class="form-control" placeholder="비밀번호" aria-label="비밀번호"
                                     aria-describedby="basic-addon1" name="password">
                             </div>
                             <div class="input-group mb-3" style="margin-top: 20px;">
                                 <span class="input-group-text" id="" basic-addon1">비밀번호 확인</span>
-                                <input type="text" class="form-control" placeholder="비밀번호 확인" aria-label="비밀번호 확인"
+                                <input type="password" class="form-control" placeholder="비밀번호 확인" aria-label="비밀번호 확인"
                                     aria-describedby="basic-addon1" name="check_pwd">
                             </div>
                             <div class="input-group mb-3" style="margin-top: 20px;">
@@ -61,11 +61,11 @@
                                     aria-describedby="basic-addon1" name="phone">
                             </div>
                             <div class="form-floating" style="margin-top: 20px;">
-                                <select class="form-select" id="floatingSelect"
-                                    aria-label="Floating label select example" onchange="gender()">
+                                <select class="form-select" id="floatingSelect" name="gender"
+                                    aria-label="Floating label select example">
                                     <option selected>성별을 선택해주세요</option>
-                                    <option value="0" name="gender">남자</option>
-                                    <option value="1" name="gender">여자</option>
+                                    <option value="0">남자</option>
+                                    <option value="1">여자</option>
                                 </select>
                                 <label for="floatingSelect">성별</label>
                             </div>
@@ -97,22 +97,7 @@
 
             <!--1-2(오른쪽)-->
             <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-
-                <!-- 지도영역부분 -->
-                <div id="map" style="width:100%;height:100%;"></div>
-
-                <script type="text/javascript"
-                    src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406"></script>
-                <script>
-                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-                        mapOption = {
-                            center: new kakao.maps.LatLng(36.450701, 127.570667), // 지도의 중심좌표
-                            level: 13 // 지도의 확대 레벨
-                        };
-
-                    // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-                    var map = new kakao.maps.Map(mapContainer, mapOption);
-                </script>
+				<jsp:include page="../menu/map.jsp" flush="false"/>
             </div>
 
         </div>
@@ -125,11 +110,6 @@
         })
         document.getElementById('admin').style.display = 'none';
     </script>
-    <script type="text/javascript">
-    	function gender() {
-			var gender = document.getElementById("floatingSelect");
-			var value = (gender.options[gender.selectedIndex].value);
-		}
-    </script>
+
 
 </html>

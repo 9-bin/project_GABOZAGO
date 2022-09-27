@@ -14,12 +14,12 @@ import com.gabozago.dao.MemberDao;
 import com.gabozago.dto.MemberVo;
 
 
-@WebServlet("/Join.do")
+@WebServlet("/join.do")
 public class JoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("../join.jsp"); // 회원가입 페이지로 이동
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/join.jsp"); // 회원가입 페이지로 이동
 		dispatcher.forward(request, response);
 	}
 
@@ -36,16 +36,16 @@ public class JoinServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-//		String gender = request.getParameter("gender");
-		int gender = 0; 
+		String gender = request.getParameter("gender");
+//		int gender = 0; 
 		
-		try {
-			gender = Integer.parseInt(request.getParameter("gender"));					
-		} catch (NumberFormatException e) {
-			e.printStackTrace();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+//		try {
+//			gender = Integer.parseInt(request.getParameter("gender"));					
+//		} catch (NumberFormatException e) {
+//			e.printStackTrace();
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 
 		// 만약 admin을 사용한다면 주석 해제
 //		int admin = Integer.parseInt(request.getParameter("admin"));
@@ -77,7 +77,7 @@ public class JoinServlet extends HttpServlet {
 			System.out.println("failed");
 		}
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/login.jsp");
 		dispatcher.forward(request, response);
 	}
 	

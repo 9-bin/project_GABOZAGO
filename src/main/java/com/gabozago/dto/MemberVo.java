@@ -12,9 +12,9 @@ public class MemberVo {
 	private String password;
 	private String email;
 	private String phone;
-//	private String gender;
-	int gender;
-//	int admin; // - 관리자 여부 사용시 주석 해제
+	private String gender;
+//	private int gender;
+	private int admin; // - 관리자 여부 사용시 주석 해제
 	
 
 	public String getName() {
@@ -48,41 +48,41 @@ public class MemberVo {
 		this.phone = phone;
 	}
 	
-	public int getGender() {
-		return gender;
-	}
-	public void setGender(int gender) {
-		this.gender = gender;
-	}
-
-	//	public int getGender() {
+//	public int getGender() {
 //		return gender;
 //	}
 //	public void setGender(int gender) {
 //		this.gender = gender;
 //	}
+
+	public String getGender() {
+		return gender;
+	}
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
 	
-//	public int getAdmin() {
-//		return admin;
-//	}
-//	public void setAdmin(int admin) {
-//		this.admin = admin;
-//	}
+	public int getAdmin() {
+		return admin;
+	}
+	public void setAdmin(int admin) {
+		this.admin = admin;
+	}
 	
 	// admin 사용 할 때 사용
-//	@Override
-//	public String toString() {
-//		return "MemberVo [name=" + name + ", userid=" + userid + ", password=" + password + ", email=" + email
-//				+ ", phone=" + phone + ", gender=" + gender + ", admin=" + admin + "]";
-//	}
-	
-
-	// admin 사용 안할때 사용
 	@Override
 	public String toString() {
 		return "MemberVo [name=" + name + ", userid=" + userid + ", password=" + password + ", email=" + email
-				+ ", phone=" + phone + ", gender=" + gender + "]";
+				+ ", phone=" + phone + ", gender=" + gender + ", admin=" + admin + "]";
 	}
+	
+
+//	// admin 사용 안할때 사용
+//	@Override
+//	public String toString() {
+//		return "MemberVo [name=" + name + ", userid=" + userid + ", password=" + password + ", email=" + email
+//				+ ", phone=" + phone + ", gender=" + gender + "]";
+//	}
 
 	
 	

@@ -17,7 +17,7 @@
 			<!-- 1번/2번 메뉴 -->
             <div style="float: left; width: 100%; height: 260px;">
 				<!-- 부트스트랩 활용 include -->
-				<jsp:include page="menu/menu.jsp" flush="false"/>
+				<jsp:include page="/menu/menu.jsp" flush="false"/>
                     <hr>
             </div>
             
@@ -29,11 +29,11 @@
             </div>
             <!-- 4번 페이지 이동 "일정"-->
             <div style="float: left; width: 100%; height: 130px;">
-                <form action="login.do" method="post">
+                <form action="/login.do" method="post">
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="button" value="시작하기" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='paln1.jsp'"></td>
+                            onclick="location.href='guide/plan1.jsp'"></td>
                         </tr>
 
                     </table>
