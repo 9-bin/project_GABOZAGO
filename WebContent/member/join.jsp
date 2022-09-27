@@ -18,7 +18,7 @@
             <!--1-1(왼쪽)-->
             <div style="float: left; width: 30%; height: 100vh; background-color: whitesmoke;">
 
-				<jsp:include page="menu/menu.jsp" flush="false"/>
+				<jsp:include page="../menu/menu.jsp" flush="false"/>
 
 
 

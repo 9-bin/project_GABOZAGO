@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가이드정보관리</title>
+<title>포스팅 금지어 관리</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 
 
@@ -14,12 +14,12 @@
 <!--영역 나누기-->
     <div class="view" style=" width: 100vw; height: 100vh; background-color: whitesmoke;">
     		<!-- 어드민메뉴/로그인 -->
-			<jsp:include page="menu/adminMenu.jsp" flush="false"/>
+			<jsp:include page="../menu/adminMenu.jsp" flush="false"/>
             
             
             <div style="width: 700px; height: 100px; margin: auto;">
             	<p><span style=" border-radius: 15px 15px 0 0; border-bottom: 2px solid #B2E0F7; 
-            	padding: 0.5em; background: #D8EFFB;">가이드정보관리</span></p>
+            	padding: 0.5em; background: #D8EFFB;">포스팅 금지어 관리</span></p>
             </div>
 
         	<!-- 관리자 상단 선택 영역 탭  -->
@@ -54,13 +54,8 @@
         			<table class="tg" style="margin: auto;">
 					<thead>
 					  <tr>
-					    <th class="tg-c3ow">no</th>
-					    <th class="tg-c3ow">지역</th>
-					    <th class="tg-c3ow">해시태그</th>
-					    <th class="tg-c3ow">업체명</th>
-					    <th class="tg-c3ow">주소</th>
-					    <th class="tg-c3ow">종류</th>
-					    <th class="tg-c3ow">괸리자</th>
+					    <th class="tg-c3ow" width="150">no</th>
+					    <th class="tg-c3ow" width="150">금지어</th>
 					  </tr>
 					</thead>
 					<tbody>
@@ -72,12 +67,7 @@
     						1
   							</label>
 						</div></td>
-					    <td class="tg-c3ow" width="150">강릉</td>
-					    <td class="tg-c3ow" width="150">해돋이맛집</td>
-					    <td class="tg-c3ow" width="150">물회말아먹어</td>
-					    <td class="tg-c3ow" width="200">강원도 강릉시 어쩌구 23-1</td>
-					    <td class="tg-c3ow" width="150">식당</td>
-					    <td class="tg-c3ow" width="150">임구빈</td>
+					    <td class="tg-c3ow" width="150">등신</td>
 					  </tr>
 					  <tr>
 					    <td class="tg-c3ow"><div class="form-check">
@@ -87,11 +77,7 @@
   							</label>
 						</div></td>
 					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="200"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
+					    
 					  </tr>
 					</tbody>
 				</table>

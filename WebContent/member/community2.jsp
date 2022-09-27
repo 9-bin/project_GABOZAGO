@@ -18,7 +18,7 @@
             <!-- 메뉴 -->
             <div style="float: left; width: 100%; height: 100px;">
                 <!-- 부트스트랩 활용 include -->
-				<jsp:include page="menu/menu.jsp" flush="false"/>
+				<jsp:include page="../menu/menu.jsp" flush="false"/>
                     <hr>
             </div>
         
@@ -69,8 +69,8 @@
                     <table>
                         <tr>
                             <td>
-                            	<img src="emoji/CryingEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
-                            	<img src="emoji/HeartEyesEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
+                            	<img src="../emoji/CryingEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
+                            	<img src="../emoji/HeartEyesEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
                             </td>
                             
                         </tr>

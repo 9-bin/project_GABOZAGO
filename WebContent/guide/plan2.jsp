@@ -4,9 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>커뮤니티</title>
+<title>작성중인 일정표</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="script/login.js"></script>
 </head>
 <body>
 <!--영역 나누기-->
@@ -18,44 +17,50 @@
             <!-- 메뉴 -->
             <div style="float: left; width: 100%; height: 100px;">
                 <!-- 부트스트랩 활용 include -->
-				<jsp:include page="menu/menu.jsp" flush="false"/>
+				<jsp:include page="../menu/menu.jsp" flush="false"/>
                     <hr>
             </div>
-        
+            <!-- 일정 상세 목록 부분 -->
+            <div style="float: left; width: 100%; height: 40px; margin-top: 20px;">
+                &nbsp;<b>일정1</b> &nbsp;
+                <hr>
+            </div>
             
             <!-- 목록 보여주기 -->
-            <div><!-- 여기다가 목록 보여주기 -->
-				<!-- 메뉴 내부 항목 -->
-                <div class="offcanvas-body small">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="plan.do">속초</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="traffic.do">강릉</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" >여수</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" >부산</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" >충청도</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#" >수도권</a>
-                        </li>
-                    
-                    </ul>
-                </div>
+            <div style="float: left; width: 100%; height: 550px;">
+				<br>
+				<!-- 여기다가 목록 보여주기 -->
+				장소1
+				<hr>
+				장소2
+				<hr>
+				장소3
+				<hr>
+				장소4
+				<hr>
             </div>
+           
+            <!-- 남는공간 -->
+            <div style="float: left; width: 100%; height: 50px;"></div>
+           <div style="height: 25px;">
+				<!-- 부트스트랩 활용 페이징네이션 include -->
+				<jsp:include page="../menu/pagination.jsp" flush="false"/>
+            </div>
+
+
         </div>
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
+        	<!-- 공유하기 -->
+        	<div style="width:100%;height:10%;" >
+        		 <!-- 나중에 자바스크립트활용하여 구현 -->
+	             <input type="button" value="공유하기" onclick="alert('로그인해주세요')" style="cursor:pointer; float: right;">
+	             <input type="button" value="커뮤니티" onclick="alert('로그인해주세요')" style="cursor:pointer; float: right;">
+                            
+        	</div>
 			<!-- 지도영역부분 -->
-            <div id="map" style="width:100%;height:100%;"></div>
+            <div id="map" style="width:100%;height:90%;"></div>
 
                 <script type="text/javascript" 
                 src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406"></script>

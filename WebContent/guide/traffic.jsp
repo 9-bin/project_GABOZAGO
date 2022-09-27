@@ -17,7 +17,7 @@
 			<!-- 메뉴 -->
 			<div style="float: left; width: 100%; height: 100px;">
 			<!-- 부트스트랩 활용 include -->
-			<jsp:include page="menu/menu.jsp" flush="false"/>
+			<jsp:include page="../menu/menu.jsp" flush="false"/>
 			<hr>
 			</div>
 			<!-- 출발 도착 -->
@@ -39,23 +39,23 @@
         		<!-- 교통 수단 -->
         		<div style="height: 90px;">
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="emoji/car-front-fill.svg" class="btn btn-primary" style="width: 100%;">
+        				<input type="image" src="../emoji/car-front-fill.svg" class="btn btn-primary" style="width: 100%;">
         			</div>
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="emoji/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
+        				<input type="image" src="../emoji/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
         			</div>
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="emoji/bicycle.svg" class="btn btn-primary" value="자전거" style="width: 100%;">
+        				<input type="image" src="../emoji/bicycle.svg" class="btn btn-primary" value="자전거" style="width: 100%;">
         			</div>
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="emoji/universal-access.svg" class="btn btn-primary" value="도보" style="width: 100%;">
+        				<input type="image" src="../emoji/universal-access.svg" class="btn btn-primary" value="도보" style="width: 100%;">
         			</div>
         		</div>
         	<div class="info" style="background-color: white;">
         	
         		<!-- info -->
         	</div>
-        		<jsp:include page="directions/directions.jsp" flush="false"/>
+        		<jsp:include page="../directions/directions.jsp" flush="false"/>
         
         
         	</div>
@@ -64,7 +64,7 @@
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-			<jsp:include page="menu/map.jsp" flush="false"/>
+			<jsp:include page="../menu/map.jsp" flush="false"/>
         </div>
 
 	</div>
