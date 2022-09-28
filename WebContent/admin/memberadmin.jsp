@@ -1,5 +1,11 @@
+<%@page import="com.gabozago.dto.MemberVo"%>
+<%@page import="com.gabozago.dto.*"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
- 
+<%
+List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,30 +61,37 @@
 					<thead>
 					  <tr>
 					    <th class="tg-c3ow">no</th>
-					    <th class="tg-c3ow">name</th>
 					    <th class="tg-c3ow">id</th>
-					    <th class="tg-c3ow">gender</th>
-					    <th class="tg-c3ow">email</th>
+					    <th class="tg-c3ow">name</th>
 					    <th class="tg-c3ow">phone</th>
-					    <th class="tg-c3ow">상태</th>
+					    <th class="tg-c3ow">email</th>
+					    <th class="tg-c3ow">gender</th>
+					    <th class="tg-c3ow">admin</th>
 					  </tr>
 					</thead>
+					<% if (list != null) {
+					         for (MemberVo mVo : list) {
+				      %>
 					<tbody>
 					  <tr>
 					    <td class="tg-c3ow"> 
 					    <div class="form-check">
   							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
   							<label class="form-check-label" for="flexCheckDefault">
-    						1
+    						<%= mVo.getUserno() %>
   							</label>
 						</div></td>
-					    <td class="tg-c3ow" width="150">임구빈</td>
-					    <td class="tg-c3ow" width="150">koobin</td>
-					    <td class="tg-c3ow" width="150">남</td>
-					    <td class="tg-c3ow" width="200">koobin@naver.com</td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150">1</td>
+					    <td class="tg-c3ow" width="150"><a href="userInfo.do?id=<%=mVo.getUserid() %> "><%=mVo.getUserid() %></a></td>
+					    <td class="tg-c3ow" width="150"><%= mVo.getName() %></td>
+					    <td class="tg-c3ow" width="200"><%= mVo.getPhone() %></td>
+					    <td class="tg-c3ow" width="150"><%= mVo.getEmail() %></td>
+					    <td class="tg-c3ow" width="150"><%= mVo.getGender() %></td>
+					    <td class="tg-c3ow" width="150"><%= mVo.getAdmin() %></td>
 					  </tr>
+					<%
+         					}
+      					}
+      				%>
 					  <tr>
 					    <td class="tg-c3ow"><div class="form-check">
   							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
@@ -101,5 +114,14 @@
         </div>
 
     </div>
+    
+<jsp:include page="../Paging.jsp">
+<jsp:param value="${paging.page}" name="page"/>
+<jsp:param value="${paging.beginPage}" name="beginPage"/>
+<jsp:param value="${paging.endPage}" name="endPage"/>
+<jsp:param value="${paging.prev}" name="prev"/>
+<jsp:param value="${paging.next}" name="next"/>
+</jsp:include>
+    
 </body>
 </html>

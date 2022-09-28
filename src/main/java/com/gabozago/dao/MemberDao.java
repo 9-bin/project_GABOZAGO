@@ -3,8 +3,12 @@ package com.gabozago.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.gabozago.dto.MemberVo;
+import com.gabozago.dto.Paging;
 import com.gabozago.util.DBManager;
 
 public class MemberDao {
@@ -12,14 +16,14 @@ public class MemberDao {
 	static MemberDao instance = new MemberDao();
 
 	// 생성자
-	private MemberDao() {
+	public MemberDao() {
 	}
 	
 	// 싱글톤 - 메소드 생성
 	public static MemberDao getInstance() {
 		return instance;
 	}
-	
+//	
 	
 	// 회원가입 ( DB에 회원 정보 삽입 => 회원 관리 )
 	public int insertMember(MemberVo mVo) {
@@ -32,7 +36,7 @@ public class MemberDao {
 //		// 아이디, 비밀번호, 이름, 전화번호, 이메일, 성별, 어드민
 //		String sql_insert = "insert into MEMBER1 values(?,?,?,?,?,?,?)";
 		// 아이디, 비밀번호, 이름, 전화번호, 이메일, 성별
-		String sql_insert = "insert into MEMBER1 values(?,?,?,?,?,?,?)";
+		String sql_insert = "insert into MEMBER1 values(ppap.nextval,?,?,?,?,?,?,?)";
 //		System.out.println(sql_insert); // 디버깅
 		
 		// DB연동 ( DBManager 사용 )
@@ -152,6 +156,86 @@ public class MemberDao {
 	}
 
 
+	// 페이징에 사용 - 회원 정보
+	public int getAllcount() throws SQLException {
+		int count = 0;
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select count (*) from member1";
+		
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				count = rs.getInt("count");
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return count;
+	}
 
+	
+	public List<MemberVo> getUser(ResultSet rs) throws SQLException {
+		List<MemberVo> list = new ArrayList<>();
+		
+		while (rs.next()) {
+			String name = rs.getString("name");		// 컬럼명 name인 객체 정보 mVo에 저장
+			String userid = rs.getString("userid");		
+			String email = rs.getString("email");		
+			String phone = rs.getString("phone");		
+			String gender = rs.getString("gender");		
+			int admin = rs.getInt("admin");
+			
+			MemberVo mVo = new MemberVo(name, userid, email, phone, gender, admin);
+			
+			list.add(mVo);
+		}
+		return list;
+	}
+	
+	
+	public List<MemberVo> selectAllMember(Paging paging) throws SQLException {
+		List<MemberVo> list = null;
+		
+		int startnum = paging.getStartNum();
+		int endnum = paging.getEndNum();
+		
 
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "SELECT * FROM ( SELECT * FROM ( SELECT ROWNUM row_num, member1.* FROM member1) WHERE row_num >= ?) WHERE row_num <= ?";
+		
+		try {
+			conn = DBManager.getConnection();
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, startnum);
+			pstmt.setInt(2, endnum);
+			
+			rs = pstmt.executeQuery();
+			list = getUser(rs);
+			
+			
+		} finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		return list;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

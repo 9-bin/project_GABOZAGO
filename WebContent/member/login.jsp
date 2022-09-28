@@ -32,7 +32,7 @@
 	    	    </div>
 	    	    <!-- 회원가입 링크부분 -->		       
 	            <div style="float:left; width:80px; height:39px;float: right;">
-	                <a href="join.jsp" style="width: 50px;">회원가입</a>
+	                <a href="member/join.jsp" style="width: 50px;">회원가입</a>
 	                <!-- 로그인 버튼 영역 -->
 	                <div>
 	                    <input type="submit" value="로그인" onclick="../Login.do"
