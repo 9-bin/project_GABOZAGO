@@ -164,7 +164,7 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select count (*) from member1";
+		String sql = "select count(*) as count from member1";
 		
 		try {
 			conn = DBManager.getConnection();
