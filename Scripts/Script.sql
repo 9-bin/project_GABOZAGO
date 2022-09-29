@@ -17,7 +17,7 @@ Guide
 숙박시설   : 4 
 음식점   : 5
 */
-
+SELECT * FROM (SELECT * FROM ( SELECT ROWNUM row_num, guide.* from guide) where row_num >= 10 ) where row_num <=20;
 create table Member1
     (
     userno NUMBER NOT NULL,
@@ -92,3 +92,6 @@ DROP TABLE MEMBER1;
     postnum number(5) not null,
     emojitype number(1) not null
     );
+    
+   select COUNT(*) as count from member1;
+   

@@ -19,7 +19,7 @@ public class JoinServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/join.jsp"); // 회원가입 페이지로 이동
+		RequestDispatcher dispatcher = request.getRequestDispatcher("../member/join.jsp"); // 회원가입 페이지로 이동
 		dispatcher.forward(request, response);
 	}
 
@@ -77,7 +77,7 @@ public class JoinServlet extends HttpServlet {
 			System.out.println("failed");
 		}
 	
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/member/login.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("./member/login.jsp");
 		dispatcher.forward(request, response);
 	}
 	

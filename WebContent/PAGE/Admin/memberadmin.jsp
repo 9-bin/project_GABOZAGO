@@ -50,12 +50,12 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
         	<!-- 버튼 -->
         	<div style= "height: 50px;">
 	        	<div class="btn-group" style="float: right;">
-				  <a href="#" class="btn btn-primary">확인Link</a>
-				  <a href="#" class="btn btn-primary">취소Link</a>
+				  <a href="#" class="btn btn-primary">확인</a>
+				  <a href="#" class="btn btn-primary">취소</a>
 				</div>
 			</div>
         	
-        	<!-- 표시될 리스트 영영 -->
+        	<!-- 표시될 리스트 영역 -->
         		<div>
         			<table class="tg" style="margin: auto;">
 					<thead>
@@ -115,7 +115,7 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
 
     </div>
     
-<jsp:include page="../../TEST/Paging.jsp">
+<jsp:include page="../../Module/menu/Paging.jsp">
 <jsp:param value="${paging.page}" name="page"/>
 <jsp:param value="${paging.beginPage}" name="beginPage"/>
 <jsp:param value="${paging.endPage}" name="endPage"/>

@@ -10,7 +10,7 @@
    text-align: center;
    }
    #paging {
-   font-size: 22pt;
+   font-size: 15pt;
    }
 </style>
 </head>

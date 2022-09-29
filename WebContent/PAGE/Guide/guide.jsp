@@ -8,22 +8,23 @@
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<body>
 <!--영역 나누기-->
 	<div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
 	<!--영역 안에서 세로로 나누기-->    
 	   <!--1(왼쪽)-->
 	   <div class="left" style="float: left; width: 30%; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
 	
-	       <!-- 메뉴 -->
-	       <div style="float: left; width: 100%; height: 100px;">
+
 	           <!-- 부트스트랩 활용 include -->
-	<jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
+				<jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
 	               <hr>
-	</div>
+
         
             <!-- 가이드 리스트 -->
-            <div style="float: left; width: 100%; height: 440px;margin: 20px;">
+
+            <div style="float: left; width: 100%; height: 700px;margin: 20px;">
+            				<jsp:include page="./guideList.jsp"></jsp:include>
+                        <!-- 
 				<div style="margin: 10px 0 0 10px">
 					<input type="checkbox"> 일정에 추가
 					<br>
@@ -47,10 +48,17 @@
 					<br>
 					가이드 리스트4
 				</div>
+				             -->
             </div>
-            
 
+            
+            <!-- 페이지네이션
+            <div style="position: relative; bottom: 10px;">
+				<jsp:include page="../guideList.jsp"></jsp:include>
+	        </div>
+	         -->
         </div>
+
         
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
@@ -58,7 +66,6 @@
        	</div>
 
     </div>
- 
  
 </body>
 </html>

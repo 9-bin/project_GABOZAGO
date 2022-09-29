@@ -49,7 +49,7 @@ table{
       }
       %>
    </table>
-<jsp:include page="Paging.jsp">
+<jsp:include page="../Module/menu/Paging.jsp" flush = "false">
 <jsp:param value="${paging.page}" name="page"/>
 <jsp:param value="${paging.beginPage}" name="beginPage"/>
 <jsp:param value="${paging.endPage}" name="endPage"/>
