@@ -23,40 +23,11 @@
             <!-- 가이드 리스트 -->
 
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
-            				<jsp:include page="./guideList.jsp"></jsp:include>
-                        <!-- 
-				<div style="margin: 10px 0 0 10px">
-					<input type="checkbox"> 일정에 추가
-					<br>
-					가이드 리스트1
-				</div>
-				<br>
-				<div style="margin: 10px 0 0 10px">
-					<input type="checkbox"> 일정에 추가
-					<br>
-					가이드 리스트2
-				</div>
-				<br>				
-				<div style="margin: 10px 0 0 10px;">
-					<input type="checkbox"> 일정에 추가
-					<br>
-					가이드 리스트3
-				</div>
-				<br>				
-				<div style="margin: 10px 0 0 10px;">
-					<input type="checkbox"> 일정에 추가
-					<br>
-					가이드 리스트4
-				</div>
-				             -->
+            		<jsp:include page="../../PAGE/Guide/guideList.jsp"></jsp:include>
             </div>
 
             
-            <!-- 페이지네이션
-            <div style="position: relative; bottom: 10px;">
-				<jsp:include page="../guideList.jsp"></jsp:include>
-	        </div>
-	         -->
+
         </div>
 
         
