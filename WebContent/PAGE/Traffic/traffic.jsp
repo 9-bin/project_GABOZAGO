@@ -39,16 +39,16 @@
         		<!-- 교통 수단 -->
         		<div style="height: 90px;">
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="../emoji/car-front-fill.svg" class="btn btn-primary" style="width: 100%;">
+        				<input type="image" src="../../Image/car-front-fill.svg" class="btn btn-primary" style="width: 100%;">
         			</div>
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="../emoji/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
+        				<input type="image" src="../../Image/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
         			</div>
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="../emoji/bicycle.svg" class="btn btn-primary" value="자전거" style="width: 100%;">
+        				<input type="image" src="../../Image/bicycle.svg" class="btn btn-primary" value="자전거" style="width: 100%;">
         			</div>
         			<div style="float: left; width: 25%;">
-        				<input type="image" src="../emoji/universal-access.svg" class="btn btn-primary" value="도보" style="width: 100%;">
+        				<input type="image" src="../../Image/universal-access.svg" class="btn btn-primary" value="도보" style="width: 100%;">
         			</div>
         		</div>
         	<div class="info" style="background-color: white;">

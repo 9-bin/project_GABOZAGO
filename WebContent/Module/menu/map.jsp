@@ -19,22 +19,23 @@
 		<!-- 지도영역부분 -->
 	<div id="map" style="width:100%; height:100%; float:left; position:absolute; z-index:10;">
 	</div>
+	
+	
 	<!-- 버튼 -->
-</div>
+	</div>
 
-     <script type="text/javascript" 
-     src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406"></script>
-     <script>
-     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-         mapOption = { 
-             center: new kakao.maps.LatLng(36.450701, 127.570667), // 지도의 중심좌표
-             level: 13 // 지도의 확대 레벨
-         };
-
-
-     // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-     var map = new kakao.maps.Map(mapContainer, mapOption); 
-     </script>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6jkkm5M6hIzD1nfdI6A3A1sr1wxcRGo&callback=initMap&region=kr"></script>
+  <script>
+    function initMap() {
+      var seoul = { lat: 37.5642135 ,lng: 127.0016985 };
+      var map = new google.maps.Map(
+        document.getElementById('map'), {
+          zoom: 12,
+          center: seoul
+        });
+      
+    }
+  </script>
 
 
 </body>

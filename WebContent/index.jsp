@@ -33,7 +33,7 @@
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="button" value="시작하기" style="font-size: 20px; text-align: center;"
-                            onclick="location.href='guide.do'"></td>
+                            onclick="location.href='PAGE/Schedule/planList.jsp'"></td>
                         </tr>
 
                     </table>
