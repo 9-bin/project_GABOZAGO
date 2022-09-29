@@ -16,7 +16,7 @@
         <!--1(왼쪽)-->
         <div class="left" style="float: left; width: 30%; height: 100vh;background-color: whitesmoke;">
         <!-- 메뉴 -->
-        <jsp:include page="../menu/menu.jsp" flush="false"/>
+        <jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
        
     
 		<!-- 로그인 TEXT 영역 -->	
@@ -48,7 +48,7 @@
     
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-			<jsp:include page="../menu/map.jsp" flush="false"/>
+			<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
    		</div>
 </div>
 

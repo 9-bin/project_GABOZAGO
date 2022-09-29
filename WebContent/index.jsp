@@ -17,7 +17,7 @@
 			<!-- 1번/2번 메뉴 -->
             <div style="float: left; width: 100%; height: 260px;">
 				<!-- 부트스트랩 활용 include -->
-				<jsp:include page="/menu/menu.jsp" flush="false"/>
+				<jsp:include page="Module/menu/menu.jsp" flush="false"/>
                     <hr>
             </div>
             

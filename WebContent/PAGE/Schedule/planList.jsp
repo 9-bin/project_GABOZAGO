@@ -16,7 +16,7 @@
             <!-- 메뉴 -->
             <div style="float: left; width: 100%; height: 100px;">
                 <!-- 부트스트랩 활용 include -->
-				<jsp:include page="../menu/menu.jsp" flush="false"/>
+				<jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
                 <hr>
             </div>
             <!-- 새일정 만들기 -->
@@ -46,12 +46,12 @@
             </div>
             <div style="height: 25px;">
 				<!-- 부트스트랩 활용 페이징네이션 include -->
-				<jsp:include page="../menu/pagination.jsp" flush="false"/>
+				<jsp:include page="../../Module/menu/pagination.jsp" flush="false"/>
             </div>
         </div>
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-     		<jsp:include page="../menu/map.jsp" flush="false"/>
+     		<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
        	</div>
 
     </div>

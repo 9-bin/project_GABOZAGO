@@ -17,7 +17,7 @@
 			<!-- 메뉴 -->
 			<div style="float: left; width: 100%; height: 100px;">
 			<!-- 부트스트랩 활용 include -->
-			<jsp:include page="../menu/menu.jsp" flush="false"/>
+			<jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
 			<hr>
 			</div>
 			<!-- 출발 도착 -->
@@ -55,7 +55,7 @@
         	
         		<!-- info -->
         	</div>
-        		<jsp:include page="../directions/directions.jsp" flush="false"/>
+        		<jsp:include page="directions/directions.jsp" flush="false"/>
         
         
         	</div>
@@ -64,7 +64,7 @@
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-			<jsp:include page="../menu/map.jsp" flush="false"/>
+			<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
         </div>
 
 	</div>

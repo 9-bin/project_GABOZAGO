@@ -20,7 +20,7 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
 <!--영역 나누기-->
     <div class="view" style=" width: 100vw; height: 100vh; background-color: whitesmoke;">
     		<!-- 어드민메뉴/로그인 -->
-			<jsp:include page="../menu/adminMenu.jsp" flush="false"/>
+			<jsp:include page="../../Module/menu/adminMenu.jsp" flush="false"/>
             
             
             <div style="width: 700px; height: 100px; margin: auto;">
@@ -115,7 +115,7 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
 
     </div>
     
-<jsp:include page="../Paging.jsp">
+<jsp:include page="../../TEST/Paging.jsp">
 <jsp:param value="${paging.page}" name="page"/>
 <jsp:param value="${paging.beginPage}" name="beginPage"/>
 <jsp:param value="${paging.endPage}" name="endPage"/>
