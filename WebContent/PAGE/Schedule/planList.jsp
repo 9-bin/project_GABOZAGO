@@ -21,7 +21,7 @@
             </div>
             <!-- 새일정 만들기 -->
             <div style="float: left; width: 100%; height: 40px; margin-top: 20px;">
-                <form action="../guide.do">
+                <form action="../../guide.do">
                     <table>
                         <tr>
                             <td><input type="submit" value="+ 새 일정 만들기" style="font-size: 20px; text-align: center;"></td>
