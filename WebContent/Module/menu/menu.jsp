@@ -77,7 +77,7 @@
 			    <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a>
 			 </li>
 			 <li class="nav-item">
-   				<a class="nav-link" href="#" onclick="alert('로그인해주세요')">커뮤니티</a>
+   				<a class="nav-link" href="/PJ_GABOZAGO/community.do">커뮤니티</a>
 		   	 </li>
 		  	 <hr>
 		     <li class="nav-item" id="admin">
