@@ -64,13 +64,13 @@
 		<ul class="nav flex-column">
 	
 			<li class="nav-item">
-   				<a class="nav-link active" aria-current="page" href="plan.do">일정</a>
+   				<a class="nav-link" href="/PJ_GABOZAGO/plan.do">일정</a>
 	   		</li>
 		    <li class="nav-item">
-		   		<a class="nav-link" href="traffic.do">교통</a>
+		   		<a class="nav-link" href="/PJ_GABOZAGO/traffic.do">교통</a>
 		    </li>
 		    <li class="nav-item">
-		   		<a class="nav-link" href="guide.do">가이드</a>
+		   		<a class="nav-link" href="/PJ_GABOZAGO/guide.do">가이드</a>
 		    </li>
 		    <br>
 		    <li class="nav-item">
