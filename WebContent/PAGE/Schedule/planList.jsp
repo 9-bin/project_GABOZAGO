@@ -32,18 +32,31 @@
             <!-- 목록 보여주기 -->
             <div style="float: left; width: 100%; height: 550px;">
 				<br>
-				<!-- 여기다가 목록 보여주기 -->
+				<!-- 생성된 일정 목록 보여주기 -->
 				<form action="../guide.do" method="post">
-					<a href="plan2.jsp">일정1</a>
-					<hr>
-					일정2
-					<hr>
-					일정3
-					<hr>
-					일정4
-					<hr>
+						<table>
+						<c:forEach var="plan" items="${planList}">	 <!-- 정의 안함 일단 써둔거 -->
+							<tr>
+								<th>
+									<input type="checkbox" name="planNum" value="${planList}">
+									<a href="writePlan.jsp">일정</a>
+								</th>
+				
+						</tr>
+						<!-- 생성된 일정 목록 보여주기 -->
+							<tr>
+								<td>${planList.placename}</td>
+							</tr>
+						</c:forEach>
+						<th>
+						   <input type="hidden" value="planNum">
+						   <input type="submit" value="등록">
+						   <input type="reset" value="취소">
+						</th>
+						</table>
+						<hr>
 				</form>
-            </div>
+            </div>           
             <div style="height: 25px;">
 				<!-- 부트스트랩 활용 페이징네이션 include -->
 				<jsp:include page="../../Module/menu/pagination.jsp" flush="false"/>

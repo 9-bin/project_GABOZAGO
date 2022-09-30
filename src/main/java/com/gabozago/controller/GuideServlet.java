@@ -53,6 +53,7 @@ public class GuideServlet extends HttpServlet {
 		request.setAttribute("guideList", list);
 		request.setAttribute("paging", paging);
 		
+		// 장소 목록 페이지로 이동
 		RequestDispatcher dispatcher = request.getRequestDispatcher("PAGE/Guide/guide.jsp");
 		dispatcher.forward(request, response);
 		
