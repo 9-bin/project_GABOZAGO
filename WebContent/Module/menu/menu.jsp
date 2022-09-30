@@ -81,7 +81,7 @@
 		   	 </li>
 		  	 <hr>
 		     <li class="nav-item" id="admin">
-		     	<a class="nav-link disabled" href="admin.do">관리자</a>
+		     	<a class="nav-link" href="/PJ_GABOZAGO/adminMember.do">관리자</a>
 			</li>
 		     <li class="nav-item" id="admin"> <!-- 로그인 시 노출 - disabled 없애기 -->
 		     	<a class="nav-link disabled" href="#">회원정보 수정</a>
