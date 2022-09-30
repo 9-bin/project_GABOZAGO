@@ -31,7 +31,7 @@
     <div style="float: left; width: 100%; height: 50px;">
         <form action="login.do" method="post">
             <button id="btn_login" type="submit" style="padding:none;border: none; background: none; ">
-                <img src="../emoji/btn_logout1.png" style="width:25px; height: 25px;">
+                <img src="/PJ_GABOZAGO/Image/btn_logout1.png" style="width:25px; height: 25px;">
             </button>
     </form> 
     </div>

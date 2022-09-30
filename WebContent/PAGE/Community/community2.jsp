@@ -69,8 +69,8 @@
                     <table>
                         <tr>
                             <td>
-                            	<img src="../emoji/CryingEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
-                            	<img src="../emoji/HeartEyesEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
+                            	<img src="/PJ_GABOZAGO/Image/CryingEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
+                            	<img src="/PJ_GABOZAGO/Image/HeartEyesEmoji.png" style="width:25px; height:25px;" onclick="alert('로그인해주세요.');" style="cursor:pointer;" />
                             </td>
                             
                         </tr>
