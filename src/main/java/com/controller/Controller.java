@@ -19,6 +19,7 @@ import com.command.guideResultCommand;
 import com.command.joinCommand;
 import com.command.loginCommand;
 import com.command.memberListCommand;
+import com.command.planListCommand;
 import com.command.trafficCommand;
 
 
@@ -116,10 +117,10 @@ public class Controller extends HttpServlet {
 			ViewPage = "/PAGE/Schedule/planList.jsp";
 			break;
 			
-		case "/guidePlanList.do":
+		case "/planList.do":
 			request.getParameterValues("guideList");
 			request.setAttribute("List", request.getParameterValues("guideList"));
-			command = new guidePlanCommand();
+			command = new planListCommand();
 			command.execute(request, response);
 			ViewPage = "";									/// 경로 수정 필요 합니당!!!!!
 			break;
