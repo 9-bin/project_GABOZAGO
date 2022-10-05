@@ -70,7 +70,7 @@ public class Controller extends HttpServlet {
 			break;
 			
 		case "/loginOK.do":		// member
-			System.out.println("12");
+//			System.out.println("12");
 			command = new loginCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Member/loginOK.jsp";
@@ -96,15 +96,15 @@ public class Controller extends HttpServlet {
 			ViewPage = "/PAGE/Guide/guideAll.jsp";
 			break;
 		case "/guideNext.do":
+			System.out.println("1 - controller : " + request.getParameter("local"));
 			command = new guideNextCommand();
-			session.setAttribute("local", request.getParameter("local"));
-			System.out.println("1" + session.getAttribute("local"));
 			command.execute(request, response);
-			request.getRequestDispatcher("guideResult.do").forward(request, response);
+			ViewPage = "/PAGE/Guide/guideSelectLocation.jsp";
 			break;
 		case "/guideResult.do" :
-			System.out.println("77: " + request.getParameter("local"));
-			request.setAttribute("local", Integer.parseInt(request.getParameter("local")));
+			System.out.println("1.1 - controller : " + session.getAttribute("Local"));
+			int resultLocal = (Integer)session.getAttribute("Local");
+			request.setAttribute("Local", resultLocal);
 			command = new guideResultCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Guide/guideResult.jsp";

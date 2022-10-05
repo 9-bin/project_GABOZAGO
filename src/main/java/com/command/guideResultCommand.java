@@ -24,18 +24,12 @@ public class guideResultCommand implements Command {
 		int page = 1;
 		HttpSession session = null;
   		
-		
-//		System.out.println("3" + request.getAttribute("sendLocal"));
-//		System.out.println("3" + request.getAttribute("local"));
-//		int local = 2;
-				
-		String local_ = (String)request.getAttribute("local");		//여기서 강제 형변환 오류 발생
-		System.out.println("3-1" + local_);
-		int local = Integer.parseInt(local_);
+		System.out.println("3 - guideResultCommand : " + request.getAttribute("Local"));
+		int local = (Integer)request.getAttribute("Local");		//여기서 강제 형변환 오류 발생
+		System.out.println("3-1 - guideResultCommand : " + local);
 		
 //  		int local = (Integer)request.getAttribute("local");
-  		System.out.println("4" + local);
-  		
+  		System.out.println("4 - guideResultCommand : " + local);
   		
 		list = null;
 		page = 1;
@@ -65,7 +59,7 @@ public class guideResultCommand implements Command {
 		request.setAttribute("guideList", list);
 		request.setAttribute("paging", paging);
 		System.out.println("local : " + local);
-		local += 1;
+//		local += 1;
 		request.setAttribute("local", local);
 
 		

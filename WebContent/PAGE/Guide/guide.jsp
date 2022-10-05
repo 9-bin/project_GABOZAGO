@@ -129,12 +129,10 @@ button {
 		<hr>
 
 
-		<!-- 가이드 리스트 -->
-		<div>${local} ${local} ${local}</div>
-		
+		<!-- 가이드 리스트 -->		
 		<div style="float: left; width: 100%; height: 700px;margin: 20px; text-align: center;">
 			<input class="w-btn w-btn-gra1 w-btn-gra-anim" type="button" value="전체 목록" onclick="location.href='guideAll.do'"><br><br><br>
-			<form action="guideNext.do" method="post">
+			<form action="guideNext.do">
 				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="1" name="local">강원도</button> <br><br><br>
 				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="2" name="local">경상도</button> <br><br><br>
 				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="3" name="local">수도권</button> <br><br><br>

@@ -10,7 +10,7 @@ public class guideNextCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		HttpSession session = null;
 		int local = Integer.parseInt(request.getParameter("local"));
-		System.out.println("2" + local);
+		System.out.println("2 - guideNextCommand : " + local);
 //		System.out.println("123");
 		request.setAttribute("sendLocal", local);
 		
