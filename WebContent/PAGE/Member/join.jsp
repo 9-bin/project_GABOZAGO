@@ -22,7 +22,7 @@
 
 
 
-                <form action="../join.do" method="post" name="frm">
+                <form action="/PJ_GABOZAGO/join.do" method="post" name="frm">
                     <div style="margin: 80px 15px 5px 15px; height: 50px;">
                         <h1 span style="border-bottom: 3px solid steelblue"> &nbsp 회원가입 </h1>
                     </div>
