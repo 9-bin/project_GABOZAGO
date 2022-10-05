@@ -15,14 +15,14 @@ public class MemberVo {
 	private String password;
 	private String email;
 	private String phone;
-	private String gender;
+	private int gender;
 //	private int gender;
 	private int admin; // - 관리자 여부 사용시 주석 해제
 	
 	public MemberVo() {
 	}
 
-	public MemberVo(String name2, String userid2, String email2, String phone2, String gender2, int admin2) {
+	public MemberVo(String name2, String userid2, String email2, String phone2, int gender2, int admin2) {
 		this.name = name2;
 		this.userid = userid2;
 		this.email = email2;
@@ -79,11 +79,11 @@ public class MemberVo {
 		this.phone = phone;
 	}
 
-	public String getGender() {
+	public int getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 

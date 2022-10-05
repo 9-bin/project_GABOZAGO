@@ -51,7 +51,7 @@ public class MemberDao {
 			pstmt.setString(4, mVo.getPhone());
 			pstmt.setString(5, mVo.getEmail());
 //			pstmt.setString(6, mVo.getGender());
-			pstmt.setString(6, mVo.getGender());
+			pstmt.setInt(6, mVo.getGender());
 //			pstmt.setInt(7, mVo.getAdmin());		// admin 사용시 주석 해제
 			pstmt.setInt(7, 0);
 			
@@ -141,7 +141,7 @@ public class MemberDao {
 				mVo.setPassword(rs.getString("password"));		
 				mVo.setEmail(rs.getString("email"));		
 				mVo.setPhone(rs.getString("phone"));		
-				mVo.setGender(rs.getString("gender"));		
+				mVo.setGender(rs.getInt("gender"));		
 				mVo.setAdmin(rs.getInt("admin"));			
 			} else {
 				result = -1;		// DB에 아이디 없음
@@ -190,7 +190,7 @@ public class MemberDao {
 			String userid = rs.getString("userid");		
 			String email = rs.getString("email");		
 			String phone = rs.getString("phone");		
-			String gender = rs.getString("gender");		
+			int gender = rs.getInt("gender");		
 			int admin = rs.getInt("admin");
 			
 			MemberVo mVo = new MemberVo(name, userid, email, phone, gender, admin);
@@ -236,6 +236,39 @@ public class MemberDao {
 	
 	
 	
+
+	public List<MemberVo> selectAllMembers() {
+		String sql = "select * from member1 order by userid";
+		List<MemberVo> list = new ArrayList<MemberVo>();
+		   
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			conn = DBManager.getConnection();
+			pstmt = conn.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			while(rs.next()) {
+				MemberVo mVo = new MemberVo();
+				mVo.setUserid(rs.getString("userId"));
+				mVo.setPassword(rs.getString("password"));
+				mVo.setName(rs.getString("name"));
+				mVo.setPhone(rs.getString("phone"));
+				mVo.setEmail(rs.getString("email"));
+				mVo.setGender(rs.getInt("gender"));
+				mVo.setAdmin(rs.getInt("admin"));
+				   
+				list.add(mVo);
+				   
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.close(conn, pstmt, rs);
+		}
+		   return list;
+	   }
 	
 	
 }
+	

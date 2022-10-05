@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
+List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
 %>
 
 <!DOCTYPE html>

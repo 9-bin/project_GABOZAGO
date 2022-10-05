@@ -36,7 +36,7 @@ public class JoinServlet extends HttpServlet {
 		String password = request.getParameter("password");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-		String gender = request.getParameter("gender");
+		int gender = Integer.parseInt(request.getParameter("gender"));
 //		int gender = 0; 
 		
 //		try {
