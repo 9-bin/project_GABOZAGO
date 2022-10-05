@@ -22,42 +22,42 @@
             </div>
             <!-- 페이지이동1 "가이드" -->
             <div style="float: left; width: 100%; height: 184px;">
-                <form action="login.do" method="post">
+
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="submit" value="가이드" style="margin-top:75px; font-size: 20px; text-align: center;"
-                            onclick="location.href='guide.jsp'"></td>
+                            onclick="location.href='/PJ_GABOZAGO/guide.do'"></td>
                         </tr>
 
                     </table>
-                </form>
+
             
             </div>
             <!-- 페이지이동2 "교통"-->
             <div style="float: left; width: 100%; height: 184px;">
-                <form action="login.do" method="post">
+                
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="submit" value="교통" style="margin-top:75px; font-size: 20px; text-align: center;"
-                            onclick="location.href='traffic.jsp'"></td>
+                            onclick="location.href='/PJ_GABOZAGO/traffic.do'"></td>
                         </tr>
 
                     </table>
-                </form>
+       
             
             </div>
             
             <!-- 페이지이동3 "일정"-->
             <div style="float: left; width: 100%; height: 184px;">
-                <form action="login.do" method="post">
+               
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="submit" value="일정" style="margin-top:75px; font-size: 20px; text-align: center;"
-                            onclick="location.href='plan.jsp'"></td>
+                            onclick="location.href='/PJ_GABOZAGO/plan.do'"></td>
                         </tr>
 
                     </table>
-                </form>
+
             
             </div>
             

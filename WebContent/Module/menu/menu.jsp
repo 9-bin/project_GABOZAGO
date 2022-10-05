@@ -29,7 +29,7 @@
 	<div>
 		<p>
 			<span style="border-radius: 15px 15px 15px 0; border: 3px solid #394653; padding: 0.5em 0.4em; color: #333b42; margin: 0 50px 0 100px;font-size: 16.5px;">
-				<a href="../main.jsp">GABOZAGO</a>
+				<a href="./PAGE/main.jsp" style=" text-decoration: none; "><strong>GABOZAGO</strong></a>
 			</span>
 		</p>
 	</div>
