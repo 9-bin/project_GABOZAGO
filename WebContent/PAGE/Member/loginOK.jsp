@@ -17,13 +17,13 @@
 	}
 	if (result.equals(1)){
 		  out.println("<script>");
-	      out.println("location.href = 'index.do'");
+	      out.println("location.href = 'plan.do'");
 	      out.println("</script>");
 	}
 	if (result.equals(-1)){
 		  out.println("<script>");
-			out.println("alert('회원가입이 필요합니다')");
-	      out.println("location.href = 'join.do'");
+			out.println("alert('존재하지 않는 아이디입니다.')");
+	      out.println("history.back()");
 	      out.println("</script>");
 	}
 %>
