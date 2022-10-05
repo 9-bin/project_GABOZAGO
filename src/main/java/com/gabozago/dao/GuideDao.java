@@ -139,5 +139,39 @@ public class GuideDao {
 		}
 		return list;
 	}
+	// 가이드 리스트 가져오기 함수
+	   public List<GuideVo> selectAllGuides() {
+		   String sql = "select * from guide order by placenum";
+		   List<GuideVo> list = new ArrayList<GuideVo>();
+		   
+		   Connection conn = null;
+		   PreparedStatement pstmt = null;
+		   ResultSet rs = null;
+		   try {
+			   conn = DBManager.getConnection();
+			   pstmt = conn.prepareStatement(sql);
+			   rs=pstmt.executeQuery();
+			   while(rs.next()) {
+				   GuideVo gVo = new GuideVo();
+				   gVo.setPlacenum(rs.getInt("placenum"));
+				   gVo.setLocal(rs.getInt("local"));
+				   gVo.setPlacetype(rs.getInt("placetype"));
+				   gVo.setPlacename(rs.getString("placename"));
+				   gVo.setPlacephone(rs.getString("placephone"));
+				   gVo.setAdress(rs.getString("adress"));
+				   gVo.setLatitude(rs.getFloat("latitude"));
+				   gVo.setLongtiude(rs.getFloat("longtiude"));
+				   
+				   list.add(gVo);
+				   
+			   }
+		   }catch(Exception e) {
+			   e.printStackTrace();
+		   }finally {
+			   DBManager.close(conn, pstmt, rs);
+		   }
+		   return list;
+		   
+	   }
 
 }

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,9 +56,21 @@
         	
         		<!-- info -->
         	</div>
-        		<jsp:include page="directions/directions.jsp" flush="false"/>
-        
-        
+        		<div style="margin: auto; border:1px solid black; width: 360px; height:67vh;">
+					<table>
+						<tr>
+							<th>번호</th><th>장소이름</th><th>위도</th><th>경도</th>
+						</tr>
+						<c:forEach var="guide" items="${guideList}">
+							<tr>
+								<td>${guide.placenum}</td>
+								<td>${guide.placename}</td>
+								<td>${guide.latitude}</td>
+								<td>${guide.longtiude}</td>
+							</tr>
+						</c:forEach>
+					</table>
+				</div>
         	</div>
 
 		</div>
