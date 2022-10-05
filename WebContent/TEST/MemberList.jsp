@@ -1,5 +1,5 @@
-<%@page import="com.gabozago.dto.MemberVo"%>
-<%@page import="com.gabozago.dto.*"%>
+<%@page import="com.beans.MemberVo"%>
+<%@page import="com.beans.*"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
