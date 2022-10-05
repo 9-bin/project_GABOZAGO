@@ -1,4 +1,4 @@
-package com.gabozago.dto;
+package com.beans;
 
 public class Paging {
 	

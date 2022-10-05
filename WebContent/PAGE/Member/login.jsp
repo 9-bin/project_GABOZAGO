@@ -20,22 +20,31 @@
        
     
 		<!-- 로그인 TEXT 영역 -->	
-        <form action="login.do" method="post">
+        <form action="loginOK.do">
             <div style="margin: 100px 15px 5px 15px; height: 50px;">
                 <h1 span style="border-bottom: 3px solid steelblue"> &nbsp 로그인</h1>
             </div>  
             <!-- 로그인 입력창 영역 -->	
             <div style="width:95%; height:200px; margin: 20px 5px 5px 5px;">		<!--  수정!  -->
-	            <div style="float: left; width: 65%; height: 100%; margin-left: 5px">
-					<input type="text" name="userid" placeholder="아이디" style="height: 25px; margin-top: 30%; ">
-					<input type="password" name="password" placeholder="비밀번호" style="height: 25px; margin-top: 5px;">
+	            <div style="float: left; width: 65%; height: 100%; margin: 25px 0 0 8px">
+	            	<div class="input-group mb-3" style="margin-top: 20px;">
+                        <span class="input-group-text" id="" basic-addon1">아이디</span>
+                        <input type="text" class="form-control" name="userid" placeholder="아이디" aria-label="아이디"
+                            aria-describedby="basic-addon1" >
+                    </div>
+                    <div class="input-group mb-3" style="margin-top: 20px;">
+                        <span class="input-group-text" id="" basic-addon1">비밀번호</span>
+                        <input type="password" class="form-control" name="password" placeholder="비밀번호" aria-label="비밀번호"
+                            aria-describedby="basic-addon1">
+                    </div>
+	            
 	    	    </div>
 	    	    <!-- 회원가입 링크부분 -->		       
-	            <div style="float:left; width:80px; height:39px;float: right;">
+	            <div style="float:left; width:80px; height:30px;float: right;">
 	                <a href="join.do" style="width: 50px;">회원가입</a>
 	                <!-- 로그인 버튼 영역 -->
 	                <div>
-	                    <input type="submit" value="로그인" onclick="../Login.do"
+	                    <input type="submit" value="로그인"
 	                    style="font-size: 15px; text-align: center; margin-top: 20px; justify-content: flex-start; height: 110px;">
 					</div>
 	            </div>  

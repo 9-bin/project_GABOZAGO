@@ -1,9 +1,9 @@
-<%@page import="com.gabozago.dto.MemberVo"%>
-<%@page import="com.gabozago.dto.*"%>
+<%@page import="com.beans.MemberVo"%>
+<%@page import="com.beans.*"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
+List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
 %>
 
 <!DOCTYPE html>
@@ -20,7 +20,9 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
 <!--영역 나누기-->
     <div class="view" style=" width: 100vw; height: 100vh; background-color: whitesmoke;">
     		<!-- 어드민메뉴/로그인 -->
+    		<div class="left" style="float: left; background-color: whitesmoke;">
 			<jsp:include page="../../Module/menu/adminMenu.jsp" flush="false"/>
+			</div>
             
             
             <div style="width: 700px; height: 100px; margin: auto;">
@@ -92,36 +94,27 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
          					}
       					}
       				%>
-					  <tr>
-					    <td class="tg-c3ow"><div class="form-check">
-  							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  							<label class="form-check-label" for="flexCheckDefault">
-    						2
-  							</label>
-						</div></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="200"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					  </tr>
+
 					</tbody>
 				</table>
         		
         		</div>
-        
-        </div>
+        	<div>
+		<jsp:include page="../../Module/menu/Paging.jsp">
+		<jsp:param value="${paging.page}" name="page"/>
+		<jsp:param value="${paging.beginPage}" name="beginPage"/>
+		<jsp:param value="${paging.endPage}" name="endPage"/>
+		<jsp:param value="${paging.prev}" name="prev"/>
+		<jsp:param value="${paging.next}" name="next"/>
+		</jsp:include>
+	</div>
+	</div>
 
-    </div>
-    
-<jsp:include page="../../Module/menu/Paging.jsp">
-<jsp:param value="${paging.page}" name="page"/>
-<jsp:param value="${paging.beginPage}" name="beginPage"/>
-<jsp:param value="${paging.endPage}" name="endPage"/>
-<jsp:param value="${paging.prev}" name="prev"/>
-<jsp:param value="${paging.next}" name="next"/>
-</jsp:include>
+</div>
+
+
+
+
     
 </body>
 </html>

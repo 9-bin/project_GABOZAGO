@@ -1,4 +1,4 @@
-<%@page import="com.gabozago.dto.GuideVo"%>
+<%@page import="com.beans.GuideVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%

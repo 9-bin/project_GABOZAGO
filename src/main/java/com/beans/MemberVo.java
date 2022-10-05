@@ -1,4 +1,4 @@
-package com.gabozago.dto;
+package com.beans;
 
 import java.lang.annotation.AnnotationTypeMismatchException;
 
@@ -15,14 +15,14 @@ public class MemberVo {
 	private String password;
 	private String email;
 	private String phone;
-	private int gender;
+	private String gender;
 //	private int gender;
 	private int admin; // - 관리자 여부 사용시 주석 해제
 	
 	public MemberVo() {
 	}
 
-	public MemberVo(String name2, String userid2, String email2, String phone2, int gender2, int admin2) {
+	public MemberVo(String name2, String userid2, String email2, String phone2, String gender2, int admin2) {
 		this.name = name2;
 		this.userid = userid2;
 		this.email = email2;
@@ -79,11 +79,11 @@ public class MemberVo {
 		this.phone = phone;
 	}
 
-	public int getGender() {
+	public String getGender() {
 		return gender;
 	}
 
-	public void setGender(int gender) {
+	public void setGender(String gender) {
 		this.gender = gender;
 	}
 

@@ -1,4 +1,4 @@
-package com.gabozago.dto;
+package com.beans;
 
 public class GuideVo {
 
@@ -16,8 +16,8 @@ public class GuideVo {
 	}
 	
 	public GuideVo(int placenum, int local, 
-			int placetype, String placename, String placephone, 
-			String adress, float latitude, float longtiude) {
+		int placetype, String placename, String placephone, 
+		String adress, float latitude, float longtiude) {
 		this.placenum = placenum;
 		this.local = local;
 		this.placetype = placetype;
