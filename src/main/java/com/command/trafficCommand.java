@@ -1,5 +1,6 @@
 package com.command;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -7,19 +8,42 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.beans.GuideDao;
 import com.beans.GuideVo;
+import com.beans.Paging;
 
 public class trafficCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {	
-		List<GuideVo> guideList = null;
+GuideDao gDao = new GuideDao();
+		
+		List<GuideVo> list = null;
+		int page = 1;
+			
+		if (request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
+		}
+			
+		Paging paging = new Paging();
+		int count = 0;
+			
 		try {
-			guideList = new GuideDao().selectAllGuides();
-
-		} catch (Exception e) {
+			count = gDao.getAllCount();
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		request.setAttribute("guideList", guideList);
+			
+		paging.setPage(page);
+		paging.setTotalCount(count);
+
+		try {
+			list = gDao.selectAllGuide(paging);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		request.setAttribute("guideList", list);
+		request.setAttribute("paging", paging);
 	}
 
 }
