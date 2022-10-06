@@ -23,21 +23,17 @@
 			
 			<!-- 출발 도착 -->
 			<div class="direction" style="height: 230px;">
-        		<div style="height: 200px;">
-       				<div class="input-group mb-3" style = "width: 300px; margin: auto;">
- 							<input type="text" class="form-control" placeholder="출발지 입력" aria-label="출발지 입력" aria-describedby="basic-addon2">
- 							<div class="input-group-append">
-   							<button class="btn btn-outline-secondary" type="button">검색</button>
- 							</div>
-					</div>
-       				<div class="input-group mb-3" style = "width: 300px; margin: auto;">
- 							<input type="text" class="form-control" placeholder="도착지 입력" aria-label="도착지 입력" aria-describedby="basic-addon2">
- 							<div class="input-group-append">
-   							<button class="btn btn-outline-secondary" type="button">검색</button>
- 							</div>
-					</div>
-			
-        		</div>
+				<div class="input-group">
+					<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">필터</button>
+						<ul class="dropdown-menu">
+				    		<li><a class="dropdown-item" href="#">장소명</a></li>
+				    		<li><a class="dropdown-item" href="#">지역</a></li>
+				  		</ul>
+					<input type="text" class="form-control" placeholder="장소 검색" aria-label="장소 검색" aria-describedby="button-addon2">
+					<button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
+				</div>
+				<input type="text" class="form-control" placeholder="출발지" aria-label="출발지" aria-describedby="button-addon2">
+				<input type="text" class="form-control" placeholder="도착지" aria-label="도착지" aria-describedby="button-addon2">
 			</div>
         		<!-- 교통 수단 -->
        		<div style="height: 90px;">
