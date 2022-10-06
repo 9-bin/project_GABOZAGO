@@ -37,7 +37,10 @@ table{
         
             <!-- 가이드 리스트 -->
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
-           		<table>
+           		<div class="row" style="width: 90%">
+				<form action="planList.do" method="get">
+				<button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>
+				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 					<tr>
 						<th>일정 추가</th>
 						<th>이름</th>
@@ -60,6 +63,8 @@ table{
 					}
 					%>
 				</table>
+				</form>
+				</div>
 				${local}
 				<%-- <% System.out.println(); %> --%>
 				<jsp:include page="./grPaging.jsp" flush = "false">
