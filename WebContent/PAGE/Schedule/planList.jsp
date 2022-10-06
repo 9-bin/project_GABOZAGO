@@ -21,7 +21,7 @@
             </div>
             <!-- 새일정 만들기 -->
             <div style="float: left; width: 100%; height: 40px; margin-top: 20px;">
-                <form action="../../guide.do">
+                <form action="guide.do">
                     <table>
                         <tr>
                             <td><input type="submit" value="+ 새 일정 만들기" style="font-size: 20px; text-align: center;"></td>
@@ -33,7 +33,7 @@
             <div style="float: left; width: 100%; height: 550px;">
 				<br>
 				<!-- 생성된 일정 목록 보여주기 -->
-				<form action="../guide.do" method="post">
+				<form action="guide.do" method="post">
 						<table>
 						<c:forEach var="plan" items="${planList}">	 <!-- 정의 안함 일단 써둔거 -->
 							<tr>
