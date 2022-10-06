@@ -72,29 +72,45 @@ public class MemberDao {
 	}
 	
 	// 사용자 조회 : 반환값 result (1:일치, 0:불일치, -1:가입필요)
-	public int checkUser(String userid, String pwd) throws SQLException {
+	public int checkUser(MemberVo mVo) throws SQLException {
 		// DB에서 가져올 내용
 		int result = -1;
+		String userid = mVo.getUserid();
+		String password = mVo.getPassword();
 		
-		String sql = "select password from member1 where userid = ?";
+		String sql = "select * from member1 where userid = ? and password=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userid);
+			pstmt.setString(1, mVo.getUserid());
+			pstmt.setString(2, mVo.getPassword());
 			
 			rs = pstmt.executeQuery();
+			String checkId = null;
+			String checkPwd = null;
+			
 			
 			// DB에 아이디가 있는 경우
 			if (rs.next()) {
+				checkId = rs.getString("userid");
+				checkPwd = rs.getString("password");
+				
 				System.out.println(rs.getString("password"));
+				int admin = rs.getInt("admin");
+				String name = rs.getString("name");
+				mVo.setAdmin(admin);
+				mVo.setName(name);
+				
 				
 //				조회한 패스워드가 null값이 아니면서 입력받은 pwd와 같은 경우
-				if (rs.getString("password") != null && rs.getString("password").equals(pwd)) {
+				if (userid.equals(checkId) && password.equals(checkPwd)) {
 					result = 1;
 				} else {		// 조회한 패스워드와 입력받은 pwd 값이 일치하지 않음
 					result = 0;
 				}
-			} else {		// DB에 아이디가 없는 경우 (조회불가)
+				
+			// DB에 아이디가 없는 경우 (조회불가)
+			} else {		
 				result = -1;
 			}
 		} catch (Exception e) {
@@ -178,7 +194,7 @@ public class MemberDao {
 	}
 	
 	
-	// 회원 정보 페이징 조회 ( 10개씩 조회 ) 
+	// 회원 정보 페이징 조회 ( (beans.Paging 설정값)개씩 조회 ) 
 	public List<MemberVo> selectAllMember(Paging paging) throws SQLException {
 		List<MemberVo> list = null;
 		

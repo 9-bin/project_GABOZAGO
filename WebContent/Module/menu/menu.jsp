@@ -1,6 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  
 <!DOCTYPE html>
+<% 
+ 	Integer admin = (Integer)session.getAttribute("admin"); 
+	String userid = (String)session.getAttribute("userId");
+	String Name = (String)session.getAttribute("name");
+	System.out.println("menu : " + Name);
+%>
+
 <html>
 <head>
 <meta charset="UTF-8">
@@ -29,7 +36,7 @@
 	<div>
 		<p>
 			<span style="border-radius: 15px 15px 15px 0; border: 3px solid #394653; padding: 0.5em 0.4em; color: #333b42; margin: 0 50px 0 100px;font-size: 16.5px;">
-				<a href="/PJ_GABOZAGO/main.do" style=" text-decoration: none; "><strong>GABOZAGO</strong></a>
+				GABOZAGO
 			</span>
 		</p>
 	</div>
@@ -43,7 +50,7 @@
 		<div class="btn" style="padding: none; border: none;">
 		    <form action="login.do" method="post">
 		            <button id="btn_login" type="submit" style="padding:none;border: none; background: none; ">
-		            	<img src="/PJ_GABOZAGO/Image/btn_logout1.png" style="width:25px; height: 25px;">
+		            	<img src="../emoji/btn_logout1.png" style="width:25px; height: 25px;">
 		            </button>
 		    </form> 
 		</div>
@@ -53,9 +60,8 @@
 	</div>
 	
 
-	<div style="margin: 0 15px 0 15px; font-size: 14px">
-		<!-- 로그인 시 노출되게 설정-servlet
-		(*^▽^*) NAME(userid) 님 반갑습니다  -->
+	<div style="margin: 0 15px 0 15px; font-size: 14px" id="userInfo">
+		(*^▽^*) <%=Name%>( <%= userid%> ) 님 반갑습니다
 		<hr>
 	</div>
 
@@ -64,31 +70,64 @@
 		<ul class="nav flex-column">
 	
 			<li class="nav-item">
-   				<a class="nav-link" href="/PJ_GABOZAGO/plan.do">일정</a>
+   				<a class="nav-link active" aria-current="page" href="plan.do">일정</a>
 	   		</li>
 		    <li class="nav-item">
-		   		<a class="nav-link" href="/PJ_GABOZAGO/traffic.do">교통</a>
+		   		<a class="nav-link" href="traffic.do">교통</a>
 		    </li>
 		    <li class="nav-item">
-		   		<a class="nav-link" href="/PJ_GABOZAGO/guide.do">가이드</a>
+		   		<a class="nav-link" href="guide.do">가이드</a>
 		    </li>
 		    <br>
 		    <li class="nav-item">
 			    <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a>
 			 </li>
 			 <li class="nav-item">
-   				<a class="nav-link" href="/PJ_GABOZAGO/community.do">커뮤니티</a>
+   				<a class="nav-link" href="community.do">커뮤니티</a>
 		   	 </li>
 		  	 <hr>
-		     <li class="nav-item" id="admin">
-		     	<a class="nav-link" href="/PJ_GABOZAGO/adminMember.do">관리자</a>
+		     <li class="nav-item userInfo" id="userInfo"> 
+		     	<a class="nav-link" href="correction.do">회원정보 수정</a>
 			</li>
-		     <li class="nav-item" id="admin"> <!-- 로그인 시 노출 - disabled 없애기 -->
-		     	<a class="nav-link disabled" href="#">회원정보 수정</a>
+		     <li class="nav-item userInfo" id="userinfo"> 
+		     	<a class="nav-link" href="logout.do">로그아웃</a>
+			</li>
+			<li class="nav-item" id="admin">
+		     	<a class="nav-link" href="adminMember.do">관리자</a>
 			</li>
 		</ul>
 	</div>
 </div>
+<script type="text/javascript">
+	document.getElementById('userInfo').style.display = 'none';
+	document.getElementById('userinfo').style.display = 'none';
+	document.getElementById('admin').style.display = 'none';
+	
+	<%
+	if (userid != null) {
+	%>
+		document.getElementById('userInfo').style.display='';
+		document.getElementById('userinfo').style.display='';
+	<%
+	}
+	%>
+	
+	<%
+	try{
+		if (admin != 0) {
+			%>
+			document.getElementById('admin').style.display = '';
+			<%
+		}
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+	%>
+	
+	
 
+	
+	
+</script>
 </body>
 </html>

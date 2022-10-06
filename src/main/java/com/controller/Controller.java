@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.command.Command;
 import com.command.adminMemberCommand;
+import com.command.deleteUserCommand;
 import com.command.guideAllCommand;
 import com.command.guideNextCommand;
 import com.command.guidePlanCommand;
@@ -84,6 +85,26 @@ public class Controller extends HttpServlet {
 			command = new joinCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Member/joinOK.jsp";
+			break;
+			
+		case "/logout.do":
+			session.invalidate();
+			ViewPage = "index.jsp";
+			break;
+			
+		case "/deleteUser.do":
+			ViewPage = "/PAGE/Member/deleteUser.jsp";
+			break;
+			
+		case "/deleteUserOK.do":
+			command = new deleteUserCommand();
+			command.execute(request, response);
+			session.invalidate();		// 세션 삭제
+			ViewPage = "/PAGE/Member/deleteUserOK.jsp";
+			break;
+			
+		case "/correction.do" :
+			ViewPage = "/PAGE/Member/correctionUser.jsp";
 			break;
 
 

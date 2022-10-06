@@ -15,9 +15,8 @@ public class loginCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
-		MemberVo mVo = null;
+		MemberVo mVo = new MemberVo();
 		int result = 0;
-		HttpSession session = request.getSession();
 		
 		// 입력받은 아이디, 비밀번호
 		String userid = request.getParameter("userid");
@@ -25,19 +24,26 @@ public class loginCommand implements Command {
 		
 		System.out.println(userid + " | " + password);	// 디버깅용
 		
-		if (userid != null && password != null) {
+		mVo.setUserid(userid);
+		mVo.setPassword(password);
+		
+		if (userid != null && userid.trim().length()>0 ) {
 			try {
 				// 반환값 result (1:일치, 0:불일치, -1:가입필요)
-				result = new MemberDao().checkUser(userid, password);
+				result = new MemberDao().checkUser(mVo);
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		// 세션 설정
-		session.setAttribute("loginUser", mVo);		// 세션값 저장 - loginUser
 		
-
+		System.out.println("loginCommand : " + mVo.getEmail());
+		request.setAttribute("userid", userid);
+		request.setAttribute("admin", mVo.getAdmin());
+		request.setAttribute("name", mVo.getName());
+		
+		
+		// 세션 설정
 		request.setAttribute("result", result);
 	
 	}
