@@ -22,11 +22,11 @@ table{
 </head>
 <body>
 <div class="row" style="width: 90%">
-<form action="planList.do" method="get">
+<form action="planList.do">
 <button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>
 <table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 	<tr>
-		<th>일정 추가</th>
+		<!-- <th>일정 추가</th> -->
 		<th>이름</th>
 		<th>주소</th>
 	</tr>
@@ -35,10 +35,8 @@ table{
 		for (GuideVo gVo : list) {
 	%>
 		<tr>
-			<td><input type="checkbox"></td>
-			<td><%=gVo.getPlacename() %></td>
-			<td><%=gVo.getAdress()%></td>
-
+			<td><input type="checkbox" name="place" value="<%=gVo.getPlacename() %>"><%=gVo.getPlacename() %></td>
+			<td><input type="checkbox" name="place" value="<%=gVo.getAdress()%>"><%=gVo.getAdress()%></td>
 		</tr>
 
 	<%
@@ -48,6 +46,7 @@ table{
 	%>
 </table>
 </form>
+</div>
 <jsp:include page="./guidePaging.jsp" flush = "false">
 <jsp:param value="${paging.page}" name="page"/>
 <jsp:param value="${paging.beginPage}" name="beginPage"/>

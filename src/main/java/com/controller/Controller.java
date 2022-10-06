@@ -118,11 +118,16 @@ public class Controller extends HttpServlet {
 			break;
 			
 		case "/planList.do":
-			request.getParameterValues("guideList");
-			request.setAttribute("List", request.getParameterValues("guideList"));
-			command = new planListCommand();
-			command.execute(request, response);
-			ViewPage = "";									/// 경로 수정 필요 합니당!!!!!
+			System.out.println("controller" + request.getParameter("place"));
+			String[] places = request.getParameterValues("place"); 
+			System.out.println(places);
+			/* request.setAttribute("places", places); */
+			session.setAttribute("places", places);
+			ViewPage = "/PAGE/Schedule/writePlan.jsp";
+			break;
+		// plan.do 에서 일정 눌렀을때 다시 아래 페이지로 이동해야함
+		case "":
+			ViewPage = "/PAGE/Schedule/writePlan.jsp";
 			break;
 			
 			

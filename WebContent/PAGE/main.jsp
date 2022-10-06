@@ -26,7 +26,7 @@
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="submit" value="가이드" style="margin-top:75px; font-size: 20px; text-align: center;"
-                            onclick="location.href='/PJ_GABOZAGO/guide.do'"></td>
+                            onclick="location.href='guide.do'"></td>
                         </tr>
 
                     </table>
@@ -39,7 +39,7 @@
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="submit" value="교통" style="margin-top:75px; font-size: 20px; text-align: center;"
-                            onclick="location.href='/PJ_GABOZAGO/traffic.do'"></td>
+                            onclick="location.href='traffic.do'"></td>
                         </tr>
 
                     </table>
@@ -53,7 +53,7 @@
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="submit" value="일정" style="margin-top:75px; font-size: 20px; text-align: center;"
-                            onclick="location.href='/PJ_GABOZAGO/plan.do'"></td>
+                            onclick="location.href='plan.do'"></td>
                         </tr>
 
                     </table>
