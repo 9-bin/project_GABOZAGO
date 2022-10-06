@@ -146,19 +146,8 @@ button {
 
 	<!--2(오른쪽)-->
 	<div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-            <div id="map" style="width:100%;height:100%;"></div>
-
-                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3d7d3428f35bb9a9deb43f36f2716406"></script>
-                <script>ms 
-                    mapOption = { 
-                        center: new kakao.maps.LatLng(36.450701, 127.570667), // 지도의 중심좌표
-                        level: 13 // 지도의 확대 레벨
-                    };
-
-                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-                var map = new kakao.maps.Map(mapContainer, mapOption); 
-                </script>
-	</div>
+		<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
+    </div>
 
 </div>
 
