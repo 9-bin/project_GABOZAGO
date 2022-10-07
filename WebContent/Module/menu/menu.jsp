@@ -36,7 +36,7 @@
 	<div>
 		<p>
 			<span style="border-radius: 15px 15px 15px 0; border: 3px solid #394653; padding: 0.5em 0.4em; color: #333b42; margin: 0 50px 0 100px;font-size: 16.5px;">
-				GABOZAGO
+                <a href="/PJ_GABOZAGO/main.do" style=" text-decoration: none; "><strong>GABOZAGO</strong></a>
 			</span>
 		</p>
 	</div>
@@ -50,7 +50,7 @@
 		<div class="btn" style="padding: none; border: none;">
 		    <form action="login.do" method="post">
 		            <button id="btn_login" type="submit" style="padding:none;border: none; background: none; ">
-		            	<img src="../emoji/btn_logout1.png" style="width:25px; height: 25px;">
+                        <img src="/PJ_GABOZAGO/Image/btn_logout1.png" style="width:25px; height: 25px;">
 		            </button>
 		    </form> 
 		</div>

@@ -65,8 +65,7 @@ table{
 				</table>
 				</form>
 				</div>
-				${local}
-				<%-- <% System.out.println(); %> --%>
+				<%-- ${local} 디버깅 --%>
 				<jsp:include page="./grPaging.jsp" flush = "false">
 					<jsp:param value="${paging.page}" name="page"/>
 					<jsp:param value="${paging.beginPage}" name="beginPage"/>

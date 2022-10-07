@@ -75,6 +75,10 @@ public class Controller extends HttpServlet {
 //			System.out.println("12");
 			command = new loginCommand();
 			command.execute(request, response);
+			session.setAttribute("userId", request.getAttribute("userid"));
+			session.setAttribute("admin", request.getAttribute("admin"));
+			session.setAttribute("name", request.getAttribute("name"));
+			System.out.println("controller" + request.getAttribute("name"));
 			ViewPage = "/PAGE/Member/loginOK.jsp";
 			break;
 			
