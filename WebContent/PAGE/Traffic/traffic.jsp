@@ -23,15 +23,27 @@
 			
 			<!-- 출발 도착 -->
 			<div class="direction" style="height: 230px;">
-				<div class="input-group">
-					<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">필터</button>
-						<ul class="dropdown-menu">
-				    		<li><a class="dropdown-item" href="#">장소명</a></li>
-				    		<li><a class="dropdown-item" href="#">지역</a></li>
-				  		</ul>
-					<input type="text" class="form-control" placeholder="장소 검색" aria-label="장소 검색" aria-describedby="button-addon2">
-					<button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-				</div>
+				<form action="traffic.do">
+					<div class="input-group">
+						<select name="local" style="width:70px;">
+						  <option value="1">강릉</option>
+						  <option value="2">부산</option>
+						  <option value="3">서울</option>
+						  <option value="4">여수</option>
+						  <option value="5">제주</option>
+						  <option value="6">천안,아산</option>
+						</select>
+						<select name="placetype" style="width:70px;">
+						  <option value="1">관광지</option>
+						  <option value="2">레포츠</option>
+						  <option value="3">문화시설</option>
+						  <option value="4">숙박시설</option>
+						  <option value="5">음식점</option>
+						</select>
+						<input type="text" style = "width:190px;" name="keyword" placeholder="장소 검색" aria-label="장소 검색">
+						<input type="submit" value="검색">
+					</div>
+				</form>
 				<input type="text" class="form-control" placeholder="출발지" aria-label="출발지" aria-describedby="button-addon2">
 				<input type="text" class="form-control" placeholder="도착지" aria-label="도착지" aria-describedby="button-addon2">
 			</div>

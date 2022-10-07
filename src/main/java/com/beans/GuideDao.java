@@ -150,4 +150,26 @@ public class GuideDao {
 		   }
 		   return list;
 	   }
+	//		검색된 가이드 리스트 가져오기
+	public List<GuideVo> searchGuide(Paging paging, int local, int placetype, String keyword) throws SQLException {
+		List<GuideVo> list = null;
+		int startNum = paging.getStartNum();
+		int endNum = paging.getEndNum(); 
+		System.out.println(startNum + " | " + endNum);
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_SEARCH);
+			pstmt.setInt(1, local);
+			pstmt.setInt(2, placetype);
+			pstmt.setString(3, "%"+keyword+"%");
+			pstmt.setInt(4, startNum);
+			pstmt.setInt(5, endNum);
+			
+			rs = pstmt.executeQuery();
+			list = getGuide(rs);
+		} finally {
+			close();
+		}		
+		return list;
+	}
 }

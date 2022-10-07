@@ -14,7 +14,7 @@ public class trafficCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {	
-GuideDao gDao = new GuideDao();
+		GuideDao gDao = new GuideDao();
 		
 		List<GuideVo> list = null;
 		int page = 1;
@@ -34,16 +34,46 @@ GuideDao gDao = new GuideDao();
 			
 		paging.setPage(page);
 		paging.setTotalCount(count);
-
-		try {
-			list = gDao.selectAllGuide(paging);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
+		
+		
+		
+		int local = 1;
+		int placetype = 1;
+		String keyword = "";
+		
+		if (request.getParameter("keyword") != null) {
+			keyword = request.getParameter("keyword");
 		}
+		if (request.getParameter("local") != null) {
+			local = Integer.parseInt(request.getParameter("local"));
+		}
+		if (request.getParameter("placetype") != null) {
+			placetype = Integer.parseInt(request.getParameter("placetype"));
+		}
+		
+		
+		if(request.getParameter("keyword") != null) {
+			try {
+				list = gDao.searchGuide(paging, local, placetype, keyword);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+		}else if(request.getParameter("keyword") == null) {
+			try {
+				list = gDao.selectAllGuide(paging);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		
 		
 		request.setAttribute("guideList", list);
 		request.setAttribute("paging", paging);
 	}
 
 }
+

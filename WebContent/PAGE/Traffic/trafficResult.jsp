@@ -4,6 +4,7 @@
 <%
 List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 %> 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,6 +41,7 @@ table{
 		}
 	}
 	%>
+	
 </table>
 </form>
 <jsp:include page="./Paging.jsp" flush = "false">

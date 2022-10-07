@@ -18,4 +18,6 @@ public class A {
 	
 	public static final String SQL_SELECT_COUNT = "select COUNT(*) as count from GUIDE where LOCAL=?";
 	
+	public static final String SQL_SEARCH = "SELECT * FROM (SELECT * FROM ( SELECT ROWNUM row_num, guide.* from guide WHERE local = ? and placetype = ? and placename like ?) where row_num >= ? ) where row_num <= ?";
+	
 }
