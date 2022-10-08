@@ -18,7 +18,7 @@
 	if (result.equals(1)){
 		  out.println("<script>");
 	      out.println("alert('정보 수정에 성공하였습니다.')");
-	      out.println("/PAGE/main.jsp");
+	      out.println("location.href = 'PAGE/main.jsp'");
 	      out.println("</script>");
 	}
 %>

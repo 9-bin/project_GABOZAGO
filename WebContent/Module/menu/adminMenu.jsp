@@ -44,17 +44,17 @@
         <div class="offcanvas-body small">
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/PJ_GABOZAGO/adminGuide.do">가이드정보관리</a>
+                    <a class="nav-link active" aria-current="page" href="adminGuide.do">가이드정보관리</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/PJ_GABOZAGO/adminForbidden.do">포스팅관리(금지어)</a>
+                    <a class="nav-link" href="adminForbidden.do">포스팅관리(금지어)</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/PJ_GABOZAGO/adminMember.do">회원관리</a>
+                    <a class="nav-link" href="adminMember.do">회원관리</a>
                 </li>
                 <hr>
                 <li class="nav-item" id="admin">
-                    <a class="nav-link disabled">홈페이지</a>
+                    <a class="nav-link" href = "index.do">홈페이지</a>
                 </li>
             </ul>
         </div>

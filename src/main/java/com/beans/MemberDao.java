@@ -97,10 +97,9 @@ public class MemberDao {
 				mVo.setGender(rs.getString("gender"));
 				mVo.setPhone(rs.getString("phone"));
 				mVo.setUserid(rs.getString("userid"));
+				mVo.setUserno(rs.getInt("userno"));
 				
 				System.out.println();
-				
-				
 				
 //				조회한 패스워드가 null값이 아니면서 입력받은 pwd와 같은 경우
 				if (userid.equals(checkId) && password.equals(checkPwd)) {
@@ -208,6 +207,7 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 			list = getUser(rs);
 			
+			System.out.println("Dao selectAllMember : " + list);
 		} finally {
 			close();
 		} 
