@@ -39,16 +39,10 @@ public class MemberDao {
 	// 회원가입 ( DB에 회원 정보 삽입 => 회원 관리 )
 	public int insertMember(MemberVo mVo) throws SQLException {
 		int result = -1;
-		
-		// 쿼리문 정보 삽입 - ? 사용 
-//		// 아이디, 비밀번호, 이름, 전화번호, 이메일, 성별, 어드민
-//		String sql_insert = "insert into MEMBER1 values(?,?,?,?,?,?,?)";
-		// 아이디, 비밀번호, 이름, 전화번호, 이메일, 성별
-		String sql_insert = "insert into Member1 values(ppap.nextval,?,?,?,?,?,?,?)";
-		
+
 		// DB연동
 		try {
-			pstmt = conn.prepareStatement(sql_insert);
+			pstmt = conn.prepareStatement(A.SQL_INSERT_MEMBER);
 			pstmt.setString(1, mVo.getUserid());
 			pstmt.setString(2, mVo.getPassword());
 			pstmt.setString(3, mVo.getName());
@@ -61,7 +55,7 @@ public class MemberDao {
 			System.out.println("password : " + mVo.getPassword());
 			System.out.println("gender : " + mVo.getGender());
 			
-			// 쿼리 수행
+			// 쿼리 수행 
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -78,10 +72,8 @@ public class MemberDao {
 		String userid = mVo.getUserid();
 		String password = mVo.getPassword();
 		
-		String sql = "select * from member1 where userid = ? and password=?";
-		
 		try {
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(A.SQL_USER_CHECK);
 			pstmt.setString(1, mVo.getUserid());
 			pstmt.setString(2, mVo.getPassword());
 			
@@ -96,10 +88,18 @@ public class MemberDao {
 				checkPwd = rs.getString("password");
 				
 				System.out.println(rs.getString("password"));
+				
 				int admin = rs.getInt("admin");
 				String name = rs.getString("name");
 				mVo.setAdmin(admin);
 				mVo.setName(name);
+				mVo.setEmail(rs.getString("email"));
+				mVo.setGender(rs.getString("gender"));
+				mVo.setPhone(rs.getString("phone"));
+				mVo.setUserid(rs.getString("userid"));
+				
+				System.out.println();
+				
 				
 				
 //				조회한 패스워드가 null값이 아니면서 입력받은 pwd와 같은 경우
@@ -121,14 +121,14 @@ public class MemberDao {
 		return result;
 	}
 	
-	
+	// 사용자 정보 가져오기
 	public MemberVo getMember(String userid) throws SQLException {
 		int result = -1;
-		String sql = "select * from member1 where userid=?";
+		
 		MemberVo mVo = null;
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(A.SQL_GET_MEMBER);
 			pstmt.setString(1, userid);
 			
 			rs = pstmt.executeQuery();
@@ -158,10 +158,8 @@ public class MemberDao {
 	public int getAllcount() throws SQLException {
 		int count = 0;
 		
-		String sql = "select count(*) as count from member1";
-		
 		try {
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(A.SQL_MEMBER_COUNT);
 			rs = pstmt.executeQuery();
 			
 			if ( rs.next() ) {
@@ -200,10 +198,10 @@ public class MemberDao {
 		
 		int startnum = paging.getStartNum();
 		int endnum = paging.getEndNum();
-		String sql = "select * from ( select * from ( SELECT ROWNUM row_num, member1.* FROM member1 ) where row_num >= ? ) where row_num <= ? ";
+		
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(A.SQL_MEMBER_ALL);
 			pstmt.setInt(1, startnum);
 			pstmt.setInt(2, endnum);
 			
@@ -218,12 +216,12 @@ public class MemberDao {
 	
 	// 목록 띄우기
 	public List<MemberVo> selectAllMembers() throws SQLException{
-		String sql = "select * from member1 order by userid";
+
 		List<MemberVo> list = new ArrayList<MemberVo>();
 		   
 		try {
 
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(A.SQL_SELECT_MEMBER_LIST);
 			rs=pstmt.executeQuery();
 			while(rs.next()) {
 				MemberVo mVo = new MemberVo();
@@ -244,6 +242,68 @@ public class MemberDao {
 		}
 		   return list;
 	   }
+	
+	
+	// 회원 삭제
+	public int deleteMember(String userid) throws SQLException {
+		int result = -1;
+
+		MemberVo mVo = null;
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_DELETE_MEMBER);
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();
+			if (rs.next()) {
+			mVo = new MemberVo();
+			
+			mVo.setName(rs.getString("name"));
+			mVo.setUserid(rs.getString("userid"));
+			mVo.setPassword(rs.getString("password"));
+			mVo.setEmail(rs.getString("email"));
+			mVo.setPhone(rs.getString("phone"));
+			mVo.setGender(rs.getString("gender"));
+			mVo.setAdmin(rs.getInt("admin"));
+			} else {
+				result = -1;		// DB에 아이디 없음
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	
+	// 회원 정보 업데이트
+	public int updateMember(MemberVo mVo) throws SQLException {
+		int result = -1;
+			
+		try {
+			System.out.println("mdao updatemem password: " + mVo.getPassword());
+
+// 3단계 - Statement 객체 생성
+	   	    pstmt = conn.prepareStatement(A.SQL_UPDATE_MEMBER);	// SQL문 사용할 수 있는 객체 생성
+	   	    pstmt.setString(1, mVo.getPassword());
+	   	    pstmt.setString(2, mVo.getEmail());
+	   	    pstmt.setString(3, mVo.getPhone());
+	   	    pstmt.setString(4, mVo.getUserid());
+	   	    
+// 4단계 - SQL문 실행 및 결과 처리 : executeQuery : update
+	   	    result = pstmt.executeUpdate();
+	   	    System.out.println("");
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	
+	
 	
 	
 

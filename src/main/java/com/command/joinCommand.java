@@ -36,6 +36,7 @@ public class joinCommand implements Command {
 		if (userid != null && userid.trim().length() > 0) {
 			try {
 				cnt = new MemberDao().insertMember(mVo);
+				System.out.println("joinCommand : " + cnt);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			} 

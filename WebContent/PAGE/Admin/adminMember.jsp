@@ -3,7 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
+List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
 %>
 
 <!DOCTYPE html>
@@ -100,7 +100,7 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memList");
         		
         		</div>
         	<div>
-		<jsp:include page="../../Module/menu/Paging.jsp">
+		<jsp:include page="/Module/menu/Paging.jsp">
 		<jsp:param value="${paging.page}" name="page"/>
 		<jsp:param value="${paging.beginPage}" name="beginPage"/>
 		<jsp:param value="${paging.endPage}" name="endPage"/>

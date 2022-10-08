@@ -11,7 +11,6 @@
 
 <body>
 
-    <body>
         <!--영역 나누기-->
         <!--영역 안에서 세로로 나누기-->
         <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
@@ -22,7 +21,7 @@
 
 
 
-                <form action="joinOK.do" name="frm">
+                <form action="joinOK.do" name="frm" onsubmit="return check(this)">
                     <div style="margin: 80px 15px 5px 15px; height: 50px;">
                         <h1 span style="border-bottom: 3px solid steelblue"> &nbsp 회원가입 </h1>
                     </div>
@@ -97,18 +96,60 @@
 
             <!--1-2(오른쪽)-->
             <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-				<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
+<%-- 				<jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
             </div>
 
         </div>
     </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-        var offcanvasElementList = [].slice.call(document.querySelectorAll('.offcanvas'))
-        var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
-            return new bootstrap.Offcanvas(offcanvasEl)
-        })
-        document.getElementById('admin').style.display = 'none';
+
+    <script type="text/javascript">
+    	function checkEmail(str) {
+			var Email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
+			if (!Email.test(str)) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+    	
+    	function check() {
+    		if (! document.frm.name.value) {
+    			alert("이름을 입력하세요");
+    			document.frm.name.focus();
+    			return false;
+    		}
+    		if (! document.frm.userid.value) {
+    			alert("아이디를 입력하세요");
+    			document.frm.userid.focus();
+    			return false;
+    		}
+    		if (! document.frm.password.value) {
+    			alert("비밀번호를 입력하세요");
+    			document.frm.password.focus();
+    			return false;
+    		}
+    		if (document.frm.password.value != document.frm.check_pwd.value) {
+    			alert("패스워드가 일치하지 않습니다");
+    			document.frm.check_pwd.focus();
+    			return false;
+    		}
+    		if (! document.frm.email.value) {
+    			alert("이메일을 입력하세요");
+    			document.frm.name.focus();
+    			return false;
+    		} else {
+    			if(!checkEmail(document.frm.email.value)) {
+    				alert("이메일 형식이 잘못되었습니다");
+    				document.frm.email.focus();
+    				return false;
+    			}
+    		}
+    		if (! document.frm.phone.value) {
+    			alert("핸드폰 번호를 입력하세요");
+    			document.frm.phone.focus();
+    			return false;
+    		}
+    	}
     </script>
 
 

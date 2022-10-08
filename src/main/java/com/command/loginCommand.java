@@ -41,10 +41,17 @@ public class loginCommand implements Command {
 		request.setAttribute("userid", userid);
 		request.setAttribute("admin", mVo.getAdmin());
 		request.setAttribute("name", mVo.getName());
+		request.setAttribute("email", mVo.getEmail());
+		request.setAttribute("gender", mVo.getGender());
+		request.setAttribute("phone", mVo.getPhone());
+
+		System.out.println("loginCommand : " + mVo.getEmail() + mVo.getPhone());
+		System.out.println("loginCommand2 : " + mVo);
 		
 		
 		// 세션 설정
 		request.setAttribute("result", result);
+		request.setAttribute("loginUser", mVo);
 	
 	}
 

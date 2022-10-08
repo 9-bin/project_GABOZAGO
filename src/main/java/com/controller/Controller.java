@@ -23,6 +23,7 @@ import com.command.memberListCommand;
 import com.command.planListCommand;
 import com.command.trafficCommand;
 import com.command.trafficNextCommand;
+import com.command.updateMemberCommand;
 
 
 @WebServlet("*.do")
@@ -70,6 +71,9 @@ public class Controller extends HttpServlet {
 // 멤버
 		case "/login.do":		// member
 			ViewPage = "/PAGE/Member/login.jsp";
+			if (session.getAttribute("userId") != null) {
+				ViewPage = "/PAGE/main.jsp";
+			}
 			break;
 			
 		case "/loginOK.do":		// member
@@ -79,7 +83,10 @@ public class Controller extends HttpServlet {
 			session.setAttribute("userId", request.getAttribute("userid"));
 			session.setAttribute("admin", request.getAttribute("admin"));
 			session.setAttribute("name", request.getAttribute("name"));
-			System.out.println("controller" + request.getAttribute("name"));
+			session.setAttribute("email", request.getAttribute("email"));
+			session.setAttribute("gender", request.getAttribute("gender"));
+			session.setAttribute("phone", request.getAttribute("phone"));
+//			System.out.println("controller : " + request.getAttribute("name") + " | " +  request.getAttribute("gender"));
 			ViewPage = "/PAGE/Member/loginOK.jsp";
 			break;
 			
@@ -108,8 +115,14 @@ public class Controller extends HttpServlet {
 			ViewPage = "/PAGE/Member/deleteUserOK.jsp";
 			break;
 			
-		case "/correction.do" :
+		case "/correction.do" :		// 회원 정보 수정
 			ViewPage = "/PAGE/Member/correctionUser.jsp";
+			break;
+			
+		case "/updateMember.do" :
+			command = new updateMemberCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Member/updateOK.jsp";
 			break;
 
 
