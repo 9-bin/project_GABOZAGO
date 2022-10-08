@@ -21,15 +21,23 @@ public class trafficCommand implements Command {
 		int page = 1;
 		HttpSession session = null;
 		
-
+		int local = 1;
+		int placetype = 1;
+		String keyword ="";
 		
-		System.out.println("3 - guideResultCommand : " + request.getAttribute("local"));
-		System.out.println("3 - guideResultCommand : " + request.getAttribute("placetype"));
-		System.out.println("3 - guideResultCommand : " + request.getAttribute("keyword"));
+		System.out.println("3 - guideResultCommand : " + request.getAttribute("local").getClass().getSimpleName());
+		System.out.println("3 - guideResultCommand : " + request.getAttribute("placetype").getClass().getSimpleName());
+		System.out.println("3 - guideResultCommand : " + request.getAttribute("keyword").getClass().getSimpleName());
 		
-		int local = Integer.parseInt(request.getParameter("local"));
-		int placetype = Integer.parseInt(request.getParameter("placetype"));
-		String keyword = request.getParameter("keyword");
+		
+		try{
+			local = (Integer)request.getAttribute("local");
+			placetype = (Integer)request.getAttribute("placetype");
+			keyword = (String)request.getAttribute("keyword");
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		System.out.println("3-1 - guideResultCommand : " + local);
 		System.out.println("3-1 - guideResultCommand : " + placetype);
