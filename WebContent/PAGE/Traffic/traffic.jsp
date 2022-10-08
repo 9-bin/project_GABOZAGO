@@ -23,7 +23,7 @@
 			
 			<!-- 출발 도착 -->
 			<div class="direction" style="height: 230px;">
-				<form action="traffic.do">
+				<form action="trafficNext.do">
 					<div class="input-group">
 						<select name="local" style="width:70px;">
 						  <option value="1">강릉</option>
@@ -40,7 +40,7 @@
 						  <option value="4">숙박시설</option>
 						  <option value="5">음식점</option>
 						</select>
-						<input type="text" style = "width:190px;" name="keyword" placeholder="장소 검색" aria-label="장소 검색">
+						<input type="text" style = "width:190px;" name="keyword" value="${keyword}" aria-label="장소 검색">
 						<input type="submit" value="검색">
 					</div>
 				</form>

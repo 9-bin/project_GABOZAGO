@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.beans.GuideDao;
 import com.beans.GuideVo;
@@ -18,16 +19,39 @@ public class trafficCommand implements Command {
 		
 		List<GuideVo> list = null;
 		int page = 1;
-			
+		HttpSession session = null;
+		
+
+		
+		System.out.println("3 - guideResultCommand : " + request.getAttribute("local"));
+		System.out.println("3 - guideResultCommand : " + request.getAttribute("placetype"));
+		System.out.println("3 - guideResultCommand : " + request.getAttribute("keyword"));
+		
+		int local = Integer.parseInt(request.getParameter("local"));
+		int placetype = Integer.parseInt(request.getParameter("placetype"));
+		String keyword = request.getParameter("keyword");
+		
+		System.out.println("3-1 - guideResultCommand : " + local);
+		System.out.println("3-1 - guideResultCommand : " + placetype);
+		System.out.println("3-1 - guideResultCommand : " + keyword);
+		
+		list = null;
+		page = 1;
+		
+		
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 			
 		Paging paging = new Paging();
 		int count = 0;
-			
+		
+
+		
+
+		
 		try {
-			count = gDao.getAllCount();
+			count = gDao.getSearchCount(local, placetype, keyword);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -37,43 +61,20 @@ public class trafficCommand implements Command {
 		
 		
 		
-		int local = 1;
-		int placetype = 1;
-		String keyword = "";
-		
-		if (request.getParameter("keyword") != null) {
-			keyword = request.getParameter("keyword");
-		}
-		if (request.getParameter("local") != null) {
-			local = Integer.parseInt(request.getParameter("local"));
-		}
-		if (request.getParameter("placetype") != null) {
-			placetype = Integer.parseInt(request.getParameter("placetype"));
+		try {
+			list = gDao.searchGuide(paging, local, placetype, keyword);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
 		
-		
-		if(request.getParameter("keyword") != null) {
-			try {
-				list = gDao.searchGuide(paging, local, placetype, keyword);
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			
-		}else if(request.getParameter("keyword") == null) {
-			try {
-				list = gDao.selectAllGuide(paging);
-				
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		
-		
+		request.setAttribute("local", local);
+		request.setAttribute("placetype", placetype);
+		request.setAttribute("keyword", keyword);
 		request.setAttribute("guideList", list);
 		request.setAttribute("paging", paging);
+		System.out.println("local : " + local);
+		System.out.println("placetype : " + placetype);
+		System.out.println("keyword : " + keyword);
 	}
-
 }
 

@@ -22,6 +22,7 @@ import com.command.loginCommand;
 import com.command.memberListCommand;
 import com.command.planListCommand;
 import com.command.trafficCommand;
+import com.command.trafficNextCommand;
 
 
 @WebServlet("*.do")
@@ -158,10 +159,28 @@ public class Controller extends HttpServlet {
 			
 // 교통
 		case "/traffic.do":
+			ViewPage = "/PAGE/Traffic/traffic.jsp";
+			break;
+			
+		case "/trafficNext.do":
+			System.out.println("1 - controller : " + request.getParameter("local"));
+			command = new trafficNextCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Traffic/trafficSearch.jsp";
+			break;
+			
+		case "/trafficSearch.do":
+			int local = (Integer)session.getAttribute("local");
+			int placetype = (Integer)session.getAttribute("placetype");
+			Object keyword = session.getAttribute("keyword");
+			request.setAttribute("local", local);
+			request.setAttribute("placetype", placetype);
+			request.setAttribute("keyword", keyword);
 			command = new trafficCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Traffic/traffic.jsp";
 			break;
+		
 			
 //	관리자
 		case "/memList.do": 
