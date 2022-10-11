@@ -7,7 +7,9 @@
 <meta charset="UTF-8">
 <title>GABOZAGO</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
+
 </head>
+
 <body>
 	<!--영역 나누기-->
 	<div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
@@ -44,8 +46,8 @@
 						<input type="submit" value="검색">
 					</div>
 				</form>
-				<input type="text" class="form-control" placeholder="출발지" aria-label="출발지" aria-describedby="button-addon2">
-				<input type="text" class="form-control" placeholder="도착지" aria-label="도착지" aria-describedby="button-addon2">
+			<input type="text" class="form-control" id="startplace" placeholder="출발지" value="" readonly/>
+			<input type="text" class="form-control" id="endplace" placeholder="도착지" value="" readonly/>
 			</div>
         		<!-- 교통 수단 -->
        		<div style="height: 90px;">

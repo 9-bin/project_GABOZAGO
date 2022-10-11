@@ -20,10 +20,11 @@ table{
    width: 100%;
 }
 </style>
+
 </head>
 <body>
 <div class="row" style="width: 100%">
-<form action="" method="get">
+
 <table id="example-table-3" width="100%" class="table table-bordered table-hover text-center">
 	<tr>
 		<th>이름</th>
@@ -31,19 +32,27 @@ table{
 	</tr>
 	<%
 	if (list != null) {
+		int a = 1;
+		int b = 2;
+		int c = 1;
 		for (GuideVo gVo : list) {
 	%>
 		<tr>
-			<td><%=gVo.getPlacename() %></td>
-			<td><input type="button" value="출발지"><input type="button" value="도착지"></td>
+			<td><%=gVo.getPlacename()%></td>
+			<td>
+				<button id="<%=a%>" onclick="startPlace<%=c%>()" value="<%=gVo.getPlacename()%>">출발지</button>
+  				<button id="<%=b%>" onclick="endPlace<%=c%>()" value="<%=gVo.getPlacename()%>">도착지</button>
+			</td>
 		</tr>
 	<%
+		a+=2;
+		b+=2;
+		c+=1;
 		}
 	}
 	%>
 	
 </table>
-</form>
 <jsp:include page="./Paging.jsp" flush = "false">
 <jsp:param value="${paging.page}" name="page"/>
 <jsp:param value="${paging.beginPage}" name="beginPage"/>
@@ -51,6 +60,7 @@ table{
 <jsp:param value="${paging.prev}" name="prev"/>
 <jsp:param value="${paging.next}" name="next"/>
 </jsp:include>
+<script src="Script/selectStartEnd.js"></script>
 </div>
 </body>
 </html>
