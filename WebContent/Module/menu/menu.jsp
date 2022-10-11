@@ -36,7 +36,7 @@
 	<div>
 		<p>
 			<span style="border-radius: 15px 15px 15px 0; border: 3px solid #394653; padding: 0.5em 0.4em; color: #333b42; margin: 0 50px 0 100px;font-size: 16.5px;">
-                <a href="/PJ_GABOZAGO/main.do" style=" text-decoration: none; "><strong>GABOZAGO</strong></a>
+                <a href="main.do" style=" text-decoration: none; "><strong>GABOZAGO</strong></a>
 			</span>
 		</p>
 	</div>
@@ -80,17 +80,20 @@
 		    </li>
 		    <br>
 		    <li class="nav-item">
-			    <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a>
+			    <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a>  <!-- 공유 기능 필요 -->
 			 </li>
-			 <li class="nav-item">
+<!-- 			 <li class="nav-item">
    				<a class="nav-link" href="community.do">커뮤니티</a>
-		   	 </li>
+		   	 </li> -->
 		  	 <hr>
-		     <li class="nav-item userInfo" id="userInfo"> 
+		     <li class="nav-item userInfo" id="userinfo"> 
 		     	<a class="nav-link" href="correction.do">회원정보 수정</a>
 			</li>
-		     <li class="nav-item userInfo" id="userinfo"> 
+		     <li class="nav-item userInfo" id="logout"> 
 		     	<a class="nav-link" href="logout.do">로그아웃</a>
+			</li>
+			<li class="nav-item userInfo" id="delete"> 
+		     	<a class="nav-link" href="deleteUser.do">회원 탈퇴</a>
 			</li>
 			<li class="nav-item" id="admin">
 		     	<a class="nav-link" href="adminMember.do">관리자</a>
@@ -99,15 +102,17 @@
 	</div>
 </div>
 <script type="text/javascript">
-	document.getElementById('userInfo').style.display = 'none';
 	document.getElementById('userinfo').style.display = 'none';
+	document.getElementById('logout').style.display = 'none';
 	document.getElementById('admin').style.display = 'none';
+	document.getElementById('delete').style.display = 'none';
 	
 	<%
 	if (userid != null) {
 	%>
-		document.getElementById('userInfo').style.display='';
 		document.getElementById('userinfo').style.display='';
+		document.getElementById('logout').style.display='';
+		document.getElementById('delete').style.display='';		
 	<%
 	}
 	%>
@@ -123,11 +128,6 @@
 		e.printStackTrace();
 	}
 	%>
-	
-	
-
-	
-	
 </script>
 </body>
 </html>

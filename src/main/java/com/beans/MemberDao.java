@@ -153,6 +153,31 @@ public class MemberDao {
 	}
 	
 	
+	// 아이디 중복 확인(아이디만 불러오기)
+	public int selectID(String id) throws SQLException {
+		int result = -1;
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_SELECT_ID);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				result = 1;
+			} else {
+				result = 0;
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	
+	
 	// 회원 수 리턴
 	public int getAllcount() throws SQLException {
 		int count = 0;

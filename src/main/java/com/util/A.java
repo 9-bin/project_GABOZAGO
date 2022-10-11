@@ -28,6 +28,8 @@ public class A {
 	
 	public static final String SQL_UPDATE_MEMBER = "update member1 set password=?, email=?, phone=? where userid=?";	
 	
+	public static final String SQL_SELECT_ID = "SELECT userid FROM member1 WHERE userid=?";		// 중복체크
+	
 
 // 가이드
 	public static final String SQL_GUIDE_COUNT =  "select COUNT(*) as count from GUIDE";

@@ -42,7 +42,10 @@
                             <div class="input-group mb-3" style="margin-top: 20px;">
                                 <span class="input-group-text" id="" basic-addon1">아 이 디</span>
                                 <input type="text" class="form-control" placeholder="아이디" aria-label="아이디"
-                                    aria-describedby="basic-addon1" name="userid">
+                                    aria-describedby="basic-addon1" name="userid" onkeydown="inputIdChk()">
+                                <input type="button" class="btn btn-primary checkId" id="dbCheckId" onclick="fn_dbCheckId()" value="중복 체크"
+                                    style="font-size: 10px; margin-left:2px; text-align: center; justify-content: flex-start;">
+                                <input type="hidden" name="idDuplication" value="idUncheck">
                             </div>
                             <div class="input-group mb-3" style="margin-top: 20px;">
                                 <span class="input-group-text" id="" basic-addon1">비 밀 번 호</span>
@@ -68,17 +71,6 @@
                                 </select>
                                 <label for="floatingSelect">성별</label>
                             </div>
-                        <!-- 관리자 / 일반 회원 가입 여부 선택 ... 이 필요할까요...? 어차피 관리자는 셋으로 끝인데...???   
-                            <div class="form-floating" style="margin-top: 20px;">
-                                <select class="form-select" id="floatingSelect"
-                                    aria-label="Floating label select example">
-                                    <option selected>회원 등급</option>
-                                    <option value="0" name="admin">일반 회원</option>
-                                    <option value="1" name="admin">관리자</option>
-                                </select>
-                                <label for="floatingSelect">회원 등급</label>
-                            </div>
-                             -->
                             <div style="float:left; width:80px; height:60px;float: right;">
                                 <input class="btn btn-primary" type="submit" value="회원가입"
                                     style="font-size: 15px; text-align: center; margin-top: 20px; justify-content: flex-start;">
@@ -103,6 +95,29 @@
     </body>
 
     <script type="text/javascript">
+    	function fn_dbCheckId() {
+			var joinForm = document.frm;
+			var id = joinForm.userid.value;
+			
+			if (! document.frm.userid.value) {
+    			alert("아이디를 입력하세요");
+    			document.frm.userid.focus();
+    			return false;
+    		} else {
+    			window.open("${contextPath}/PJSTUDY/dbCheckId.do?userid="+id, "", "width = 500, height = 300");
+    		}
+		}
+    	
+    	function inputIdChk() {
+    		   var joinForm = document.frm;
+    		   var dbCheckId = document.frm.dbCheckId;
+    		   document.frm.idDuplication.value="idUnchek";
+    		   dbCheckId.disabled=false;
+    		   dbCheckId.style.opacity=1;
+    		   dbCheckId.style.cursor="pointer";
+    		}
+    
+    
     	function checkEmail(str) {
 			var Email = /^([0-9a-zA-Z_\.-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/;
 			if (!Email.test(str)) {

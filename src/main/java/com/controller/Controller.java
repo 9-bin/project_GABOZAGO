@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.command.Command;
 import com.command.adminMemberCommand;
+import com.command.dbCheckCommand;
 import com.command.deleteUserCommand;
 import com.command.guideAllCommand;
 import com.command.guideNextCommand;
@@ -99,6 +100,12 @@ public class Controller extends HttpServlet {
 			ViewPage = "/PAGE/Member/joinOK.jsp";
 			break;
 			
+		case "/dbCheckId.do" :
+			command = new dbCheckCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Member/dbCheckId.jsp";
+			break;
+			
 		case "/logout.do":
 			session.invalidate();
 			ViewPage = "index.jsp";
@@ -122,8 +129,12 @@ public class Controller extends HttpServlet {
 		case "/updateMember.do" :
 			command = new updateMemberCommand();
 			command.execute(request, response);
+			session.setAttribute("email", request.getAttribute("updateEmail"));
+			session.setAttribute("phone", request.getAttribute("updatePhone"));
 			ViewPage = "/PAGE/Member/updateOK.jsp";
 			break;
+			
+			
 
 
 // 가이드

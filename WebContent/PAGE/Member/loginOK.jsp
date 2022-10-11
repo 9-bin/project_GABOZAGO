@@ -22,7 +22,7 @@
 	}
 	if (result.equals(-1)){
 		  out.println("<script>");
-			out.println("alert('존재하지 않는 아이디입니다.')");
+			out.println("alert('아이디/비밀번호를 다시 확인해주세요.')");
 	      out.println("history.back()");
 	      out.println("</script>");
 	}
