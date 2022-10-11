@@ -102,6 +102,7 @@
 	</div>
 </div>
 <script type="text/javascript">
+	document.getElementById('userInfo').style.display = 'none';
 	document.getElementById('userinfo').style.display = 'none';
 	document.getElementById('logout').style.display = 'none';
 	document.getElementById('admin').style.display = 'none';
@@ -110,6 +111,7 @@
 	<%
 	if (userid != null) {
 	%>
+		document.getElementById('userInfo').style.display = '';
 		document.getElementById('userinfo').style.display='';
 		document.getElementById('logout').style.display='';
 		document.getElementById('delete').style.display='';		
