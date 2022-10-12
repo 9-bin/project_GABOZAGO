@@ -28,7 +28,7 @@
             
             <div style="width: 700px; height: 100px; margin: auto;">
             	<p><span style=" border-radius: 15px 15px 0 0; border-bottom: 2px solid #B2E0F7; 
-            	padding: 0.5em; background: #D8EFFB;">회원관리</span></p>
+            	padding: 0.5em; background: #D8EFFB; text-align: center;">회원관리</span></p>
             </div>
 
         	<!-- 관리자 상단 선택 영역 탭  -->
@@ -43,7 +43,8 @@
         	<div style= "height: 50px;">
 	        	<div class="btn-group" style="float: right;">
 				  <a href="adminUserUpdate.do?id=<%=userid%>" class="btn btn-primary">수정</a>
-				  <a href="adminUserDelete.do?id=<%=userid%>" class="btn btn-primary">삭제</a>
+				  &nbsp; &nbsp; &nbsp; &nbsp; 
+				  <a href="adminUserDelete.do?id=<%=userid%>" class="btn btn-primary" >삭제</a>
 				</div>
 			</div>
         	
@@ -83,22 +84,10 @@
 				</table>
         		
         		</div>
-        	<div>
-		<jsp:include page="/Module/menu/Paging.jsp">
-		<jsp:param value="${paging.page}" name="page"/>
-		<jsp:param value="${paging.beginPage}" name="beginPage"/>
-		<jsp:param value="${paging.endPage}" name="endPage"/>
-		<jsp:param value="${paging.prev}" name="prev"/>
-		<jsp:param value="${paging.next}" name="next"/>
-		</jsp:include>
-	</div>
+
 	</div>
 
 </div>
-
-
-
-
-    
 </body>
+
 </html>

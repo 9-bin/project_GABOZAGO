@@ -49,7 +49,7 @@
 					  		<input type="submit" class="btn btn-primary" value="확인">
 					  	</a>
 					  	<a>
-					  		<input type="reset" class="btn btn-primary" value="취소">
+					  		<input type="reset" class="btn btn-primary" value="원상태로">
 					  	</a>
 					</div>
 				</div>
@@ -74,12 +74,8 @@
 				      %>
 					<tbody>
 					  <tr>
-					    <td class="tg-c3ow" width="50">
-					    	<input type="text" value="<%= mVo.getUserno() %>" style="width: 50px;">
-					    </td>
-					    <td class="tg-c3ow" width="150">
-					    	<input type="text" value="<%=mVo.getUserid() %>" name="Userid" style="width: 80px;">
-					    </td>
+					    <td class="tg-c3ow" width="50"><%= mVo.getUserno() %></td>
+					    <td class="tg-c3ow" width="150"><%=mVo.getUserid() %></td>
 					    <td class="tg-c3ow" width="150">
 					    	<input type="text" value="<%= mVo.getName() %>" name="Name" style="width: 80px;">
 					    </td>
@@ -98,7 +94,7 @@
 					    </td>
 					    <td class="tg-c3ow" width="150">
 					    	<select name = "ch_admin">
-					    		<option value="<%= mVo.getAdmin()%>" selected="selected">기본 - <%= mVo.getAdmin()%>" </option>
+					    		<option value="<%= mVo.getAdmin()%>" selected="selected">기본 - <%= mVo.getAdmin()%></option>
 					    		<option value="0">일반회원</option>
 					    		<option value="1">관리자</option>
 					    	</select> 
@@ -119,22 +115,6 @@
 	</div>
 
 </div>
-<script type="text/javascript">
-	function check() {
-		if (!document.frm.ch_gender.value) {
-			alert("성별 선택은 필수입니다");
-			document.frm.ch_gender.focus();
-			return false;
-		}
-		if(!document.frm.ch_admin.value) {
-			alert("권한 선택은 필수입니다");
-			document.frm.ch_admin.focus();
-			return false;
-		}
-		return true;
-	}
-
-</script>
 
 </body>
 </html>

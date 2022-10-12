@@ -41,7 +41,7 @@
 	                        aria-describedby="basic-addon1" name="phone">
 	                </div>
 		            <div style="float:left; width:80px; height:60px;float: right;">
-	                    <input class="btn btn-primary" type="submit" value="확인" onclick="return del_user()"
+	                    <input class="btn btn-primary" type="submit" value="탈퇴" onclick="return del_user()"
 	                        style="font-size: 15px; text-align: center; margin-top: 20px; justify-content: flex-start;">
 	                </div>
 				</div>
