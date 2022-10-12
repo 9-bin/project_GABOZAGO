@@ -51,7 +51,7 @@ table{
 						for (GuideVo gVo : list) {
 					%>
 						<tr>
-							<td><input type="checkbox"></td>
+							<td><input type="radio" name="placenum" value="<%=gVo.getPlacenum() %>"><%=gVo.getPlacenum() %></td>
 							<td><%=gVo.getPlacename() %></td>
 							<td><%=gVo.getAdress()%></td>
 				

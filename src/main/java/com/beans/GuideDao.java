@@ -76,10 +76,11 @@ public class GuideDao {
 		while (rs.next()) {
 			String name = rs.getString("placename");
 			String adress = rs.getString("adress");
+			int num = rs.getInt("placenum");
 			
 			System.out.println(name);
 			
-			GuideVo gVo = new GuideVo(name, adress);
+			GuideVo gVo = new GuideVo(name, adress,num);
 			list.add(gVo);
 		}
 		return list;
