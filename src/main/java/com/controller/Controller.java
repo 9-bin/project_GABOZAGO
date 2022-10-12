@@ -194,9 +194,13 @@ public class Controller extends HttpServlet {
 			break;
 			
 		case "/trafficSearch.do":
+//			System.out.println("gu - controller : " + session.getAttribute("local").getClass().getTypeName());
+//			System.out.println("gu - controller : " + session.getAttribute("placetype"));
+//			System.out.println("gu - controller : " + session.getAttribute("keyword"));
 			int local = (Integer)session.getAttribute("local");
 			int placetype = (Integer)session.getAttribute("placetype");
 			Object keyword = session.getAttribute("keyword");
+			
 			request.setAttribute("local", local);
 			request.setAttribute("placetype", placetype);
 			request.setAttribute("keyword", keyword);

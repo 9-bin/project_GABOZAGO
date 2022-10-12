@@ -28,19 +28,19 @@
 				<form action="trafficNext.do">
 					<div class="input-group">
 						<select name="local" style="width:70px;">
-						  <option value="1">강릉</option>
-						  <option value="2">부산</option>
-						  <option value="3">서울</option>
-						  <option value="4">여수</option>
-						  <option value="5">제주</option>
-						  <option value="6">천안,아산</option>
+						  <option ${(local=="1")?"selected":""} value=1>강릉</option>
+						  <option ${(local=="2")?"selected":""} value=2>부산</option>
+						  <option ${(local=="3")?"selected":""} value=3>서울</option>
+						  <option ${(local=="4")?"selected":""} value=4>여수</option>
+						  <option ${(local=="5")?"selected":""} value=5>제주</option>
+						  <option ${(local=="6")?"selected":""} value=6>천안,아산</option>
 						</select>
 						<select name="placetype" style="width:70px;">
-						  <option value="1">관광지</option>
-						  <option value="2">레포츠</option>
-						  <option value="3">문화시설</option>
-						  <option value="4">숙박시설</option>
-						  <option value="5">음식점</option>
+						  <option ${(placetype=="1")?"selected":""} value=1>관광지</option>
+						  <option ${(placetype=="2")?"selected":""} value=2>레포츠</option>
+						  <option ${(placetype=="3")?"selected":""} value=3>문화시설</option>
+						  <option ${(placetype=="4")?"selected":""} value=4>숙박시설</option>
+						  <option ${(placetype=="5")?"selected":""} value=5>음식점</option>
 						</select>
 						<input type="text" style = "width:190px;" name="keyword" value="${keyword}" aria-label="장소 검색">
 						<input type="submit" value="검색">
