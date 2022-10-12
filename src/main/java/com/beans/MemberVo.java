@@ -22,6 +22,16 @@ public class MemberVo {
 	public MemberVo() {
 	}
 
+	public MemberVo(int userno2, String name2, String userid2, String email2, String phone2, String gender2, int admin2) {
+		this.userno = userno2;
+		this.name = name2;
+		this.userid = userid2;
+		this.email = email2;
+		this.phone = phone2;
+		this.gender = gender2;
+		this.admin = admin2;
+	}
+	
 	public MemberVo(String name2, String userid2, String email2, String phone2, String gender2, int admin2) {
 		this.name = name2;
 		this.userid = userid2;

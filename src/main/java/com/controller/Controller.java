@@ -12,6 +12,9 @@ import javax.servlet.http.HttpSession;
 
 import com.command.Command;
 import com.command.adminMemberCommand;
+import com.command.adminUserInfoCommand;
+import com.command.adminUserUpdateCommand;
+import com.command.adminUserUpdateOKCommand;
 import com.command.dbCheckCommand;
 import com.command.deleteUserCommand;
 import com.command.guideAllCommand;
@@ -223,19 +226,30 @@ public class Controller extends HttpServlet {
 			break;
 		
 			
-//	관리자
-		case "/memList.do": 
-			command = new memberListCommand();
-			command.execute(request, response);
-			ViewPage = "/PAGE/Admin/memberadmin.jsp";
-			break;
-			
+//	관리자	
 		case "/adminForbidden.do":
 			ViewPage = "/PAGE/Admin/adminForbidden.jsp";
 			break;
 			
-		case "/userInfo.do": // memList 페이지에서 id값 눌렀을때 이동하는 페이지
-			ViewPage = "";
+		case "/userInfo.do": // adminMember 페이지에서 id값 눌렀을때 이동하는 페이지
+			command = new adminUserInfoCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/userInfo.jsp";
+			break;
+			
+		case "/adminUserDelete.do":	// 관리자가 회원 삭제
+			break;
+			
+		case "/adminUserUpdate.do":	// 관리자가 회원 정보 수정
+			command = new adminUserUpdateCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/adminUserUpdate.jsp";
+			break;
+														
+		case "/adminUpdateOK.do":
+			command = new adminUserUpdateOKCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/adminUserUpdateOK.jsp";
 			break;
 		
 		case "/adminMember.do":

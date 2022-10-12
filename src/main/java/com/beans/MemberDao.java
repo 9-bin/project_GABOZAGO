@@ -134,6 +134,7 @@ public class MemberDao {
 			if (rs.next()) {
 			mVo = new MemberVo();
 			
+			mVo.setUserno(rs.getInt("userno"));
 			mVo.setName(rs.getString("name"));
 			mVo.setUserid(rs.getString("userid"));
 			mVo.setPassword(rs.getString("password"));
@@ -151,6 +152,50 @@ public class MemberDao {
 		}
 		return mVo;
 	}
+	
+	// 관리자 페이지에서 유저 인포 조회시 사용
+	public List<MemberVo> readByUser(String userid) throws SQLException{
+		List<MemberVo> list = null;
+		
+		try {
+			conn.setAutoCommit(false);
+			
+			pstmt = conn.prepareStatement(A.SQL_GET_MEMBER);
+			pstmt.setString(1, userid);
+			
+			rs = pstmt.executeQuery();
+			list = userList(rs);
+			
+			conn.commit();
+		} catch (SQLException e) {
+			conn.rollback();
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return list;
+	}
+	
+	// readByUser 함수 내에서 사용
+	private List<MemberVo> userList(ResultSet rs) throws SQLException {
+		List<MemberVo> list = new ArrayList<>();
+		
+		while(rs.next()) {
+			int userno = rs.getInt("userno");
+			String name = rs.getString("name");
+			String userid = rs.getString("userid");
+			String email = rs.getString("email");
+			String phone = rs.getString("phone");
+			String gender = rs.getString("gender");
+			int admin = rs.getInt("admin");
+			
+			MemberVo mVo = new MemberVo(userno, name, userid, email, phone, gender, admin);
+			
+			list.add(mVo);
+		}
+		return list;
+	}
+	
 	
 	
 	// 아이디 중복 확인(아이디만 불러오기)
@@ -201,6 +246,7 @@ public class MemberDao {
 		List<MemberVo> list = new ArrayList<>();
 		
 		while (rs.next()) {
+			int userno = rs.getInt("userno");
 			String name = rs.getString("name");
 			String userid = rs.getString("userid");
 			String email = rs.getString("email");
@@ -208,7 +254,7 @@ public class MemberDao {
 			String gender = rs.getString("gender");
 			int admin = rs.getInt("admin");
 			
-			MemberVo mVo = new MemberVo(name, userid, email, phone, gender, admin);
+			MemberVo mVo = new MemberVo(userno, name, userid, email, phone, gender, admin);
 			
 			list.add(mVo);
 		}
@@ -328,7 +374,32 @@ public class MemberDao {
 	}
 	
 	
-	
+	// 회원 정보 업데이트(관리자가)
+	public int updateAdmin(MemberVo mVo) throws SQLException {
+		int result = -1;
+			
+		try {
+//			System.out.println(""); // 디버깅
+
+// 3단계 - Statement 객체 생성
+	   	    pstmt = conn.prepareStatement(A.SQL_ADMIN_MEMBER);	// SQL문 사용할 수 있는 객체 생성
+	   	    pstmt.setString(1, mVo.getName());
+	   	    pstmt.setString(2, mVo.getEmail());
+	   	    pstmt.setString(3, mVo.getPhone());   	    
+	   	    pstmt.setString(4, mVo.getGender());
+	   	    pstmt.setInt(5, mVo.getAdmin());	
+	   	    pstmt.setString(6, mVo.getUserid());
+	   	    
+// 4단계 - SQL문 실행 및 결과 처리 : executeQuery : update
+	   	    result = pstmt.executeUpdate();
+	   	    System.out.println("mDao updateAdmin : " + mVo.getName());
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
 	
 	
 

@@ -3,7 +3,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
-List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
+ String userid = (String)request.getAttribute("id");
+ List<MemberVo> list = (List<MemberVo>) request.getAttribute("mVo");
 %>
 
 <!DOCTYPE html>
@@ -32,26 +33,18 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
 
         	<!-- 관리자 상단 선택 영역 탭  -->
         	<div id="select" style="width: 700px; height: 150px; margin: auto;">
-        		<div> <!-- 선택창 -->
-        			<select class="form-select" aria-label="관리자 페이지 회원 관리" name="searchAdmin">
-					  <option selected>검색할 항목 선택</option>
-					  <option value="sel_Name">이름</option>
-					  <option value="sel_Email">이메일</option>
-					  <option value="sel_Id">아이디</option>
-					</select>
-        		</div>
-        		<div class="input-group mb-3"> <!-- 검색창 -->
-				  <input type="text" class="form-control" placeholder="검색하세요" aria-label="검색하세요" aria-describedby="button-addon2">
-				  <button class="btn btn-outline-secondary" type="button" id="button-addon2">Button</button>
-				</div>
+
         		<div style="float: right;"> <!-- 다운로드 폴더이미지 -->			
         			<svg xmlns="http://www.w3.org/2000/svg" width="45" height="40" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill" viewBox="0 0 16 16">
 				  		<path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z"/>
 					</svg></div>
         	
-        	<!-- 버튼이 있었던..영역.. -->
+        	<!-- 버튼 -->
         	<div style= "height: 50px;">
-
+	        	<div class="btn-group" style="float: right;">
+				  <a href="adminUserUpdate.do?id=<%=userid%>" class="btn btn-primary">수정</a>
+				  <a href="adminUserDelete.do?id=<%=userid%>" class="btn btn-primary">삭제</a>
+				</div>
 			</div>
         	
         	<!-- 표시될 리스트 영역 -->
@@ -73,8 +66,8 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
 				      %>
 					<tbody>
 					  <tr>
-					    <td class="tg-c3ow" width="70"><%= mVo.getUserno() %></td>
-					    <td class="tg-c3ow" width="150"><a href="userInfo.do?id=<%=mVo.getUserid() %> "><%=mVo.getUserid() %></a></td>
+					    <td class="tg-c3ow" width="50"><%= mVo.getUserno() %></td>
+					    <td class="tg-c3ow" width="150"><%=mVo.getUserid() %></td>
 					    <td class="tg-c3ow" width="150"><%= mVo.getName() %></td>
 					    <td class="tg-c3ow" width="200"><%= mVo.getPhone() %></td>
 					    <td class="tg-c3ow" width="150"><%= mVo.getEmail() %></td>
