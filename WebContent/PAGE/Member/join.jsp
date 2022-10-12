@@ -111,7 +111,7 @@
     	function inputIdChk() {
     		   var joinForm = document.frm;
     		   var dbCheckId = document.frm.dbCheckId;
-    		   document.frm.idDuplication.value="idUnchek";
+    		   document.frm.idDuplication.value="idUncheck";
     		   dbCheckId.disabled=false;
     		   dbCheckId.style.opacity=1;
     		   dbCheckId.style.cursor="pointer";
@@ -162,6 +162,11 @@
     		if (! document.frm.phone.value) {
     			alert("핸드폰 번호를 입력하세요");
     			document.frm.phone.focus();
+    			return false;
+    		}
+    		if (document.frm.idDuplication.value === 'idUncheck') {
+    			alert('아이디 중복 확인을 해주세요');
+    			document.frm.idDuplication.focus();
     			return false;
     		}
     	}
