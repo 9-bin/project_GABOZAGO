@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.util.A;
 
+
 public class GuideDao {
 
 	Connection conn = null;
@@ -192,6 +193,49 @@ public class GuideDao {
 			e.printStackTrace();
 		}
 		return count;
+	}
+		
+		// 가이드 리스트 장소번호으로 가져오기 함수
+		   public List<GuideVo> selectAllGuidesByNo(int placenum) throws SQLException {
+			   String sql = "select * from guide where placenum =?";
+			   List<GuideVo> list = null;
+			   
+			   try {
+				   pstmt = conn.prepareStatement(sql);
+				   pstmt.setInt(1, placenum);
+				   rs=pstmt.executeQuery();
+				   list = getGuide(rs);
+				   
+			   }catch(Exception e) {
+				   e.printStackTrace();
+			   }finally {
+				   close();
+			   }
+			   return list;
+		   }
+		   
+		   // 일정 선택 갯수세기
+		   public int getPlanCnt(int placenum) throws SQLException{
+			   
+			   int cnt = 0;
+			   
+			   try {
+					pstmt = conn.prepareStatement(A.SQL_PLAN_CNT);
+					pstmt.setInt(1, placenum);
+					
+					
+					rs = pstmt.executeQuery();
+					
+					if(rs.next()) {
+						cnt = rs.getInt("count");
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				return cnt;
+		
+		
+		
 	}
 }
 

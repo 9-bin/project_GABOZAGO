@@ -4,9 +4,7 @@
 <%@page import="java.util.List"%>
 <%
 List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
-
-String [] places = request.getParameterValues("place");
-
+String Sname = request.getParameter("Sname"); 
 %> 
 <!DOCTYPE html>
 <html>
@@ -32,37 +30,38 @@ String [] places = request.getParameterValues("place");
             <!-- 가이드 리스트 -->
             <div style="float: left; width: 100%; height: 740px;margin: 20px;">
            		<div class="row" style="width: 90%">
-				<form action="plan.do" method="get">
+				<form action="sname.do" name="sch">
 				<!-- 일정 상세 목록 부분 -->
 	            <div style="float: left; width: 100%; height: 40px;">
-	                &nbsp;<b>일정 plan</b> &nbsp;&nbsp;
-	                <button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn" style="float: right;">여행만들기</button>
+	               <a href="guideAll.do"><b><%=Sname%></b></a>
+	                <button type="submit" 
+	                class="btn btn-outline btn-primary pull-right" id="selectBtn" 
+	                style="float: right">여행만들기</button>
 	                <hr>
 	                <br><br>
 	            </div>
 				
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
-					<tr>
-						<!-- <th>일정 추가</th> -->
-						<th>이름/주소</th>
-						<!-- <th>주소</th> -->
-					</tr>
-					<%
-					if (places != null) {
-						for (String place : places) {
-					%>
 						<tr>
-							<td><%=place%></td>
-							<%-- <td><%=place %></td> --%>
-							<%-- <td><input type="checkbox" name="place" value="<%=place%>"><%=place%></td> --%>
-				
+							<th>일정 추가</th>
+							<th>이름</th>
+							<th>주소</th>
 						</tr>
-				
-					<%
-				
+						<%
+							if (list != null) {
+								for (GuideVo gVo : list) {
+							%>
+							<tr>
+								<td><input type="checkbox" name="placeNum" value="<%=gVo.getPlacenum()%>"><%=gVo.getPlacenum()%></td>
+								<td><%=gVo.getPlacename() %></td>
+								<td><%=gVo.getAdress()%></td>
+							</tr>
+						
+						<%
+						
+							}
 						}
-					}
-					%>
+						%>
 				</table>
 				</form>
 				</div>

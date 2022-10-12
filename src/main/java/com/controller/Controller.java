@@ -167,14 +167,18 @@ public class Controller extends HttpServlet {
 			ViewPage = "/PAGE/Schedule/planList.jsp";
 			break;
 			
-		case "/planList.do":
-			System.out.println("controller" + request.getParameter("place"));
-			String[] places = request.getParameterValues("place"); 
-			System.out.println(places);
-			/* request.setAttribute("places", places); */
-			session.setAttribute("places", places);
-			ViewPage = "/PAGE/Schedule/writePlan.jsp";
+		case "/planList.do":	// 가이드에서 선택한 일정 목록(일정만들기)
+			String resultPlacenum = request.getParameter("placenum");
+			request.setAttribute("placenum", resultPlacenum);
+			request.setAttribute("userid", session.getAttribute("userId"));
+			String resultSName = request.getParameter("Sname");
+			request.setAttribute("Sname", resultSName);
+			command = new planListCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 장소 목록 페이지로 이동
 			break;
+			
+			
 		// plan.do 에서 일정 눌렀을때 다시 아래 페이지로 이동해야함
 		case "":
 			ViewPage = "/PAGE/Schedule/writePlan.jsp";

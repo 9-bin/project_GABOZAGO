@@ -28,6 +28,12 @@ public class GuideVo {
 		this.longtiude = longtiude;
 	}
 	
+	public GuideVo(String placename, String adress, int placenum) {
+		this.placename = placename;
+		this.adress = adress;
+		this.placenum = placenum;
+	}
+	
 	public GuideVo(String placename, String adress) {
 		this.placename = placename;
 		this.adress = adress;
