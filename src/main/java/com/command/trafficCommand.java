@@ -24,6 +24,8 @@ public class trafficCommand implements Command {
 		int local = 1;
 		int placetype = 1;
 		String keyword ="";
+		String startplace="";
+		String endplace="";
 		
 		System.out.println("3 - guideResultCommand : " + request.getAttribute("local").getClass().getSimpleName());
 		System.out.println("3 - guideResultCommand : " + request.getAttribute("placetype").getClass().getSimpleName());
@@ -34,14 +36,18 @@ public class trafficCommand implements Command {
 			local = (Integer)request.getAttribute("local");
 			placetype = (Integer)request.getAttribute("placetype");
 			keyword = (String)request.getAttribute("keyword");
+			startplace = (String)request.getAttribute("startplace");
+			endplace = (String)request.getAttribute("endplace");
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
 		
 		
-		System.out.println("3-1 - guideResultCommand : " + local);
-		System.out.println("3-1 - guideResultCommand : " + placetype);
-		System.out.println("3-1 - guideResultCommand : " + keyword);
+		System.out.println("3-1 - trafficCommand : " + local);
+		System.out.println("3-1 - trafficCommand : " + placetype);
+		System.out.println("3-1 - trafficCommand : " + keyword);
+		System.out.println("3-1 - trafficCommand : " + startplace);
+		System.out.println("3-1 - trafficCommand : " + endplace);
 		
 		list = null;
 		page = 1;
@@ -78,6 +84,8 @@ public class trafficCommand implements Command {
 		request.setAttribute("local", local);
 		request.setAttribute("placetype", placetype);
 		request.setAttribute("keyword", keyword);
+		request.setAttribute("startplace", startplace);
+		request.setAttribute("endplace", endplace);
 		request.setAttribute("guideList", list);
 		request.setAttribute("paging", paging);
 		System.out.println("local : " + local);

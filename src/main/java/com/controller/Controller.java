@@ -188,6 +188,8 @@ public class Controller extends HttpServlet {
 			
 		case "/trafficNext.do":
 			System.out.println("1 - controller : " + request.getParameter("local"));
+			System.out.println("1 - controller : " + request.getParameter("startplace"));
+			System.out.println("1 - controller : " + request.getParameter("endplace"));
 			command = new trafficNextCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Traffic/trafficSearch.jsp";
@@ -197,13 +199,20 @@ public class Controller extends HttpServlet {
 //			System.out.println("gu - controller : " + session.getAttribute("local").getClass().getTypeName());
 //			System.out.println("gu - controller : " + session.getAttribute("placetype"));
 //			System.out.println("gu - controller : " + session.getAttribute("keyword"));
+			System.out.println("gu - controller : " + session.getAttribute("startplace"));
+			System.out.println("gu - controller : " + session.getAttribute("endplace"));
+			
 			int local = (Integer)session.getAttribute("local");
 			int placetype = (Integer)session.getAttribute("placetype");
 			Object keyword = session.getAttribute("keyword");
+			Object startplace = session.getAttribute("startplace");
+			Object endplace = session.getAttribute("endplace");
 			
 			request.setAttribute("local", local);
 			request.setAttribute("placetype", placetype);
 			request.setAttribute("keyword", keyword);
+			request.setAttribute("startplace", startplace);
+			request.setAttribute("endplace", endplace);
 			command = new trafficCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Traffic/traffic.jsp";

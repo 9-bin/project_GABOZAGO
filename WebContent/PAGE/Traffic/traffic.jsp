@@ -45,9 +45,9 @@
 						<input type="text" style = "width:190px;" name="keyword" value="${keyword}" aria-label="장소 검색">
 						<input type="submit" value="검색">
 					</div>
+					<input type="text" class="form-control" id="startplace" name="startplace" placeholder="출발지" value="${startplace}"/>
+					<input type="text" class="form-control" id="endplace" name="endplace" placeholder="도착지" value="${endplace}"/>
 				</form>
-			<input type="text" class="form-control" id="startplace" placeholder="출발지" value="" readonly/>
-			<input type="text" class="form-control" id="endplace" placeholder="도착지" value="" readonly/>
 			</div>
         		<!-- 교통 수단 -->
        		<div style="height: 90px;">
