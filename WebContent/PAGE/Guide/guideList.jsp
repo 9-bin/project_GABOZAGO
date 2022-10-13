@@ -24,7 +24,7 @@ table{
 </head>
 <body>
 <div class="row" style="width: 90%">
-<form action="planList.do" name="sfrm" >
+<form action="writePlan.do" name="sfrm" >
 <table>
 <tr>
 	<th>
