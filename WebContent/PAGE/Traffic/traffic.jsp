@@ -55,7 +55,7 @@
        				<input type="image" src="/PJ_GABOZAGO/Image/car-front-fill.svg" class="btn btn-primary" style="width: 100%;">
        			</div>
        			<div style="float: left; width: 25%;">
-       				<input type="image" src="/PJ_GABOZAGO/Image/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
+       				<input onclick='newPage()' type="image" src="/PJ_GABOZAGO/Image/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
        			</div>
        			<div style="float: left; width: 25%;">
        				<input type="image" src="/PJ_GABOZAGO/Image/bicycle.svg" class="btn btn-primary" value="자전거" style="width: 100%;">
@@ -80,4 +80,13 @@
         </div>
 	</div>
 </body>
+<script>
+function newPage()  {
+	var sp = document.getElementById("startplace"). value;
+	var ep = document.getElementById("endplace"). value;
+	var openNewWindow = window.open("about:blank");
+	openNewWindow.location.href = "https://www.google.com/maps/dir/" + sp + "/" + ep;
+	}
+
+</script>
 </html>
