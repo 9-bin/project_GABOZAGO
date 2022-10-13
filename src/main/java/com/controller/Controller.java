@@ -19,15 +19,14 @@ import com.command.dbCheckCommand;
 import com.command.deleteUserCommand;
 import com.command.guideAllCommand;
 import com.command.guideNextCommand;
-import com.command.guidePlanCommand;
 import com.command.guideResultCommand;
 import com.command.joinCommand;
 import com.command.loginCommand;
-import com.command.memberListCommand;
 import com.command.planListCommand;
 import com.command.trafficCommand;
 import com.command.trafficNextCommand;
 import com.command.updateMemberCommand;
+import com.command.writePlanCommand;
 
 
 @WebServlet("*.do")
@@ -170,15 +169,26 @@ public class Controller extends HttpServlet {
 			ViewPage = "/PAGE/Schedule/planList.jsp";
 			break;
 			
-		case "/planList.do":	// 가이드에서 선택한 일정 목록(일정만들기)
+		case "/writePlan.do": // 가이드에서 선택한 장소 목록(일정만들기)
 			String resultPlacenum = request.getParameter("placenum");
-			request.setAttribute("placenum", resultPlacenum);
-			request.setAttribute("userid", session.getAttribute("userId"));
 			String resultSName = request.getParameter("Sname");
+			request.setAttribute("userId", session.getAttribute("userId"));
+			request.setAttribute("placenum", resultPlacenum);
 			request.setAttribute("Sname", resultSName);
-			command = new planListCommand();
+			
+			System.out.println("resultPlacenum"+ resultPlacenum);
+			System.out.println("resultSName"+ resultSName);
+
+			command = new writePlanCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 장소 목록 페이지로 이동
+			break;
+			
+			
+		case "/planList.do":	// 가이드에서 선택한 일정 목록(일정만들기)
+			command = new planListCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 일정 목록 페이지로 이동
 			break;
 			
 			

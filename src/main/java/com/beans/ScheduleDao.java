@@ -11,6 +11,7 @@ import java.util.List;
 import com.util.A;
 
 
+
 public class ScheduleDao {
 		
 	Connection conn = null;
@@ -37,43 +38,45 @@ public class ScheduleDao {
 	// 입력값: 가이드 장소 정보
 	// 반환값: 쿼리 수행 결과 (result == -1 오류/ 1 정상)
 	   public int insertPlace(ScheduleVo sVo) throws SQLException {
-			// 정보 삽입 										
-			String sql_insert = "insert into schedule values (?, ?, ?, ?)";
-			
+			// 정보 삽입 										sql 자동 코드 번호 삽입
+			String sql = "insert into schedule values (ss.nextval, ?, ?, ?)";
+//			String sql = "INSERT INTO Schedule (schedulenum, userid, schedulename, placenum) VALUES (ss.nextval, '1', 'test1', '74')";
+
 			int result = -1;
-			Connection conn = null;
-			PreparedStatement pstmt = null;		// 동적쿼리
 			
 			try {
-				// 3단계 Statement 객체 생성
-				pstmt = conn.prepareStatement(sql_insert);
-				pstmt.setInt(1, sVo.getSchedulenum());			//?에 들어갈거 하나씩 만들어주기
-				pstmt.setString(2, sVo.getUserid());
+				// 3단계 Statement 객체 생성 ?에 들어갈거 하나씩 만들어주기
+				pstmt = conn.prepareStatement(sql);
+//				pstmt.setInt(1, sVo.getSchedulenum());	// 자동 생성		
+				pstmt.setString(1, sVo.getUserid()); 
+				pstmt.setString(2, sVo.getSchedulename()); 
 				pstmt.setInt(3, sVo.getPlacenum());
-				pstmt.setString(4, sVo.getSchedulename());
+
+				
+				System.out.println("id: "+ sVo.getUserid());
+				System.out.println("Sname: "+ sVo.getSchedulename());
+				System.out.println("Pnum: "+ sVo.getPlacenum());
+
 				// 4단계 SQL문 실행 및 결과 처리
 				// executeUpdate : 삽입(insert/update/delete) 업데이트로 새로운 정보 입력
 				// executeQuery : 조회(select)
 				result = pstmt.executeUpdate();				// 쿼리 수행
+				System.out.println("DB 입력 성공");
 			
 			} catch (Exception e) {
 				e.printStackTrace();
+				System.out.println("SQL 에러 : " + e.getMessage());
 			}finally {
 				close();
 			}
 			return result;
 		}
-	   
 		// 전체 일정 조회
 		public List<ScheduleVo> selectPlan() throws SQLException {
 			// 쿼리문			모든 정보 코드 내림차순(desc)/오름차순(asc) 정렬 하여 가져온다
 			String sql = "select * from schedule";
 			
 			List<ScheduleVo> list = new ArrayList<ScheduleVo>();	// 리스트 컬렉션 객체 생성
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
-
 			try {
 //		   	    3단계 - Statement 객체 생성
 		   	    pstmt = conn.prepareStatement(sql);	// SQL문 사용할 수 있는 객체 생성
@@ -109,9 +112,7 @@ public class ScheduleDao {
 		// 단일 상품 조회(code) => 단일 상품 정보 반환
 		public ScheduleVo selectPlaceByNum(int placenum) throws SQLException {
 			String sql = "select * from schedule where placenum=?";	// 쿼리문
-			Connection conn = null;
-			PreparedStatement pstmt = null;
-			ResultSet rs = null;
+
 			ScheduleVo sVo = null;
 
 			try { 

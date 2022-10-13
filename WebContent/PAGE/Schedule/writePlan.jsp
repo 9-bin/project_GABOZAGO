@@ -5,6 +5,11 @@
 <%
 List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 String Sname = request.getParameter("Sname"); 
+
+String userId = (String) session.getAttribute("userId");	// 세션값 얻어오기
+request.setAttribute("userId", userId);						// 세션값 저장하기
+// 디버깅
+System.out.println("jsp userId " + userId);
 %> 
 <!DOCTYPE html>
 <html>
