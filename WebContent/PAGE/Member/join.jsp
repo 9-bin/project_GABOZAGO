@@ -104,7 +104,7 @@
     			document.frm.userid.focus();
     			return false;
     		} else {
-    			window.open("${contextPath}/PJ_GABOZAGO/dbCheckId.do?userid="+id, "", "width = 500, height = 300");
+    			window.open("${contextPath}/PJSTUDY/dbCheckId.do?userid="+id, "", "width = 500, height = 300");
     		}
 		}
     	

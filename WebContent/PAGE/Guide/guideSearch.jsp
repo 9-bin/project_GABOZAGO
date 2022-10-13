@@ -42,8 +42,7 @@ table{
            			<table style="border-collapse: collapse;">
            				<tr>
            					<td><select name="guideSearch">
-           							<option value="0" selected="selected">유형선택</option>
-           							<option value="1">관광지</option>
+           							<option value="1" selected="selected">관광지</option>
            							<option value="2">레포츠</option>
            							<option value="3">문화시설</option>
            							<option value="4">숙박시설</option>
@@ -58,6 +57,7 @@ table{
            				</tr>
            			</table>
            		</form>
+           		
 				<form action="planList.do" method="get">
 				<button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
@@ -86,7 +86,7 @@ table{
 				</form>
 				</div>
 				<%-- ${local} 디버깅 --%>
-				<jsp:include page="./grPaging.jsp" flush = "false">
+				<jsp:include page="./gsPaging.jsp" flush = "false">
 					<jsp:param value="${paging.page}" name="page"/>
 					<jsp:param value="${paging.beginPage}" name="beginPage"/>
 					<jsp:param value="${paging.endPage}" name="endPage"/>

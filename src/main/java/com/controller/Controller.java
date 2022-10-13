@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.command.Command;
 import com.command.adminMemberCommand;
+import com.command.adminUserDeleteCommand;
 import com.command.adminUserInfoCommand;
 import com.command.adminUserUpdateCommand;
 import com.command.adminUserUpdateOKCommand;
@@ -20,6 +21,8 @@ import com.command.deleteUserCommand;
 import com.command.guideAllCommand;
 import com.command.guideNextCommand;
 import com.command.guideResultCommand;
+import com.command.guideSearchCommand;
+import com.command.guideSearchOKCommand;
 import com.command.joinCommand;
 import com.command.loginCommand;
 import com.command.planListCommand;
@@ -89,6 +92,7 @@ public class Controller extends HttpServlet {
 			session.setAttribute("email", request.getAttribute("email"));
 			session.setAttribute("gender", request.getAttribute("gender"));
 			session.setAttribute("phone", request.getAttribute("phone"));
+			session.setAttribute("userno", request.getAttribute("userno"));
 //			System.out.println("controller : " + request.getAttribute("name") + " | " +  request.getAttribute("gender"));
 			ViewPage = "/PAGE/Member/loginOK.jsp";
 			break;
@@ -161,6 +165,26 @@ public class Controller extends HttpServlet {
 			command = new guideResultCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Guide/guideResult.jsp";
+			break;
+			
+		case "/guideSearch.do":
+			System.out.println("controller guideSearch : " + request.getParameter("guideSearch") + " | " + request.getParameter("guideKeyword"));
+			request.setAttribute("type", request.getParameter("guideSearch"));
+			request.setAttribute("key", request.getParameter("guideKeyword"));
+			command = new guideSearchCommand();
+			ViewPage = "/PAGE/Guide/guideSelectType.jsp";
+			break;
+			
+		case "/guideSearchOK.do":
+			int searchLocal = (Integer)session.getAttribute("Local");
+			request.setAttribute("Local", searchLocal);
+			request.setAttribute("type", session.getAttribute("Type"));
+			request.setAttribute("key", session.getAttribute("Key"));
+			System.out.println("controller searchOK : " + session.getAttribute("Local") + " | " + 
+												session.getAttribute("Type") + " | " + session.getAttribute("Key"));
+			command = new guideSearchOKCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Guide/guideSearch.jsp";
 			break;
 			
 			
@@ -248,6 +272,10 @@ public class Controller extends HttpServlet {
 			break;
 			
 		case "/adminUserDelete.do":	// 관리자가 회원 삭제
+			System.out.println("controller-adminDelete : " + request.getParameter("id"));
+			command = new adminUserDeleteCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/adminUserDeleteOK.jsp";
 			break;
 			
 		case "/adminUserUpdate.do":	// 관리자가 회원 정보 수정
