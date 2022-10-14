@@ -5,6 +5,22 @@ public class ScheduleVo {
 	private String userid;
 	private int placenum;
 	private String schedulename;
+	
+	public ScheduleVo() {
+		
+	}
+	
+	public ScheduleVo(String schedulename) {
+		this.schedulename = schedulename;
+	}
+	
+	public ScheduleVo(int schedulenum, String userid, int placenum, String schedulename){
+		this.schedulenum = schedulenum;
+		this.userid = userid;
+		this.placenum = placenum;
+		this.schedulename = schedulename;
+	}
+	
 	public int getSchedulenum() {
 		return schedulenum;
 	}

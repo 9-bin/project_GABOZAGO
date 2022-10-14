@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="java.util.List" %>
+<%@page import="com.beans.ScheduleVo"%>
+<%
+List<ScheduleVo> list = (List<ScheduleVo>) request.getAttribute("scheduleList");%> 
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,38 +33,31 @@
                     </table>
                 </form>
             </div>
-            <!-- 목록 보여주기 -->
+                        <!-- 목록 보여주기 -->
             <div style="float: left; width: 100%; height: 550px;">
-				<br>
-				<!-- 생성된 일정 목록 보여주기 -->
-				<form action="guide.do" method="post">
-						<table>
-						<c:forEach var="plan" items="${planList}">	 <!-- 정의 안함 일단 써둔거 -->
-							<tr>
-								<th>
-									<input type="checkbox" name="planNum" value="${planList}">
-									<a href="writePlan.jsp">일정</a>
-								</th>
-				
-						</tr>
-						<!-- 생성된 일정 목록 보여주기 -->
-							<tr>
-								<td>${planList.placename}</td>
-							</tr>
-						</c:forEach>
-						<th>
-						   <input type="hidden" value="planNum">
-						   <input type="submit" value="등록">
-						   <input type="reset" value="취소">
-						</th>
-						</table>
-						<hr>
-				</form>
-            </div>           
-            <div style="height: 25px;">
-				<!-- 부트스트랩 활용 페이징네이션 include -->
-				<jsp:include page="../../Module/menu/pagination.jsp" flush="false"/>
-            </div>
+				<table id="example-table-3" width="100%" class="table table-bordered table-hover text-center">
+	<tr>
+		<th>일정명</th>
+	</tr>
+	<%
+	if (list != null) {
+		for (ScheduleVo sVo : list) {
+	%>
+		<tr>
+			<td><%=sVo.getSchedulename()%></td>
+		</tr>
+	<%
+		}
+	}
+	%>
+</table>
+<jsp:include page="./Paging.jsp" flush = "false">
+<jsp:param value="${paging.page}" name="page"/>
+<jsp:param value="${paging.beginPage}" name="beginPage"/>
+<jsp:param value="${paging.endPage}" name="endPage"/>
+<jsp:param value="${paging.prev}" name="prev"/>
+<jsp:param value="${paging.next}" name="next"/>
+</jsp:include>
         </div>
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">

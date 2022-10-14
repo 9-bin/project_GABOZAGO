@@ -111,6 +111,7 @@ public class ScheduleDao {
 	   	// 선택한 가이드 장소 조회
 		// 단일 상품 조회(code) => 단일 상품 정보 반환
 		public ScheduleVo selectPlaceByNum(int placenum) throws SQLException {
+
 			String sql = "select * from schedule where placenum=?";	// 쿼리문
 
 			ScheduleVo sVo = null;
@@ -140,6 +141,57 @@ public class ScheduleDao {
 		      }
 			return sVo;
 			
+		}
+		
+		public int getAllCount(String userid) throws SQLException {
+			int count = 0;
+			
+			try {
+				pstmt = conn.prepareStatement(A.SQL_SCHEDULE_COUNT);
+				pstmt.setString(1, userid);
+				rs = pstmt.executeQuery();
+				
+				if (rs.next()) {
+					count = rs.getInt("count");
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return count;
+		}
+		
+		public List<ScheduleVo> selectIDSchedule(Paging paging, String userid) throws SQLException {
+			List<ScheduleVo> list = null;
+			int startNum = paging.getStartNum();
+			int endNum = paging.getEndNum(); 
+			System.out.println(startNum + " | " + endNum);
+			
+			try {
+				pstmt = conn.prepareStatement(A.SQL_SCHEDULE_ID);
+				pstmt.setString(1, userid);
+				pstmt.setInt(2, startNum);
+				pstmt.setInt(3, endNum);
+				
+				rs = pstmt.executeQuery();
+				list = getSchedule(rs);
+			} finally {
+				close();
+			}		
+			return list;
+		}
+		
+		public List<ScheduleVo> getSchedule(ResultSet rs) throws SQLException {
+			List<ScheduleVo> list = new ArrayList<>();
+			
+			while (rs.next()) {
+
+				String schedulename = rs.getString("schedulename");
+				
+				
+				ScheduleVo sVo = new ScheduleVo(schedulename);
+				list.add(sVo);
+			}
+			return list;
 		}
 
 }

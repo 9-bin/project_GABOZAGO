@@ -25,6 +25,7 @@ import com.command.guideSearchCommand;
 import com.command.guideSearchOKCommand;
 import com.command.joinCommand;
 import com.command.loginCommand;
+import com.command.planAllCommand;
 import com.command.planListCommand;
 import com.command.trafficCommand;
 import com.command.trafficNextCommand;
@@ -188,39 +189,42 @@ public class Controller extends HttpServlet {
 			break;
 			
 			
-// 일정
-		case "/plan.do":
-			ViewPage = "/PAGE/Schedule/planList.jsp";
-			break;
-			
-		case "/writePlan.do": // 가이드에서 선택한 장소 목록(일정만들기)
-			String resultPlacenum = request.getParameter("placenum");
-			String resultSName = request.getParameter("Sname");
-			request.setAttribute("userId", session.getAttribute("userId"));
-			request.setAttribute("placenum", resultPlacenum);
-			request.setAttribute("Sname", resultSName);
-			
-			System.out.println("resultPlacenum"+ resultPlacenum);
-			System.out.println("resultSName"+ resultSName);
+			// 일정
+					case "/plan.do":
+						request.setAttribute("userId", session.getAttribute("userId"));
+						command = new planAllCommand();
+						command.execute(request, response);
+						ViewPage = "/PAGE/Schedule/planList.jsp";
+						break;
+						
+					case "/writePlan.do": // 가이드에서 선택한 장소 목록(일정만들기)
+						String resultPlacenum = request.getParameter("placenum");
+						String resultSName = request.getParameter("Sname");
+						request.setAttribute("userId", session.getAttribute("userId"));
+						request.setAttribute("placenum", resultPlacenum);
+						request.setAttribute("Sname", resultSName);
+						
+						System.out.println("resultPlacenum"+ resultPlacenum);
+						System.out.println("resultSName"+ resultSName);
 
-			command = new writePlanCommand();
-			command.execute(request, response);
-			ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 장소 목록 페이지로 이동
-			break;
-			
-			
-		case "/planList.do":	// 가이드에서 선택한 일정 목록(일정만들기)
-			command = new planListCommand();
-			command.execute(request, response);
-			ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 일정 목록 페이지로 이동
-			break;
-			
-			
-		// plan.do 에서 일정 눌렀을때 다시 아래 페이지로 이동해야함
-		case "":
-			ViewPage = "/PAGE/Schedule/writePlan.jsp";
-			break;
-			
+						command = new writePlanCommand();
+						command.execute(request, response);
+						ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 장소 목록 페이지로 이동
+						break;
+						
+						
+					case "/planList.do":	// 가이드에서 선택한 일정 목록(일정만들기)
+						command = new planListCommand();
+						command.execute(request, response);
+						ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 일정 목록 페이지로 이동
+						break;
+						
+						
+					// plan.do 에서 일정 눌렀을때 다시 아래 페이지로 이동해야함
+					case "":
+						ViewPage = "/PAGE/Schedule/writePlan.jsp";
+						break;
+						
 			
 // 교통
 		case "/traffic.do":

@@ -51,6 +51,9 @@ public class A {
 	
 	public static final String SQL_PLAN_CNT = "select COUNT(*) as count from GUIDE where placenum=?";
 	
+	public static final String SQL_SCHEDULE_ID = "SELECT * FROM (SELECT * FROM (select Rownum row_num, schedulename from (select scheduleName scheduleName from schedule group by schedulename, userid having userid=? order by schedulename)) where row_num >= ?) where row_num <= ?";
+	
+	public static final String SQL_SCHEDULE_COUNT = "select count(count) as count from (select count(scheduleName) as count from schedule group by schedulename, userid having userid=? order by schedulename)";
 	
 // 관리자
 	public static final String SQL_ADMIN_MEMBER = "update member1 set name=?, email=?, phone=?, gender=?, admin=? where userid=?";	
