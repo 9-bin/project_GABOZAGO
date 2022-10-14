@@ -86,6 +86,25 @@ public class GuideDao {
 		return list;
 	}
 	
+	public List<GuideVo> getAllGuide(ResultSet rs) throws SQLException {
+		List<GuideVo> list = new ArrayList<>();
+		
+		while (rs.next()) {
+			int placenum = rs.getInt("placenum");
+			int local = rs.getInt("local");
+			int placetype = rs.getInt("placetype");
+			String placename = rs.getString("placename");
+			String placephone = rs.getString("placephone");
+			String adress = rs.getString("adress");
+			float latitude = rs.getFloat("latitude");
+			float longtiude = rs.getFloat("longtiude");
+
+			GuideVo gVo = new GuideVo(placenum, local, placetype, placename, placephone, adress, latitude, longtiude);
+			list.add(gVo);
+		}
+		return list;
+	}
+	
 	public int getCount(int local) throws SQLException{
 		int count = 0;
 		
@@ -169,7 +188,7 @@ public class GuideDao {
 			pstmt.setInt(5, endNum);
 			
 			rs = pstmt.executeQuery();
-			list = getGuide(rs);
+			list = getAllGuide(rs);
 		} finally {
 			close();
 		}		

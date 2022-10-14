@@ -38,7 +38,7 @@ table{
 		for (GuideVo gVo : list) {
 	%>
 		<tr>
-			<td><%=gVo.getPlacename()%></td>
+			<td onclick="marking<%=c%>()"><%=gVo.getPlacename()%><input type="hidden" id="Latitude<%=c%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=c%>" value="<%=gVo.getLongtiude()%>"></td>
 			<td>
 				<button id="<%=a%>" onclick="startPlace<%=c%>()" value="<%=gVo.getPlacename()%>">출발지</button>
   				<button id="<%=b%>" onclick="endPlace<%=c%>()" value="<%=gVo.getPlacename()%>">도착지</button>
@@ -61,6 +61,7 @@ table{
 <jsp:param value="${paging.next}" name="next"/>
 </jsp:include>
 <script src="Script/selectStartEnd.js"></script>
+<script src="Script/marking.js"></script>
 </div>
 </body>
 </html>

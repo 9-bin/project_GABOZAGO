@@ -48,6 +48,9 @@
 					<input type="text" class="form-control" id="startplace" name="startplace" placeholder="출발지" value="${startplace}"/>
 					<input type="text" class="form-control" id="endplace" name="endplace" placeholder="도착지" value="${endplace}"/>
 				</form>
+				<input type="hidden" id="markerLat" value="36.7676050697">
+				<input type="hidden" id="markerLon" value="126.9824067374">
+				<input type="hidden" id="pn" value="아산 희안마을">
 			</div>
         		<!-- 교통 수단 -->
        		<div style="height: 90px;">
@@ -76,7 +79,7 @@
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-			<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
+			<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
         </div>
 	</div>
 </body>

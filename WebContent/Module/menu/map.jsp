@@ -20,23 +20,34 @@
 	<div id="map" style="width:100%; height:100%; float:left; position:absolute; z-index:10;">
 	</div>
 	
-	
 	<!-- 버튼 -->
-	</div>
-
-     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6jkkm5M6hIzD1nfdI6A3A1sr1wxcRGo&callback=initMap&region=kr"></script>
-  <script>
-    function initMap() {
-      var seoul = { lat: 37.5642135 ,lng: 127.0016985 };
-      var map = new google.maps.Map(
-        document.getElementById('map'), {
-          zoom: 12,
-          center: seoul
-        });
-      
-    }
-  </script>
-
+</div>
 
 </body>
+     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDH6jkkm5M6hIzD1nfdI6A3A1sr1wxcRGo&callback=initMap&region=kr"></script>
+	<script>
+	function initMap(){
+		var Latitude = parseFloat(document.getElementById('markerLat').value);
+		var Longtiude = parseFloat(document.getElementById('markerLon').value);
+		var placename = document.getElementById('pn').value;
+		// 좌표 설정
+		const myLatLng ={
+				lat: Latitude,
+				lng: Longtiude
+		};
+			
+		//맵 설정 및 생성
+		const map=new google.maps.Map(document.getElementById("map"),{
+			center: myLatLng,
+			zoom: 12
+		});
+			
+		// 마커 설정 및 생성
+		new google.maps.Marker({
+			position: myLatLng,
+			map,
+			title: placename
+		});
+	}
+	</script>
 </html>
