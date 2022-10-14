@@ -20,7 +20,7 @@ public class A {
 	
 	public static final String SQL_MEMBER_COUNT = "select count(*) as count from member1";
 	
-	public static final String SQL_MEMBER_ALL = "select * from ( select * from ( SELECT ROWNUM row_num, member1.* FROM member1 ) where row_num >= ? ) where row_num <= ? ";
+	public static final String SQL_MEMBER_ALL = "select * from ( select * from ( SELECT ROWNUM row_num, member1.* FROM member1 order by userno ) where row_num >= ? ) where row_num <= ? ";
 	
 	public static final String SQL_SELECT_MEMBER_LIST = "select * from member1 order by userno";
 	
@@ -45,6 +45,9 @@ public class A {
 	
 	public static final String SQL_SEARCH_COUNT = "select COUNT(*) as count from GUIDE where LOCAL=? and placetype = ? and placename like ?";
 
+	public static final String SQL_ALL_SEARCH_COUNT = "select COUNT(*) as count from GUIDE where placetype = ?";
+	
+	public static final String SQL_ALL_SEARCH = "SELECT * FROM (SELECT * FROM ( SELECT ROWNUM row_num, guide.* from guide WHERE placetype = ?) where row_num >= ? ) where row_num <= ?";
 	
 // 일정
 	public static final String SQL_SELECT_PNO = "select * from guide where placenum=?";

@@ -176,6 +176,28 @@ public class GuideDao {
 		return list;
 	}
 	
+	//	검색된 가이드 리스트 가져오기(전체목록에서)
+	public List<GuideVo> searchGuide(Paging paging, int placetype) throws SQLException {
+		List<GuideVo> list = null;
+		int startNum = paging.getStartNum();
+		int endNum = paging.getEndNum(); 
+		System.out.println(startNum + " | " + endNum);
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_ALL_SEARCH);
+			pstmt.setInt(1, placetype);
+			pstmt.setInt(2, startNum);
+			pstmt.setInt(3, endNum);
+			
+			rs = pstmt.executeQuery();
+			list = getGuide(rs);
+		} finally {
+			close();
+		}		
+		return list;
+	}
+	
+	// 검색한 가이드 리스트 개수 가져오기(페이징)
 	public int getSearchCount(int local, int placetype, String keyword) throws SQLException{
 		int count = 0;
 		
@@ -196,44 +218,63 @@ public class GuideDao {
 		return count;
 	}
 		
-		// 가이드 리스트 장소번호으로 가져오기 함수
-		   public List<GuideVo> selectAllGuidesByNo(int placenum) throws SQLException {
-			   String sql = "select * from guide where placenum =?";
-			   List<GuideVo> list = null;
-			   
-			   try {
-				   pstmt = conn.prepareStatement(sql);
-				   pstmt.setInt(1, placenum);
-				   rs=pstmt.executeQuery();
-				   list = getGuide(rs);
-				   
-			   }catch(Exception e) {
-				   e.printStackTrace();
-			   }finally {
-				   close();
-			   }
-			   return list;
-		   }
+	// 검색한 가이드 리스트 개수 가져오기
+	public int getSearchGuideCount(int placetype) throws SQLException{
+		int count = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_ALL_SEARCH_COUNT);
+			pstmt.setInt(1, placetype);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+	
+	// 가이드 리스트 장소번호으로 가져오기 함수
+    public List<GuideVo> selectAllGuidesByNo(int placenum) throws SQLException {
+	   String sql = "select * from guide where placenum =?";
+	   List<GuideVo> list = null;
+	   
+	   try {
+		   pstmt = conn.prepareStatement(sql);
+		   pstmt.setInt(1, placenum);
+		   rs=pstmt.executeQuery();
+		   list = getGuide(rs);
 		   
-		   // 일정 선택 갯수세기
-		   public int getPlanCnt(int placenum) throws SQLException{
-			   
-			   int cnt = 0;
-			   
-			   try {
-					pstmt = conn.prepareStatement(A.SQL_PLAN_CNT);
-					pstmt.setInt(1, placenum);
-					
-					
-					rs = pstmt.executeQuery();
-					
-					if(rs.next()) {
-						cnt = rs.getInt("count");
-					}
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				return cnt;
+	   }catch(Exception e) {
+		   e.printStackTrace();
+	   }finally {
+		   close();
+	   }
+	   return list;
+   }
+   
+    // 일정 선택 갯수세기
+    public int getPlanCnt(int placenum) throws SQLException{
+	   
+	   int cnt = 0;
+	   
+	   try {
+			pstmt = conn.prepareStatement(A.SQL_PLAN_CNT);
+			pstmt.setInt(1, placenum);
+			
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				cnt = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return cnt;
 		
 		
 		

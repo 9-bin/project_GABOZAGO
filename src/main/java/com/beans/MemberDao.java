@@ -318,27 +318,14 @@ public class MemberDao {
 	// 회원 삭제
 	public int deleteMember(String userid) throws SQLException {
 		int result = -1;
-
-		MemberVo mVo = null;
 		
 		try {
 			pstmt = conn.prepareStatement(A.SQL_DELETE_MEMBER);
 			pstmt.setString(1, userid);
 			
-			rs = pstmt.executeQuery();
-			if (rs.next()) {
-			mVo = new MemberVo();
-			
-			mVo.setName(rs.getString("name"));
-			mVo.setUserid(rs.getString("userid"));
-			mVo.setPassword(rs.getString("password"));
-			mVo.setEmail(rs.getString("email"));
-			mVo.setPhone(rs.getString("phone"));
-			mVo.setGender(rs.getString("gender"));
-			mVo.setAdmin(rs.getInt("admin"));
-			} else {
-				result = -1;		// DB에 아이디 없음
-			}
+			// 쿼리 수행
+			result = pstmt.executeUpdate();
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

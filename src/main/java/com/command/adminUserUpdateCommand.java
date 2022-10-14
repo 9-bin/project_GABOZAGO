@@ -14,6 +14,8 @@ public class adminUserUpdateCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String userId = (String)request.getParameter("id");
+		
+		System.out.println("adminUserUpdateCom : " + userId); // ok
 		List<MemberVo> list = null;
 		
 		try {

@@ -4,6 +4,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%
  String userid = (String)request.getAttribute("id");
+ request.setAttribute("id", userid);
+/*  System.out.println("adminUserUpdate.jsp : " + userid); */
  List<MemberVo> list = (List<MemberVo>) request.getAttribute("mVo");
 %>
 
@@ -75,7 +77,9 @@
 					<tbody>
 					  <tr>
 					    <td class="tg-c3ow" width="50"><%= mVo.getUserno() %></td>
-					    <td class="tg-c3ow" width="150"><%=mVo.getUserid() %></td>
+					    <td class="tg-c3ow" width="150">
+					   		<input type="text" value="<%=mVo.getUserid() %>" name="Userid" style="width: 50px;" readonly="readonly">
+					   	</td>
 					    <td class="tg-c3ow" width="150">
 					    	<input type="text" value="<%= mVo.getName() %>" name="Name" style="width: 80px;">
 					    </td>
