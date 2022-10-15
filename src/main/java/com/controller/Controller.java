@@ -27,10 +27,11 @@ import com.command.joinCommand;
 import com.command.loginCommand;
 import com.command.planAllCommand;
 import com.command.planListCommand;
+import com.command.scheduleDetailCommand;
+import com.command.scheduleNextCommand;
 import com.command.trafficCommand;
 import com.command.trafficNextCommand;
 import com.command.updateMemberCommand;
-import com.command.writePlanCommand;
 
 
 @WebServlet("*.do")
@@ -190,35 +191,44 @@ public class Controller extends HttpServlet {
 			
 			
 			// 일정
-					case "/plan.do":
+					case "/schedule.do":
 						request.setAttribute("userId", session.getAttribute("userId"));
 						command = new planAllCommand();
 						command.execute(request, response);
-						ViewPage = "/PAGE/Schedule/planList.jsp";
+						ViewPage = "/PAGE/Schedule/scheduleList.jsp";
 						break;
 						
-					case "/writePlan.do": // 가이드에서 선택한 장소 목록(일정만들기)
-						String resultPlacenum = request.getParameter("placenum");
-						String resultSName = request.getParameter("Sname");
-						request.setAttribute("userId", session.getAttribute("userId"));
-						request.setAttribute("placenum", resultPlacenum);
-						request.setAttribute("Sname", resultSName);
-						
-						System.out.println("resultPlacenum"+ resultPlacenum);
-						System.out.println("resultSName"+ resultSName);
-
-						command = new writePlanCommand();
+					case "/scheduleNext.do":
+						request.setAttribute("userid", session.getAttribute("userId"));
+						request.setAttribute("schedulename",request.getParameter("schedulename"));
+						System.out.println(session.getAttribute("userId"));
+						command = new scheduleNextCommand();
 						command.execute(request, response);
-						ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 장소 목록 페이지로 이동
+						ViewPage = "/PAGE/Schedule/scheduleNext.jsp";
+						break;
+						
+					case "/scheduleDetail.do": // 가이드에서 선택한 장소 목록(일정만들기)
+						request.setAttribute("userid", session.getAttribute("userId"));
+						request.setAttribute("schedulename",session.getAttribute("schedulename"));
+						System.out.println(session.getAttribute("schedulename"));
+						System.out.println(session.getAttribute("userid"));
+						command = new scheduleDetailCommand();	//스케쥴 리스트, paging 필요
+						command.execute(request, response);
+						ViewPage = "/PAGE/Schedule/scheduleDetail.jsp";	//선택된 장소 목록 페이지로 이동
 						break;
 						
 						
-					case "/planList.do":	// 가이드에서 선택한 일정 목록(일정만들기)
+					case "/scheduleList.do":	// 가이드에서 선택한 일정 목록(일정만들기)
 						command = new planListCommand();
 						command.execute(request, response);
-						ViewPage = "/PAGE/Schedule/writePlan.jsp";	//선택된 일정 목록 페이지로 이동
+						ViewPage = "/PAGE/Schedule/scheduleDetail.jsp";	//선택된 일정 목록 페이지로 이동
 						break;
 						
+					case"/scheduleAddPlace.do":
+						command = new guideAllCommand();
+						command.execute(request, response);
+						ViewPage = "/PAGE/Schedule/scheduleAddPlace.jsp";
+						break;
 						
 					// plan.do 에서 일정 눌렀을때 다시 아래 페이지로 이동해야함
 					case "":

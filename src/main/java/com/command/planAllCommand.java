@@ -42,7 +42,7 @@ public class planAllCommand implements Command {
 		int count = 0;
 			
 		try {
-			count = sDao.getAllCount(userid);
+			count = sDao.getScheduleCount(userid);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

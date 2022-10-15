@@ -294,9 +294,50 @@ public class GuideDao {
 			e.printStackTrace();
 		}
 		return cnt;
-		
-		
-		
 	}
+    
+    // 선택된 일정의 장소 갯수 세기
+	public int getScheduleCount(String userid, String placename) throws SQLException{
+		int count = 0;
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_SCHEDULE_ID_PN_COUNT);
+			pstmt.setString(1, userid);
+			pstmt.setString(2, placename);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				count = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
+    
+	
+	// 스케쥴이름과 아이디를 조건으로 가이드장소 select
+	public List<GuideVo> selectSchedulePlace(Paging paging, String userid, String placename) throws SQLException {
+		List<GuideVo> list = null;
+		int startNum = paging.getStartNum();
+		int endNum = paging.getEndNum(); 
+		System.out.println(startNum + " | " + endNum);
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_SCHEDULE_ID_PN);
+			pstmt.setString(1, userid);
+			pstmt.setString(2, placename);
+			pstmt.setInt(3, startNum);
+			pstmt.setInt(4, endNum);
+			
+			rs = pstmt.executeQuery();
+			list = getAllGuide(rs);
+		} finally {
+			close();
+		}		
+		return list;
+	}
+
 }
 

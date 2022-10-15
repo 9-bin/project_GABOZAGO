@@ -143,11 +143,11 @@ public class ScheduleDao {
 			
 		}
 		
-		public int getAllCount(String userid) throws SQLException {
+		public int getScheduleCount(String userid) throws SQLException {
 			int count = 0;
 			
 			try {
-				pstmt = conn.prepareStatement(A.SQL_SCHEDULE_COUNT);
+				pstmt = conn.prepareStatement(A.SQL_SCHEDULE_ID_COUNT);
 				pstmt.setString(1, userid);
 				rs = pstmt.executeQuery();
 				

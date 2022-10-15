@@ -56,7 +56,11 @@ public class A {
 	
 	public static final String SQL_SCHEDULE_ID = "SELECT * FROM (SELECT * FROM (select Rownum row_num, schedulename from (select scheduleName scheduleName from schedule group by schedulename, userid having userid=? order by schedulename)) where row_num >= ?) where row_num <= ?";
 	
-	public static final String SQL_SCHEDULE_COUNT = "select count(count) as count from (select count(scheduleName) as count from schedule group by schedulename, userid having userid=? order by schedulename)";
+	public static final String SQL_SCHEDULE_ID_COUNT = "select count(count) as count from (select count(scheduleName) as count from schedule group by schedulename, userid having userid=? order by schedulename)";
+	
+	public static final String SQL_SCHEDULE_ID_PN = "SELECT * FROM (SELECT * FROM ( SELECT ROWNUM row_num, guide.* from guide where guide.placenum in (select placenum from schedule where userid=? and schedulename=?)) where row_num >= ? ) where row_num <= ?";
+	
+	public static final String SQL_SCHEDULE_ID_PN_COUNT = "select COUNT(*) as count from guide a where a.placenum in (select placenum from schedule where userid=? and schedulename=?)";
 	
 // 관리자
 	public static final String SQL_ADMIN_MEMBER = "update member1 set name=?, email=?, phone=?, gender=?, admin=? where userid=?";	

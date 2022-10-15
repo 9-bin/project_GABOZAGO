@@ -4,8 +4,7 @@
 <%@page import="java.util.List"%>
 <%
 List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
-String Sname = request.getParameter("Sname"); 
-
+String schedulename = (String)request.getAttribute("schedulename");
 String userId = (String) session.getAttribute("userId");	// 세션값 얻어오기
 request.setAttribute("userId", userId);						// 세션값 저장하기
 // 디버깅
@@ -35,13 +34,17 @@ System.out.println("jsp userId " + userId);
             <!-- 가이드 리스트 -->
             <div style="float: left; width: 100%; height: 740px;margin: 20px;">
            		<div class="row" style="width: 90%">
-				<form action="sname.do" name="sch">
+				
 				<!-- 일정 상세 목록 부분 -->
-	            <div style="float: left; width: 100%; height: 40px;">
-	               <a href="guideAll.do"><b><%=Sname%></b></a>
-	                <button type="submit" 
-	                class="btn btn-outline btn-primary pull-right" id="selectBtn" 
-	                style="float: right">여행만들기</button>
+	            <div style="float: left; width: 100%; height: 90px;">
+	            	<form action="scheduleAddPlace.do" method="post">
+	            	<b><%=schedulename%></b>
+	                <button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn" style="float: right">일정 추가</button>
+	                </form>
+	                <br>
+	                <form action="schedule.do" method="post">
+	                <button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn" style="float: right">일정 목록</button>
+	                </form>
 	                <hr>
 	                <br><br>
 	            </div>
@@ -68,11 +71,11 @@ System.out.println("jsp userId " + userId);
 						}
 						%>
 				</table>
-				</form>
+				
 				</div>
 				${local}
 				<%-- <% System.out.println(); %> --%>
-				<jsp:include page="../Guide/grPaging.jsp" flush = "false">
+				<jsp:include page="./detailPaging.jsp" flush = "false">
 					<jsp:param value="${paging.page}" name="page"/>
 					<jsp:param value="${paging.beginPage}" name="beginPage"/>
 					<jsp:param value="${paging.endPage}" name="endPage"/>

@@ -17,7 +17,7 @@
 	}
 	if (result.equals(1)){
 		  out.println("<script>");
-	      out.println("location.href = 'plan.do'");
+	      out.println("location.href = 'schedule.do'");
 	      out.println("</script>");
 	}
 	if (result.equals(-1)){

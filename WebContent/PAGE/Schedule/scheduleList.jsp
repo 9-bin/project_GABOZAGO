@@ -24,13 +24,11 @@ List<ScheduleVo> list = (List<ScheduleVo>) request.getAttribute("scheduleList");
                 <hr>
             </div>
             <!-- 새일정 만들기 -->
-            <div style="float: left; width: 100%; height: 40px; margin-top: 20px;">
-                <form action="guide.do">
-                    <table>
-                        <tr>
-                            <td><input type="submit" value="+ 새 일정 만들기" style="font-size: 20px; text-align: center;"></td>
-                        </tr>
-                    </table>
+            <div style="float: left; width: 100%; height: 150px; margin-top: 20px;">
+            	<button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn" style="float: right">여행만들기</button><br><br>
+                <form action="scheduleNext.do" method="post">
+					<input type="text" placeholder="일정 이름" name="schedulename">
+                	<input type="submit" value="+ 새 일정 만들기" style="font-size: 20px; text-align: center;">
                 </form>
             </div>
                         <!-- 목록 보여주기 -->
@@ -42,16 +40,18 @@ List<ScheduleVo> list = (List<ScheduleVo>) request.getAttribute("scheduleList");
 	<%
 	if (list != null) {
 		for (ScheduleVo sVo : list) {
+			int a = 1;
 	%>
 		<tr>
-			<td><%=sVo.getSchedulename()%></td>
+			<td><a href="scheduleNext.do?schedulename=<%=sVo.getSchedulename()%>"><%=sVo.getSchedulename()%></a></td>
 		</tr>
 	<%
+		a+=1;
 		}
 	}
 	%>
 </table>
-<jsp:include page="./Paging.jsp" flush = "false">
+<jsp:include page="./listPaging.jsp" flush = "false">
 <jsp:param value="${paging.page}" name="page"/>
 <jsp:param value="${paging.beginPage}" name="beginPage"/>
 <jsp:param value="${paging.endPage}" name="endPage"/>
