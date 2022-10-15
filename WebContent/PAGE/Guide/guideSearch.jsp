@@ -27,7 +27,7 @@ table{
 	<div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
 	<!--영역 안에서 세로로 나누기-->    
 	   <!--1(왼쪽)-->
-	   <div class="left" style="float: left; width: 30%; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
+	   <div class="left" style="float: left; width: 384px; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
 	
 
 	           <!-- 부트스트랩 활용 include -->
