@@ -40,58 +40,72 @@ table{
 
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
 				<div class="row" style="width: 90%">
-					<form action="guideAllSearch.do?guideSearch=${guideSearch}">
+					<input type="hidden" id="userid" value="${userid}">
+					<form action="scheduleAddSearchNext.do?local=${local}&placetype=${placetype}&keyword=${keyword}">
 						<table style="border-collapse: collapse;">
 							<tr>
-					         	<td><select name="guideSearch">
-					         		<option value="0" selected="selected">유형선택</option>
-					         		<option value="1">관광지</option>
-					         		<option value="2">레포츠</option>
-									<option value="3">문화시설</option>
-									<option value="4">숙박시설</option>
-									<option value="5">음식점</option>
+					         	<td>
+					         		<select name="local">
+							         	<option ${(local=="0")?"selected":""} value="0">지역</option>
+										<option ${(local=="1")?"selected":""} value="1">강릉</option>
+										<option ${(local=="2")?"selected":""} value="2">부산</option>
+										<option ${(local=="3")?"selected":""} value="3">서울</option>
+										<option ${(local=="4")?"selected":""} value="4">여수</option>
+										<option ${(local=="5")?"selected":""} value="5">제주</option>
+										<option ${(local=="6")?"selected":""} value="6">천안,아산</option>
+									</select>
+								</td>
+								<td><select name="placetype">
+					         		<option ${(placetype=="0")?"selected":""} value="0">타입</option>
+					         		<option ${(placetype=="1")?"selected":""} value="1">관광지</option>
+					         		<option ${(placetype=="2")?"selected":""} value="2">레포츠</option>
+									<option ${(placetype=="3")?"selected":""} value="3">문화시설</option>
+									<option ${(placetype=="4")?"selected":""} value="4">숙박시설</option>
+									<option ${(placetype=="5")?"selected":""} value="5">음식점</option>
 								</select></td>
+								<td><input style="width:100px;" type="text" name="keyword" value="${keyword}" placeholder="장소이름"></td>
 								<td>
 									<button type="submit">검색</button>
 								</td>
 							</tr>
 						</table>
 					</form>
-					<form action="planList.do" name="sfrm" >
-						<table>
-							<tr>
-								<th>
-									일정 이름: <input type="text" name="Sname" value="${Sname}" aria-label="일정 이름 쓰기">
-								</th>
-								<td>
-									<button type="submit" class="btn btn-outline btn-primary pull-right" 
-									id="selectBtn" name="add" style="float: right" onclick="return addPlace()">일정추가</button>
-								</td>
-							</tr>
-						</table>
-						<br>
-						<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
-							<tr style="font-size: 10px;">
-								<th>일정추가</th>
-								<th>이름</th>
-								<th>주소</th>
-							</tr>
-							<%
-							if (list != null) {
-								for (GuideVo gVo : list) {
-							%>
-							<tr>
-								<td><input type="radio" name="placenum" value="<%=gVo.getPlacenum() %>"><%=gVo.getPlacenum() %></td>
-								<td><%=gVo.getPlacename() %></td>
-								<td><%=gVo.getAdress()%></td>
-							</tr>
-							<%
-						
-								}
+					
+					<table>
+						<tr>
+							<th>
+								일정 이름: ${schedulename}<input id="schedulename" type="hidden" value="${schedulename}">
+							</th>
+							<td>
+								<button type="submit" class="btn btn-outline btn-primary pull-right" 
+								id="selectBtn" name="add" style="float: right" onclick="addPlace()">일정추가</button>
+							</td>
+						</tr>
+					</table>
+					<br>
+					<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
+						<tr style="font-size: 10px;">
+							<th>이름</th>
+							<th>주소</th>
+							<th>일정추가</th>
+						</tr>
+						<%
+						if (list != null) {
+							int a=1;
+							for (GuideVo gVo : list) {
+						%>
+						<tr>
+							<td><%=gVo.getPlacename() %></td>
+							<td><%=gVo.getAdress()%></td>
+							<td><input type="button" value="일정추가" onclick="addPlace<%=a%>()"><input id="placenum<%=a%>" type="hidden" value="<%=gVo.getPlacenum() %>"></td>
+						</tr>
+						<%
+							a+=1;
 							}
-							%>
-						</table>
-					</form>
+						}
+						%>
+					</table>
+					
 				</div>
 				<jsp:include page="./addPlacePaging.jsp" flush = "false">
 				<jsp:param value="${paging.page}" name="page"/>
@@ -115,4 +129,5 @@ table{
     </div>
  
 </body>
+<script src="Script/scheduleInsertPlace.js"></script>
 </html>

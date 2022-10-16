@@ -193,5 +193,47 @@ public class ScheduleDao {
 			}
 			return list;
 		}
+		
+		public int deleteSchedule(String userid,String schedulenum, String schedulename) throws SQLException {
+			int result = -1;
+			
+			try {
+				pstmt = conn.prepareStatement(A.SQL_SCHEDULE_DELETE);
+				pstmt.setString(1, userid);
+				pstmt.setString(2, schedulenum);
+				pstmt.setString(3, schedulename);
+				
+				// 쿼리 수행
+				result = pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return result;
+		}
+		
+		public int insertSchedule(String userid,int placenum, String schedulename) throws SQLException {
+			int result = -1;
+			
+			try {
+				pstmt = conn.prepareStatement(A.SQL_SCHEDULE_INSERT);
+				pstmt.setString(1, userid);
+				pstmt.setInt(2, placenum);
+				pstmt.setString(3, schedulename);
+				
+				// 쿼리 수행
+				result = pstmt.executeUpdate();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			} finally {
+				close();
+			}
+			return result;
+		}
+		
+		
 
 }

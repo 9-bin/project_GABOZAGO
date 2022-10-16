@@ -53,7 +53,7 @@
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input type="submit" value="일정" style="margin-top:75px; font-size: 20px; text-align: center;"
-                            onclick="location.href='plan.do'"></td>
+                            onclick="location.href='schedule.do'"></td>
                         </tr>
 
                     </table>

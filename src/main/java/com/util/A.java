@@ -62,6 +62,9 @@ public class A {
 	
 	public static final String SQL_SCHEDULE_ID_PN_COUNT = "select COUNT(*) as count from guide a where a.placenum in (select placenum from schedule where userid=? and schedulename=?)";
 	
+	public static final String SQL_SCHEDULE_DELETE = "DELETE from schedule where userid=? and placenum=? and schedulename=?";
+	
+	public static final String SQL_SCHEDULE_INSERT = "INSERT INTO schedule(schedulenum,userid,placenum,schedulename) VALUES(schd_sq.nextval,?,?,?)";
 // 관리자
 	public static final String SQL_ADMIN_MEMBER = "update member1 set name=?, email=?, phone=?, gender=?, admin=? where userid=?";	
 

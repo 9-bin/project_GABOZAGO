@@ -70,7 +70,7 @@
 		<ul class="nav flex-column">
 	
 			<li class="nav-item">
-   				<a class="nav-link active" aria-current="page" href="plan.do">일정</a>
+   				<a class="nav-link active" aria-current="page" href="schedule.do">일정</a>
 	   		</li>
 		    <li class="nav-item">
 		   		<a class="nav-link" href="traffic.do">교통</a>

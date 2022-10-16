@@ -16,10 +16,12 @@ public class guideAllCommand implements Command {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
     	GuideDao gDao = new GuideDao();
-		
+    	
 		List<GuideVo> list = null;
 		int page = 1;
-			
+		
+		String schedulename = (String) request.getAttribute("schedulename");
+		
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
@@ -43,9 +45,9 @@ public class guideAllCommand implements Command {
 			e.printStackTrace();
 		}
 		
-		request.setAttribute("guideList", list);
+		request.setAttribute("schedulename", schedulename);
 		request.setAttribute("paging", paging);
-		
+		request.setAttribute("guideList", list);
 	}
 
 }

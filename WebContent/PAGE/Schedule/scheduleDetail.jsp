@@ -38,7 +38,7 @@ System.out.println("jsp userId " + userId);
 				<!-- 일정 상세 목록 부분 -->
 	            <div style="float: left; width: 100%; height: 90px;">
 	            	<form action="scheduleAddPlace.do" method="post">
-	            	<b><%=schedulename%></b>
+	            	<b id="schedulename"><%=schedulename%></b>
 	                <button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn" style="float: right">일정 추가</button>
 	                </form>
 	                <br>
@@ -51,26 +51,30 @@ System.out.println("jsp userId " + userId);
 				
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 						<tr>
-							<th>일정 추가</th>
-							<th>이름</th>
+							<th>장소명</th>
 							<th>주소</th>
+							<th>삭제</th>
 						</tr>
 						<%
 							if (list != null) {
+								int a=1;
 								for (GuideVo gVo : list) {
 							%>
 							<tr>
-								<td><input type="checkbox" name="placeNum" value="<%=gVo.getPlacenum()%>"><%=gVo.getPlacenum()%></td>
-								<td><%=gVo.getPlacename() %></td>
-								<td><%=gVo.getAdress()%></td>
+								<!-- <td><input type="checkbox" name="placeNum" value="<%=gVo.getPlacenum()%>"><%=gVo.getPlacenum()%></td> -->
+								<td id="Place<%=a%>"><%=gVo.getPlacename() %></td>
+								<td id="Adress<%=a%>"><%=gVo.getAdress()%></td>
+								<td><input type="button" onclick="deletePlace<%=a%>()" value="삭제">
+								<input type="hidden" id="Placenum<%=a%>" value="<%=gVo.getPlacenum()%>"></td>
 							</tr>
-						
+							
 						<%
-						
+							a+=1;
 							}
 						}
 						%>
 				</table>
+				<input type="hidden" id="userid" value="<%=userId%>">
 				
 				</div>
 				${local}
@@ -95,4 +99,5 @@ System.out.println("jsp userId " + userId);
     </div>
  
 </body>
+<script src="Script/scheduleDeletePlace.js"></script>
 </html>
