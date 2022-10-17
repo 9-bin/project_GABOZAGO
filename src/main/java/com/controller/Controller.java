@@ -19,6 +19,8 @@ import com.command.adminUserUpdateOKCommand;
 import com.command.dbCheckCommand;
 import com.command.deleteUserCommand;
 import com.command.guideAllCommand;
+import com.command.guideAllSearchCommand;
+import com.command.guideAllSearchOKCommand;
 import com.command.guideNextCommand;
 import com.command.guideResultCommand;
 import com.command.guideSearchCommand;
@@ -191,6 +193,21 @@ public class Controller extends HttpServlet {
 			command = new guideSearchOKCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Guide/guideSearch.jsp";
+			break;
+			
+		case "/guideAllSearch.do":		// guideSearch.do와 비슷
+			System.out.println("controller guideAllSearch : " + request.getParameter("guideSearch"));
+			request.setAttribute("type", request.getParameter("guideSearch"));
+			command = new guideAllSearchCommand();
+			ViewPage = "/PAGE/Guide/guideAllSearchResult.jsp";
+			break;
+
+		case "/guideAllSearchOK.do":	// guideSearchOK.do와 비슷
+			request.setAttribute("type", session.getAttribute("Type"));
+			System.out.println("controller guideAllSearchOK : " + session.getAttribute("type"));
+			command = new guideAllSearchOKCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Guide/guideAllSearch.jsp";
 			break;
 			
 			

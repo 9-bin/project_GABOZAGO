@@ -23,35 +23,6 @@
             <!-- 가이드 리스트 -->
 
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
-            <form action="guideSearch.do?local=${local}&placetype=${placetype}&keyword=${keyword}">
-						<table style="border-collapse: collapse;">
-							<tr>
-					         	<td>
-					         		<select name="local">
-							         	<option ${(local=="0")?"selected":""} value="0">지역</option>
-										<option ${(local=="1")?"selected":""} value="1">강릉</option>
-										<option ${(local=="2")?"selected":""} value="2">부산</option>
-										<option ${(local=="3")?"selected":""} value="3">서울</option>
-										<option ${(local=="4")?"selected":""} value="4">여수</option>
-										<option ${(local=="5")?"selected":""} value="5">제주</option>
-										<option ${(local=="6")?"selected":""} value="6">천안,아산</option>
-									</select>
-								</td>
-								<td><select name="placetype">
-					         		<option ${(placetype=="0")?"selected":""} value="0">타입</option>
-					         		<option ${(placetype=="1")?"selected":""} value="1">관광지</option>
-					         		<option ${(placetype=="2")?"selected":""} value="2">레포츠</option>
-									<option ${(placetype=="3")?"selected":""} value="3">문화시설</option>
-									<option ${(placetype=="4")?"selected":""} value="4">숙박시설</option>
-									<option ${(placetype=="5")?"selected":""} value="5">음식점</option>
-								</select></td>
-								<td><input style="width:100px;" type="text" name="keyword" value="${keyword}" placeholder="장소이름"></td>
-								<td>
-									<button type="submit">검색</button>
-								</td>
-							</tr>
-						</table>
-					</form>
             		<jsp:include page="../../PAGE/Guide/guideList.jsp"></jsp:include>
             </div>
 
