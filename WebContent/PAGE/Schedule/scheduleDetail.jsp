@@ -37,7 +37,7 @@ System.out.println("jsp userId " + userId);
 				
 				<!-- 일정 상세 목록 부분 -->
 	            <div style="float: left; width: 100%; height: 90px;">
-	            	<form action="scheduleAddPlace.do" method="post">
+	            	<form action="scheduleAddSearch.do" method="post">
 	            	<b id="schedulename"><%=schedulename%></b>
 	                <button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn" style="float: right">일정 추가</button>
 	                </form>
@@ -94,7 +94,7 @@ System.out.println("jsp userId " + userId);
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-     		<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
+     		<jsp:include page="../../Module/menu/map2.jsp" flush="false"/>
        	</div>
 
     </div>
