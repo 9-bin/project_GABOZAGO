@@ -17,3 +17,93 @@ body {
 .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+
+
+
+/* 관리자 페이지 */
+/* memberadmin 표 */
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+
+
+a {
+	text-decoration: none;	/* 링크 밑줄 없애기 */
+	color:black;			/* 글 색상 */
+}
+
+a:HOVER {
+	text-decoration: underline;	/* 밑줄 */ 
+	color: crimson;			/* 글 색상 */
+	
+}
+
+::placeholder {
+  color: gainsboro;
+}
+
+/* admin 타이틀 */
+.admin {
+	width: 700px; 
+	height: 100px; 
+	margin: auto;
+	text-align: left;
+}
+.admin span{
+	border-radius: 15px 15px 0 0; 
+	border-bottom: 2px solid #B2E0F7; 
+    padding: 0.5em; 
+    background: #D8EFFB;
+}
+
+/* <!-- 관리자 상단 선택 영역 탭  --> */
+#select {
+	width: 700px; 
+	height: 150px; 
+	margin: auto;
+}
+
+/* 페이지 */
+.pageview{
+	width: 100vw; 
+	height: 100vh; 
+	background-color: yellow;	
+}
+
+.left{
+	display: block;
+	width: 384px;
+	float: left; 
+	width: 30%; 
+	height: 100vh; 
+	background-color:whitesmoke;
+	border-right: 5px double #DCDCDC;
+	
+}
+
+.right{
+	float: right; 
+	width: 70%; 
+	height: 100vh; 
+	background-color: whitesmoke;
+}
+
+.menu{
+	float: left; 
+	width: 100%; 
+	height: 100px;
+}
+
+.date{
+	float: left; 
+	width: 100%; 
+	height: 40px;
+	margin-top: 20px;
+}
+
+#example-table-3{
+	   table-layout:fixed;
+}

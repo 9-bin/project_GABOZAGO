@@ -11,14 +11,17 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script type="text/javascript" src="Script/selectPlace.js"></script>
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <style>
-table, th, td{
-   border: 1px solid black;
-   border-collapse: collapse;
-   text-align: center;
+#example-table-3{
+	   table-layout:fixed;
+	   width: 90%;
 }
-table{
-   width: 90%;
+
+#example-table-3, th, td{
+   display : inline-block;
+   white-space : nowrap;
+   overflow : hidden;
 }
 </style>
 </head>
@@ -56,18 +59,18 @@ table{
 		<br>
 		<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 			<tr style="font-size: 10px;">
-				<th>일정추가</th>
-				<th>이름</th>
-				<th>주소</th>
+				<th width="50">장소번호</th>
+				<th width="150">이름</th>
+				<th width="100">주소</th>
 			</tr>
 			<%
 			if (list != null) {
 				for (GuideVo gVo : list) {
 			%>
 			<tr>
-				<td><input type="radio" name="placenum" value="<%=gVo.getPlacenum() %>"><%=gVo.getPlacenum() %></td>
-				<td><%=gVo.getPlacename() %></td>
-				<td><%=gVo.getAdress()%></td>
+				<td width="50"><input type="radio" name="placenum" value="<%=gVo.getPlacenum() %>"><%=gVo.getPlacenum() %></td>
+				<td width="150"><%=gVo.getPlacename() %></td>
+				<td width="100"><%=gVo.getAdress()%></td>
 			</tr>
 			<%
 		
