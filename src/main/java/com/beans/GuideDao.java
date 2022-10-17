@@ -63,7 +63,7 @@ public class GuideDao {
 			pstmt.setInt(2, endNum);
 			
 			rs = pstmt.executeQuery();
-			list = getGuide(rs);
+			list = getAllGuide(rs);
 		} finally {
 			close();
 		}		
@@ -138,7 +138,7 @@ public class GuideDao {
 			pstmt.setInt(3, endNum);
 			
 			rs = pstmt.executeQuery();
-			list = getGuide(rs);
+			list = getAllGuide(rs);
 		} finally {
 			close();
 		}
@@ -211,7 +211,7 @@ public class GuideDao {
 			pstmt.setInt(3, endNum);
 			
 			rs = pstmt.executeQuery();
-			list = getGuide(rs);
+			list = getAllGuide(rs);
 		} finally {
 			close();
 		}		
@@ -267,7 +267,7 @@ public class GuideDao {
 		   pstmt = conn.prepareStatement(sql);
 		   pstmt.setInt(1, placenum);
 		   rs=pstmt.executeQuery();
-		   list = getGuide(rs);
+		   list = getAllGuide(rs);
 		   
 	   }catch(Exception e) {
 		   e.printStackTrace();
