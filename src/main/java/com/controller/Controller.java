@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.command.Command;
+import com.command.adminGuideDeleteCommand;
+import com.command.adminGuideInsertCommand;
 import com.command.adminMemberCommand;
 import com.command.adminUserDeleteCommand;
 import com.command.adminUserInfoCommand;
@@ -18,6 +20,7 @@ import com.command.adminUserUpdateCommand;
 import com.command.adminUserUpdateOKCommand;
 import com.command.dbCheckCommand;
 import com.command.deleteUserCommand;
+import com.command.guideAdminCommand;
 import com.command.guideAllCommand;
 import com.command.guideAllSearchCommand;
 import com.command.guideAllSearchOKCommand;
@@ -368,9 +371,29 @@ public class Controller extends HttpServlet {
 			ViewPage = "/PAGE/Admin/adminMember.jsp";
 			break;
 			
+		// 가이드 목록
 		case "/adminGuide.do":
+			command = new guideAdminCommand();
+			command.execute(request, response);
 			ViewPage = "/PAGE/Admin/adminGuide.jsp";
 			break;
+			
+		case "/adminGuideInsert.do":
+			ViewPage = "/PAGE/Admin/adminGuideInsert.jsp";	// 가이드 장소 정보 입력
+			break;
+			
+		case "/GuideInsertOK.do":		// 가이드 입력받은거 전송
+			command = new adminGuideInsertCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/guideInsertOk.jsp";		// 입력값 확인 창 
+			break;
+			
+		case "/deleteGuideOK.do":		// 가이드 정보 삭제
+			command = new adminGuideDeleteCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/deleteGuideOK.jsp";
+			break;
+			
 			
 // 커뮤니티
 		case "community.do":

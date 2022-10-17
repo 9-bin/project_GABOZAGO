@@ -68,4 +68,8 @@ public class A {
 // 관리자
 	public static final String SQL_ADMIN_MEMBER = "update member1 set name=?, email=?, phone=?, gender=?, admin=? where userid=?";	
 
+	public static final String SQL_INSERT_GUIDE = "insert into Guide values(placN.nextval,?,?,?,?,?,?,?)";
+	
+	public static final String SQL_DELETE_GUIDE = "DELETE from Guide where placenum=?";
+	
 }

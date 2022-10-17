@@ -77,10 +77,12 @@ public class GuideDao {
 			String name = rs.getString("placename");
 			String adress = rs.getString("adress");
 			int num = rs.getInt("placenum");
+			int local = rs.getInt("local");
+			int placetype = rs.getInt("placetype");
 			
 			System.out.println(name);
 			
-			GuideVo gVo = new GuideVo(name, adress,num);
+			GuideVo gVo = new GuideVo(name, adress,num,local,placetype);
 			list.add(gVo);
 		}
 		return list;
@@ -337,6 +339,54 @@ public class GuideDao {
 			close();
 		}		
 		return list;
+	}
+	
+	// 가이드 장소 등록 ( DB에 장소 정보 삽입 )
+	public int insertGuide(GuideVo gVo) throws SQLException {
+		int result = -1;
+
+		// DB연동
+		try {
+			pstmt = conn.prepareStatement(A.SQL_INSERT_GUIDE);
+			pstmt.setInt(1, gVo.getLocal());
+			pstmt.setInt(2, gVo.getPlacetype());
+			pstmt.setString(3, gVo.getPlacename());
+			pstmt.setString(4, gVo.getPlacephone());
+			pstmt.setString(5, gVo.getAdress());
+			pstmt.setFloat(6, gVo.getLatitude());
+			pstmt.setFloat(7, gVo.getLongtiude());		
+			
+			System.out.println("getLocal : " +  gVo.getLocal());
+			System.out.println("getPlacename : " + gVo.getPlacename());
+			System.out.println("getAdress : " + gVo.getAdress());
+			
+			// 쿼리 수행 
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
+	}
+	
+	// 장소 삭제
+	public int deleteGuide(int placenum) throws SQLException {
+		int result = -1;
+		
+		try {
+			pstmt = conn.prepareStatement(A.SQL_DELETE_GUIDE);
+			pstmt.setInt(1, placenum);
+			
+			// 쿼리 수행
+			result = pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			close();
+		}
+		return result;
 	}
 
 }

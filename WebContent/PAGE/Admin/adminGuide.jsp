@@ -1,6 +1,12 @@
+<%@page import="com.beans.GuideVo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
- 
 <!DOCTYPE html>
+<%
+
+List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
+
+%>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -44,8 +50,9 @@
         	<!-- 버튼 -->
         	<div style= "height: 50px;">
 	        	<div class="btn-group" style="float: right;">
-				  <a href="#" class="btn btn-primary">등록</a>
-				  <a href="#" class="btn btn-primary">삭제</a>
+				  <a href="adminGuideInsert.do" class="btn btn-primary">등록</a>
+				  <a href=deleteGuideOK.do class="btn btn-primary">
+				  	<span onclick="alert('삭제하시겠습니까?');">삭제 </span></a>
 				</div>
 			</div>
         	
@@ -54,46 +61,37 @@
         			<table class="tg" style="margin: auto;">
 					<thead>
 					  <tr>
-					    <th class="tg-c3ow">no</th>
+					    <th class="tg-c3ow">장소 번호</th>
 					    <th class="tg-c3ow">지역</th>
-					    <th class="tg-c3ow">해시태그</th>
 					    <th class="tg-c3ow">업체명</th>
 					    <th class="tg-c3ow">주소</th>
-					    <th class="tg-c3ow">종류</th>
-					    <th class="tg-c3ow">괸리자</th>
+					    <th class="tg-c3ow">업소종류</th>
 					  </tr>
 					</thead>
+						<%
+							if (list != null) {
+								for (GuideVo gVo : list) {
+							%>
 					<tbody>
-					  <tr>
-					    <td class="tg-c3ow"> 
-					    <div class="form-check">
-  							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-  							<label class="form-check-label" for="flexCheckDefault">
-    						1
-  							</label>
-						</div></td>
-					    <td class="tg-c3ow" width="150">강릉</td>
-					    <td class="tg-c3ow" width="150">해돋이맛집</td>
-					    <td class="tg-c3ow" width="150">물회말아먹어</td>
-					    <td class="tg-c3ow" width="200">강원도 강릉시 어쩌구 23-1</td>
-					    <td class="tg-c3ow" width="150">식당</td>
-					    <td class="tg-c3ow" width="150">임구빈</td>
-					  </tr>
+
 					  <tr>
 					    <td class="tg-c3ow"><div class="form-check">
-  							<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+  							<input class="form-check-input" type="checkbox" value="<%=gVo.getPlacenum() %>" id="flexCheckDefault">
   							<label class="form-check-label" for="flexCheckDefault">
-    						2
+    						<%=gVo.getPlacenum() %>
   							</label>
 						</div></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="200"></td>
-					    <td class="tg-c3ow" width="150"></td>
-					    <td class="tg-c3ow" width="150"></td>
+					    <td class="tg-c3ow" width="150"><%=gVo.getLocal() %></td>
+					    <td class="tg-c3ow" width="150"><%=gVo.getPlacename() %></td>
+					    <td class="tg-c3ow" width="150"><%=gVo.getAdress() %></td>
+					    <td class="tg-c3ow" width="200"><%=gVo.getPlacetype() %></td>
 					  </tr>
 					</tbody>
+						<%
+
+								}
+							}
+							%>
 				</table>
         		
         		</div>

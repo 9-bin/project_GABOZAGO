@@ -15,6 +15,14 @@ public class GuideVo {
 		
 	}
 	
+	public GuideVo(String placename, String adress, int placenum, int local, int placetype) {
+		this.placenum = placenum;
+		this.local = local;
+		this.placetype = placetype;
+		this.placename = placename;
+		this.adress = adress;
+	}
+	
 	public GuideVo(int placenum, int local, 
 		int placetype, String placename, String placephone, 
 		String adress, float latitude, float longtiude) {
