@@ -21,14 +21,17 @@ public class scheduleAddSearchCommand implements Command {
 		int page = 1;
 		HttpSession session = null;
 		
-		int local = 0;
-		int placetype = 0;
+		int local = 1;
+		int placetype = 1;
 		String keyword ="";
 
-		
-		System.out.println("3 - guideResultCommand : " + request.getAttribute("local").getClass().getSimpleName());
-		System.out.println("3 - guideResultCommand : " + request.getAttribute("placetype").getClass().getSimpleName());
-		System.out.println("3 - guideResultCommand : " + request.getAttribute("keyword").getClass().getSimpleName());
+		try {
+			System.out.println("3 - guideResultCommand : " + request.getAttribute("local").getClass().getSimpleName());
+			System.out.println("3 - guideResultCommand : " + request.getAttribute("placetype").getClass().getSimpleName());
+			System.out.println("3 - guideResultCommand : " + request.getAttribute("keyword").getClass().getSimpleName());
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 		try{

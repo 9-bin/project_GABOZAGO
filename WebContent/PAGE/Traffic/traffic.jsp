@@ -79,7 +79,7 @@
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-			<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
+			<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
         </div>
 	</div>
 </body>
