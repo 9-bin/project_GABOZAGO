@@ -57,9 +57,6 @@ table{
            				</tr>
            			</table>
            		</form>
-           		
-				<form action="planList.do" method="get">
-				<button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 					<tr>
 						<th>일정 추가</th>
@@ -83,7 +80,6 @@ table{
 					}
 					%>
 				</table>
-				</form>
 				</div>
 				<%-- ${local} 디버깅 --%>
 				<jsp:include page="./gsPaging.jsp" flush = "false">

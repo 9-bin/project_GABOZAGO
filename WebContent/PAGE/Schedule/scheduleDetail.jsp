@@ -47,6 +47,10 @@ System.out.println("jsp userId " + userId);
 	                </form>
 	                <hr>
 	                <br><br>
+	                <input type="hidden" id="userid" value="<%=userId%>">
+	                <input type="hidden" id="markerLat" value="36.1676050697">
+					<input type="hidden" id="markerLon" value="128.0824067374">
+					<input type="hidden" id="pn" value="">
 	            </div>
 				
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
@@ -58,11 +62,11 @@ System.out.println("jsp userId " + userId);
 						<%
 							if (list != null) {
 								int a=1;
+								int b=1;
 								for (GuideVo gVo : list) {
 							%>
 							<tr>
-								<!-- <td><input type="checkbox" name="placeNum" value="<%=gVo.getPlacenum()%>"><%=gVo.getPlacenum()%></td> -->
-								<td id="Place<%=a%>"><%=gVo.getPlacename() %></td>
+								<td onclick="marking<%=a%>()" id="Place<%=a%>"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
 								<td id="Adress<%=a%>"><%=gVo.getAdress()%></td>
 								<td><input type="button" onclick="deletePlace<%=a%>()" value="삭제">
 								<input type="hidden" id="Placenum<%=a%>" value="<%=gVo.getPlacenum()%>"></td>
@@ -70,14 +74,12 @@ System.out.println("jsp userId " + userId);
 							
 						<%
 							a+=1;
+							b+=2;
 							}
 						}
 						%>
 				</table>
-				<input type="hidden" id="userid" value="<%=userId%>">
-				
 				</div>
-				${local}
 				<%-- <% System.out.println(); %> --%>
 				<jsp:include page="./detailPaging.jsp" flush = "false">
 					<jsp:param value="${paging.page}" name="page"/>
@@ -93,7 +95,7 @@ System.out.println("jsp userId " + userId);
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-     		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
+     		<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
        	</div>
 
     </div>

@@ -48,9 +48,9 @@
 					<input type="text" class="form-control" id="startplace" name="startplace" placeholder="출발지" value="${startplace}"/>
 					<input type="text" class="form-control" id="endplace" name="endplace" placeholder="도착지" value="${endplace}"/>
 				</form>
-				<input type="hidden" id="markerLat" value="36.7676050697">
-				<input type="hidden" id="markerLon" value="126.9824067374">
-				<input type="hidden" id="pn" value="아산 희안마을">
+				<input type="hidden" id="markerLat" value="36.1676050697">
+				<input type="hidden" id="markerLon" value="128.0824067374">
+				<input type="hidden" id="pn" value="">
 			</div>
         		<!-- 교통 수단 -->
        		<div style="height: 90px;">

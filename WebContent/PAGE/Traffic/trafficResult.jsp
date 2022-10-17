@@ -61,7 +61,6 @@ table{
 <jsp:param value="${paging.next}" name="next"/>
 </jsp:include>
 <script src="Script/selectStartEnd.js"></script>
-<script src="Script/marking.js"></script>
 </div>
 </body>
 </html>

@@ -37,8 +37,11 @@ table{
         
             <!-- 가이드 리스트 -->
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
+            	<input type="hidden" id="markerLat" value="36.1676050697">
+				<input type="hidden" id="markerLon" value="128.0824067374">
+				<input type="hidden" id="pn" value="">
            		<div class="row" style="width: 90%">
-           		<form action="guideSearch.do?guideSearch=${guideSearch}&guideKeyword=${guideKeyword}">
+				<form action="guideSearch.do?guideSearch=${guideSearch}&guideKeyword=${guideKeyword}">
            			<table style="border-collapse: collapse;">
            				<tr>
            					<td><select name="guideSearch">
@@ -58,32 +61,30 @@ table{
            				</tr>
            			</table>
            		</form>
-				<form action="planList.do" method="get">
-				<button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn">선택</button>
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 					<tr>
-						<th>일정 추가</th>
+						<th>장소번호</th>
 						<th>이름</th>
 						<th>주소</th>
 					</tr>
 					<%
 					if (list != null) {
+						int a = 1;
 						for (GuideVo gVo : list) {
 					%>
 						<tr>
-							<td><input type="radio" name="placenum" value="<%=gVo.getPlacenum() %>"><%=gVo.getPlacenum() %></td>
-							<td><%=gVo.getPlacename() %></td>
+							<td onclick="marking<%=a%>()"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"></td>
+							<td onclick="marking<%=a%>()"><%=gVo.getPlacename() %><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
 							<td><%=gVo.getAdress()%></td>
 				
 						</tr>
 				
 					<%
-				
+						a+=1;
 						}
 					}
 					%>
 				</table>
-				</form>
 				</div>
 				<%-- ${local} 디버깅 --%>
 				<jsp:include page="./grPaging.jsp" flush = "false">

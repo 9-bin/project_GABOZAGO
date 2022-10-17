@@ -141,6 +141,8 @@ button {
 				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="6" name="local">충청도</button> 
 			</form>
 		</div>
+		<input type="hidden" id="markerLat" value="36.1676050697">
+		<input type="hidden" id="markerLon" value="128.0824067374">
 	</div>
 
 

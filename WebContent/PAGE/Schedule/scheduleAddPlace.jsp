@@ -41,6 +41,8 @@ table{
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
 				<div class="row" style="width: 90%">
 					<input type="hidden" id="userid" value="${userid}">
+					<input type="hidden" id="markerLat" value="36.1676050697">
+					<input type="hidden" id="markerLon" value="128.0824067374">
 					<form action="scheduleAddSearchNext.do?local=${local}&placetype=${placetype}&keyword=${keyword}">
 						<table style="border-collapse: collapse;">
 							<tr>
@@ -95,7 +97,7 @@ table{
 							for (GuideVo gVo : list) {
 						%>
 						<tr>
-							<td><%=gVo.getPlacename() %></td>
+							<td onclick="marking<%=a%>()"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"></td>
 							<td><%=gVo.getAdress()%></td>
 							<td><input type="button" value="일정추가" onclick="addPlace<%=a%>()"><input id="placenum<%=a%>" type="hidden" value="<%=gVo.getPlacenum() %>"></td>
 						</tr>
