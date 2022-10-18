@@ -33,7 +33,7 @@ List<ScheduleVo> list = (List<ScheduleVo>) request.getAttribute("scheduleList");
             </div>
                         <!-- 목록 보여주기 -->
             <div style="float: left; width: 100%; height: 550px;">
-				<table id="example-table-3" width="100%" class="table table-bordered table-hover text-center">
+				<table id="example-table-3" class="table table-bordered table-hover text-center">
 	<tr>
 		<th>일정명</th>
 	</tr>
@@ -65,6 +65,6 @@ List<ScheduleVo> list = (List<ScheduleVo>) request.getAttribute("scheduleList");
        	</div>
 
     </div>
-
+</div>
 </body>
 </html>

@@ -21,6 +21,22 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
    white-space : nowrap;
    overflow : hidden;
 }
+/* 테이블 스크롤바 */
+#scrollBar { 
+  overflow-y: scroll;
+}
+#scrollBar::-webkit-scrollbar {
+    width: 1px;  /* 스크롤바의 너비 */
+}
+
+#scrollBar::-webkit-scrollbar-thumb {
+    height: 2px; /* 스크롤바의 길이 */
+    background: #B2CCFF; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+#scrollBar::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}
 </style>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -65,9 +81,9 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
            		</form>
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 					<tr>
-						<th width="50">장소번호</th>
-						<th width="150">이름</th>
-						<th width="100">주소</th>
+						<!-- <th width="50">장소번호</th> -->
+						<th id="th_name" width="100" style="overflow: hidden;">이름</th>
+						<th id="scrollBar" width="200" style="overflow: auto;">주소</th>
 					</tr>
 					<%
 					if (list != null) {
@@ -76,10 +92,9 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 						for (GuideVo gVo : list) {
 					%>
 						<tr>
-							<td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
-							<td onclick="marking<%=a%>()" width="150"><%=gVo.getPlacename() %><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
-							<td width="100"><%=gVo.getAdress()%></td>
-				
+							<%-- <td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>--%>
+							 <td onclick="marking<%=a%>()" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
+							<td id="scrollBar" width="200" style="overflow: auto;"><%=gVo.getAdress()%></td>
 						</tr>
 				
 					<%

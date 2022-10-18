@@ -41,7 +41,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
             <!-- 가이드 리스트 -->
 
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
-				<div class="row" style="width: 90%">
+				 <div style="float: left; width: 100%; height: 150px; margin-top: 20px;">
 					<input type="hidden" id="userid" value="${userid}">
 					<form action="scheduleAddSearchNext.do?local=${local}&placetype=${placetype}&keyword=${keyword}">
 						<table style="border-collapse: collapse;">
@@ -78,17 +78,14 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 							<th>
 								일정 이름: ${schedulename}<input id="schedulename" type="hidden" value="${schedulename}">
 							</th>
-							<td>
-								<button type="submit" class="btn btn-outline btn-primary pull-right" 
-								id="selectBtn" name="add" style="float: right" onclick="addPlace()">일정추가</button>
-							</td>
 						</tr>
 					</table>
 					<br>
+					<div class="row" style="width: 90%">
 					<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 						<tr style="font-size: 10px;">
-							<th width="50">장소명</th>
-							<th width="150">주소</th>
+							<th width="100">장소</th>
+							<th width="100">주소</th>
 							<th width="100">추가</th>
 						</tr>
 						<%
@@ -98,8 +95,8 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 							for (GuideVo gVo : list) {
 						%>
 						<tr>
-							<td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
-							<td width="150"><%=gVo.getAdress()%></td>
+							<td onclick="marking<%=a%>()" width="100"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
+							<td width="100"><%=gVo.getAdress()%></td>
 							<td width="100"><input type="button" value="일정추가" onclick="addPlace<%=a%>()"><input id="placenum<%=a%>" type="hidden" value="<%=gVo.getPlacenum() %>"></td>
 						</tr>
 						<%
