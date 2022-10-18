@@ -340,6 +340,20 @@ public class GuideDao {
 		}		
 		return list;
 	}
+	public List<GuideVo> selectSchedulePlace(String userid, String placename) throws SQLException {
+		List<GuideVo> list = null;
+		try {
+			pstmt = conn.prepareStatement(A.SQL_SCHEDULE_ID_PN_1);
+			pstmt.setString(1, userid);
+			pstmt.setString(2, placename);
+
+			rs = pstmt.executeQuery();
+			list = getAllGuide(rs);
+		} finally {
+			close();
+		}		
+		return list;
+	}
 	
 	// 가이드 장소 등록 ( DB에 장소 정보 삽입 )
 	public int insertGuide(GuideVo gVo) throws SQLException {

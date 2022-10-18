@@ -44,6 +44,11 @@ function initMap() {
 	var Latitude8 = parseFloat(document.getElementById('Latitude8').value);
 	var Longtiude8 = parseFloat(document.getElementById('Longtiude8').value);
 	var Placename8 = document.getElementById('15').value;
+	
+	var Latitude9 = parseFloat(document.getElementById('Latitude9').value);
+	var Longtiude9 = parseFloat(document.getElementById('Longtiude9').value);
+	var Placename9 = document.getElementById('17').value;
+	
 const locations = [
     { place:Placename1, lat:Latitude1 , lng:Longtiude1  },
     { place:Placename2, lat:Latitude2 , lng:Longtiude2  },
@@ -53,4 +58,5 @@ const locations = [
     { place:Placename6, lat:Latitude6 , lng:Longtiude6  },
     { place:Placename7, lat:Latitude7 , lng:Longtiude7  },
     { place:Placename8, lat:Latitude8 , lng:Longtiude8  },
+    { place:Placename9, lat:Latitude9 , lng:Longtiude9  },
 ];

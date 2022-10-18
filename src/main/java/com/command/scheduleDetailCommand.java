@@ -21,6 +21,7 @@ public class scheduleDetailCommand implements Command {
 		GuideDao gDao = new GuideDao();
 		
 		List<GuideVo> list = null;
+		List<GuideVo> list1 = null;
 		int page = 1;
 		HttpSession session = null;
 		
@@ -66,17 +67,25 @@ public class scheduleDetailCommand implements Command {
 		paging.setPage(page);
 		paging.setTotalCount(count);
 		
-		
-		
+
 		try {
 			list = gDao.selectSchedulePlace(paging, userid, schedulename);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		
+		GuideDao gDao1 = new GuideDao();
+
+		try {
+			list1 = gDao1.selectSchedulePlace(userid, schedulename);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
 		request.setAttribute("userid", userid);
 		request.setAttribute("schedulename", schedulename);
-
+		request.setAttribute("guideList1", list1);
 		request.setAttribute("guideList", list);
 		request.setAttribute("paging", paging);
 

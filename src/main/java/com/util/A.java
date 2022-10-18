@@ -60,6 +60,8 @@ public class A {
 	
 	public static final String SQL_SCHEDULE_ID_PN = "SELECT * FROM (SELECT * FROM ( SELECT ROWNUM row_num, guide.* from guide where guide.placenum in (select placenum from schedule where userid=? and schedulename=?)) where row_num >= ? ) where row_num <= ?";
 	
+	public static final String SQL_SCHEDULE_ID_PN_1 = "SELECT guide.* from guide where guide.placenum in (select placenum from schedule where userid=? and schedulename=?)";
+	
 	public static final String SQL_SCHEDULE_ID_PN_COUNT = "select COUNT(*) as count from guide a where a.placenum in (select placenum from schedule where userid=? and schedulename=?)";
 	
 	public static final String SQL_SCHEDULE_DELETE = "DELETE from schedule where userid=? and placenum=? and schedulename=?";

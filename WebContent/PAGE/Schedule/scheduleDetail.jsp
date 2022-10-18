@@ -4,6 +4,7 @@
 <%@page import="java.util.List"%>
 <%
 List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
+List<GuideVo> list1 = (List<GuideVo>) request.getAttribute("guideList1");
 String schedulename = (String)request.getAttribute("schedulename");
 String userId = (String) session.getAttribute("userId");	// 세션값 얻어오기
 request.setAttribute("userId", userId);						// 세션값 저장하기
@@ -62,7 +63,7 @@ System.out.println("jsp userId " + userId);
 								for (GuideVo gVo : list) {
 							%>
 							<tr>
-								<td onclick="marking<%=a%>()" id="Place<%=a%>"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
+								<td onclick="marking<%=a%>()" id="Place<%=a%>"><%=gVo.getPlacename() %></td>
 								<td id="Adress<%=a%>"><%=gVo.getAdress()%></td>
 								<td><input type="button" onclick="deletePlace<%=a%>()" value="삭제">
 								<input type="hidden" id="Placenum<%=a%>" value="<%=gVo.getPlacenum()%>"></td>
@@ -75,6 +76,21 @@ System.out.println("jsp userId " + userId);
 						}
 						%>
 				</table>
+						<%
+							if (list != null) {
+								int a=1;
+								int b=1;
+								for (GuideVo gVo : list1) {
+							%>
+							<input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>">
+							<input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>">
+							<input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>">
+						<%
+							a+=1;
+							b+=2;
+							}
+						}
+						%>
 				</div>
 				<%-- <% System.out.println(); %> --%>
 				<jsp:include page="./detailPaging.jsp" flush = "false">
@@ -91,7 +107,7 @@ System.out.println("jsp userId " + userId);
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-     		<%-- <jsp:include page="../../Module/menu/map2.jsp" flush="false"/> --%>
+     		<jsp:include page="../../Module/menu/map2.jsp" flush="false"/>
        	</div>
 
     </div>
