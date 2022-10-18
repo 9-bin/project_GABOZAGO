@@ -22,15 +22,15 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
     		<!-- 어드민메뉴/로그인 -->
 			<jsp:include page="../../Module/menu/adminMenu.jsp" flush="false"/>
             
-            
-            <div style="width: 700px; height: 100px; margin: auto;">
+            <!-- 관리자 상단 선택 영역 탭  -->
+            <div style="width: 700px; height: 100px; margin-top: 10px;">
             	<p><span style=" border-radius: 15px 15px 0 0; border-bottom: 2px solid #B2E0F7; 
             	padding: 0.5em; background: #D8EFFB;">가이드정보관리</span></p>
             </div>
 
-        	<!-- 관리자 상단 선택 영역 탭  -->
+        	<!-- 선택창 -->
         	<div id="select" style="width: 700px; height: 150px; margin: auto;">
-        		<div> <!-- 선택창 -->
+        		<div> 
         			<select class="form-select" aria-label="Default select example">
 					  <option selected>Open this select menu</option>
 					  <option value="1">One</option>
@@ -48,24 +48,24 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					</svg></div>
         	
         	<!-- 버튼 -->
-        	<div style= "height: 50px;">
+        	<form action="deleteGuideOK.do">
+        	<div style= "height: 50px;"> 	
 	        	<div class="btn-group" style="float: right;">
 				  <a href="adminGuideInsert.do" class="btn btn-primary">등록</a>
-				  <a href=deleteGuideOK.do class="btn btn-primary">
-				  	<span onclick="alert('삭제하시겠습니까?');">삭제 </span></a>
 				</div>
-			</div>
+				</div>
         	
         	<!-- 표시될 리스트 영영 -->
         		<div>
-        			<table class="tg" style="margin: auto;">
+        			<table class="tg" >
 					<thead>
 					  <tr>
-					    <th class="tg-c3ow">장소 번호</th>
-					    <th class="tg-c3ow">지역</th>
-					    <th class="tg-c3ow">업체명</th>
-					    <th class="tg-c3ow">주소</th>
-					    <th class="tg-c3ow">업소종류</th>
+					    <th class="tg-c3ow" width="100">장소번호</th>
+					    <th class="tg-c3ow" width="50">지역</th>
+					    <th class="tg-c3ow" width="150">업체명</th>
+					    <th class="tg-c3ow" width="200">주소</th>
+					    <th class="tg-c3ow" width="50">종류</th>
+					    <th class="tg-c3ow" width="100">삭제</th>
 					  </tr>
 					</thead>
 						<%
@@ -73,31 +73,35 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 								for (GuideVo gVo : list) {
 							%>
 					<tbody>
-
 					  <tr>
-					    <td class="tg-c3ow"><div class="form-check">
-  							<input class="form-check-input" type="checkbox" value="<%=gVo.getPlacenum() %>" id="flexCheckDefault">
-  							<label class="form-check-label" for="flexCheckDefault">
-    						<%=gVo.getPlacenum() %>
-  							</label>
+					    <td class="tg-c3ow" width="100" height="50"><div class="form-check">
+  							<input type="radio" name= "placenum" value="<%=gVo.getPlacenum() %>">
+  							<%=gVo.getPlacenum() %>
 						</div></td>
-					    <td class="tg-c3ow" width="150"><%=gVo.getLocal() %></td>
-					    <td class="tg-c3ow" width="150"><%=gVo.getPlacename() %></td>
-					    <td class="tg-c3ow" width="150"><%=gVo.getAdress() %></td>
-					    <td class="tg-c3ow" width="200"><%=gVo.getPlacetype() %></td>
+					    <td class="tg-c3ow" width="50" height="50"><%=gVo.getLocal() %></td>
+					    <td class="tg-c3ow" width="150" height="50"><%=gVo.getPlacename() %></td>
+					    <td class="tg-c3ow" width="200" height="50"><%=gVo.getAdress() %></td>
+					    <td class="tg-c3ow" width="50" height="50"> <%=gVo.getPlacetype() %></td>
+					    <td class="tg-c3ow" width="100" height="50" >
+					    <input type="submit" value="삭제"></td>
 					  </tr>
 					</tbody>
 						<%
-
 								}
 							}
 							%>
 				</table>
-        		
         		</div>
-        
-        </div>
-
+        		</form>
+        		<br>
+        	<jsp:include page="./adminGuideAllPaging.jsp" flush = "false">
+			<jsp:param value="${paging.page}" name="page"/>
+			<jsp:param value="${paging.beginPage}" name="beginPage"/>
+			<jsp:param value="${paging.endPage}" name="endPage"/>
+			<jsp:param value="${paging.prev}" name="prev"/>
+			<jsp:param value="${paging.next}" name="next"/>
+			</jsp:include>
     </div>
+   </div>
 </body>
 </html>

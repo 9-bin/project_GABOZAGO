@@ -17,9 +17,9 @@ public class adminGuideDeleteCommand implements Command {
 		
 		int placenum = Integer.parseInt(request.getParameter("placenum"));
 		
-		System.out.println("delGuideCommand : " + placenum);
 		
 		try {
+			System.out.println("delGuideCommand : " + placenum);
 			cnt = new GuideDao().deleteGuide(placenum);
 			System.out.println("delGuideCommand2 : " + cnt);
 		} catch (Exception e) {
@@ -27,6 +27,7 @@ public class adminGuideDeleteCommand implements Command {
 		}
 		
 		request.setAttribute("count", cnt);
+		request.setAttribute("placenum", placenum);
 	}
 
 }
