@@ -32,7 +32,16 @@ function initMap() {
     	bounds.extend(coordinates[i]);
 	}
 	map.fitBounds(bounds);
-    
+	
+    const Path = new google.maps.Polyline({
+    path: coordinates,
+    geodesic: true,
+    strokeColor: "#FF0000",
+    strokeOpacity: 1.0,
+    strokeWeight: 2,
+  });
+
+  Path.setMap(map);
 }
 var map;
 var markersArray=[];
