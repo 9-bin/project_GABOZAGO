@@ -77,18 +77,21 @@ System.out.println("jsp userId " + userId);
 						%>
 				</table>
 						<%
-							if (list != null) {
+							
+							if (list1 != null) {
 								int a=1;
-								int b=1;
 								for (GuideVo gVo : list1) {
 							%>
 							<input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>">
 							<input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>">
-							<input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>">
+							<input type="hidden" id="pn<%=a%>" value="<%=gVo.getPlacename()%>">
+							
 						<%
 							a+=1;
-							b+=2;
 							}
+								%>
+							<input type="text" id="count" value="<%=a-1%>">
+							<%
 						}
 						%>
 				</div>
