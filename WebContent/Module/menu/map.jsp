@@ -13,7 +13,10 @@
 <!-- 공유하기 -->
 <div style="width:100%;height:100%; float: right; position: relative;">
  	<div style="cursor:pointer; float: right; padding:5px; height:5%; width:70px; position:absolute; z-index:100; right: 2%;">
-   		<input type="button" value="공유하기" onclick="alert('로그인해주세요')">      
+   		<input type="button" value="공유하기" onclick="alert('로그인해주세요')">
+		<input type="hidden" id="markerLat" value="36.1676050697">
+		<input type="hidden" id="markerLon" value="128.0824067374">
+		<input type="hidden" id="pn" value="">      
  	</div>
 <!-- 나중에 자바스크립트활용하여 구현 -->
 		<!-- 지도영역부분 -->

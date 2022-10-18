@@ -65,15 +65,18 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 			</tr>
 			<%
 			if (list != null) {
+				int a = 1;
+				int b = 1;
 				for (GuideVo gVo : list) {
 			%>
 			<tr>
-				<td width="50"><input type="radio" name="placenum" value="<%=gVo.getPlacenum() %>"><%=gVo.getPlacenum() %></td>
-				<td width="150"><%=gVo.getPlacename() %></td>
+				<td width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
+				<td onclick="marking<%=a%>()" width="150"><%=gVo.getPlacename() %></td>
 				<td width="100"><%=gVo.getAdress()%></td>
 			</tr>
 			<%
-		
+				a+=1;
+				b+=2;
 				}
 			}
 			%>

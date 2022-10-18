@@ -43,8 +43,6 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
 				<div class="row" style="width: 90%">
 					<input type="hidden" id="userid" value="${userid}">
-					<input type="hidden" id="markerLat" value="36.1676050697">
-					<input type="hidden" id="markerLon" value="128.0824067374">
 					<form action="scheduleAddSearchNext.do?local=${local}&placetype=${placetype}&keyword=${keyword}">
 						<table style="border-collapse: collapse;">
 							<tr>
@@ -89,22 +87,24 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 					<br>
 					<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 						<tr style="font-size: 10px;">
-							<th width="50">장소번호</th>
-							<th width="150">이름</th>
-							<th width="100">주소</th>
+							<th width="50">장소명</th>
+							<th width="150">주소</th>
+							<th width="100">추가</th>
 						</tr>
 						<%
 						if (list != null) {
 							int a=1;
+							int b=1;
 							for (GuideVo gVo : list) {
 						%>
 						<tr>
-							<td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"></td>
+							<td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
 							<td width="150"><%=gVo.getAdress()%></td>
 							<td width="100"><input type="button" value="일정추가" onclick="addPlace<%=a%>()"><input id="placenum<%=a%>" type="hidden" value="<%=gVo.getPlacenum() %>"></td>
 						</tr>
 						<%
 							a+=1;
+							b+=2;
 							}
 						}
 						%>

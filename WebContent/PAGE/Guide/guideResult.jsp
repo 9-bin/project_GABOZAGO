@@ -72,10 +72,11 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					<%
 					if (list != null) {
 						int a = 1;
+						int b = 1;
 						for (GuideVo gVo : list) {
 					%>
 						<tr>
-							<td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"></td>
+							<td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
 							<td onclick="marking<%=a%>()" width="150"><%=gVo.getPlacename() %><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
 							<td width="100"><%=gVo.getAdress()%></td>
 				
@@ -83,6 +84,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 				
 					<%
 						a+=1;
+						b+=2;
 						}
 					}
 					%>

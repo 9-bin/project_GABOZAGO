@@ -47,9 +47,6 @@ System.out.println("jsp userId " + userId);
 	                </form>
 	                <br><br>
 	                <input type="hidden" id="userid" value="<%=userId%>">
-	                <input type="hidden" id="markerLat" value="36.1676050697">
-					<input type="hidden" id="markerLon" value="128.0824067374">
-					<input type="hidden" id="pn" value="">
 	            </div>
 				<hr>
 				<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
