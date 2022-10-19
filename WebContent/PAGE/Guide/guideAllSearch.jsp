@@ -20,6 +20,22 @@ table, th, td{
 table{
    width: 90%;
 }
+/* 테이블 스크롤바 */
+#scrollBar { 
+  overflow-y: scroll;
+}
+#scrollBar::-webkit-scrollbar {
+    width: 1px;  /* 스크롤바의 너비 */
+}
+
+#scrollBar::-webkit-scrollbar-thumb {
+    height: 2px; /* 스크롤바의 길이 */
+    background: #B2CCFF; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+#scrollBar::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
+}
 </style>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -41,21 +57,20 @@ table{
             <div style="float: left; width: 100%; height: 700px;margin: 20px;">
 				<div class="row" style="width: 90%">
 					<form action="guideAllSearch.do?guideSearch=${guideSearch}">
-						<table style="border-collapse: collapse;">
-							<tr>
-					         	<td><select name="guideSearch">
-					         		<option value="0" selected="selected">유형선택</option>
-					         		<option value="1">관광지</option>
-					         		<option value="2">레포츠</option>
-									<option value="3">문화시설</option>
-									<option value="4">숙박시설</option>
-									<option value="5">음식점</option>
-								</select></td>
-								<td>
-									<button type="submit">검색</button>
-								</td>
-							</tr>
-						</table>
+						<div> 
+        			<select name="guideSearch" class="form-select" aria-label="Default select example">
+	         		<option value="0" selected="selected">유형선택</option>
+	         		<option value="1">관광지</option>
+	         		<option value="2">레포츠</option>
+					<option value="3">문화시설</option>
+					<option value="4">숙박시설</option>
+					<option value="5">음식점</option>
+					</select>
+        		</div>
+        		<div class="input-group mb-3"> <!-- 검색창 -->
+				  <input type="text" name="guideKeyword" placeholder="검색하세요" class="form-control" aria-label="검색하세요" aria-describedby="button-addon2">
+				  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+				</div>
 					</form>
 					<form action="planList.do" name="sfrm" >
 						<table>

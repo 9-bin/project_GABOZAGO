@@ -44,25 +44,20 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <body>
 <div class="row" style="width: 90%">
 	<form action="guideAllSearch.do?guideSearch=${guideSearch}">
-		<table style="border-collapse: collapse;">
-			<tr>
-	         	<td><select name="guideSearch">
-	         		<option value="0" selected="selected">유형선택</option>
-	         		<option value="1">관광지</option>
-	         		<option value="2">레포츠</option>
-					<option value="3">문화시설</option>
-					<option value="4">숙박시설</option>
-					<option value="5">음식점</option>
-				</select></td>
-				<td>
-					<button type="submit">검색</button>&nbsp;&nbsp;
-				</td>
-					<td style="float: right;">
-					&nbsp;&nbsp;<button type="submit" class="btn btn-outline btn-primary pull-right" 
-					id="selectBtn" name="add" style="float: right" onclick="return addPlace()">일정추가</button>
-				</td>
-			</tr>
-		</table>
+		<div> 
+   			<select name="guideSearch" class="form-select" aria-label="Default select example">
+     		<option value="0" selected="selected">유형선택</option>
+     		<option value="1">관광지</option>
+     		<option value="2">레포츠</option>
+			<option value="3">문화시설</option>
+			<option value="4">숙박시설</option>
+			<option value="5">음식점</option>
+			</select>
+	   		</div>
+	   		<div class="input-group mb-3"> <!-- 검색창 -->
+			  <input type="text" name="guideKeyword" placeholder="검색하세요" class="form-control" aria-label="검색하세요" aria-describedby="button-addon2">
+			  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
+			</div>
 	</form>
 	<form action="planList.do" name="sfrm" >
 		<table width="90%">
