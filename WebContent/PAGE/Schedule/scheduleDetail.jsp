@@ -93,7 +93,7 @@ System.out.println("jsp userId " + userId);
 							a+=1;
 							}
 								%>
-							<input type="text" id="count" value="<%=a-1%>">
+							<input type="hidden" id="count" value="<%=a-1%>">
 							<%
 						}
 						%>

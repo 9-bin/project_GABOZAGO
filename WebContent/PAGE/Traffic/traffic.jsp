@@ -28,6 +28,7 @@
 				<form action="trafficNext.do">
 					<div class="input-group">
 						<select name="local" style="width:70px;">
+						  <option ${(local=="0")?"selected":""} value="0">지역</option>
 						  <option ${(local=="1")?"selected":""} value=1>강릉</option>
 						  <option ${(local=="2")?"selected":""} value=2>부산</option>
 						  <option ${(local=="3")?"selected":""} value=3>서울</option>
@@ -36,6 +37,7 @@
 						  <option ${(local=="6")?"selected":""} value=6>천안,아산</option>
 						</select>
 						<select name="placetype" style="width:70px;">
+						  <option ${(placetype=="0")?"selected":""} value="0">타입</option>
 						  <option ${(placetype=="1")?"selected":""} value=1>관광지</option>
 						  <option ${(placetype=="2")?"selected":""} value=2>레포츠</option>
 						  <option ${(placetype=="3")?"selected":""} value=3>문화시설</option>
@@ -51,17 +53,8 @@
 			</div>
         		<!-- 교통 수단 -->
        		<div style="height: 90px;">
-       			<div style="float: left; width: 25%;">
-       				<input type="image" src="/PJ_GABOZAGO/Image/car-front-fill.svg" class="btn btn-primary" style="width: 100%;">
-       			</div>
-       			<div style="float: left; width: 25%;">
+       			<div style="margin:auto; width: 25%;">
        				<input onclick='newPage()' type="image" src="/PJ_GABOZAGO/Image/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
-       			</div>
-       			<div style="float: left; width: 25%;">
-       				<input type="image" src="/PJ_GABOZAGO/Image/bicycle.svg" class="btn btn-primary" value="자전거" style="width: 100%;">
-       			</div>
-       			<div style="float: left; width: 25%;">
-       				<input type="image" src="/PJ_GABOZAGO/Image/universal-access.svg" class="btn btn-primary" value="도보" style="width: 100%;">
        			</div>
        		</div>
 			<!-- info -->

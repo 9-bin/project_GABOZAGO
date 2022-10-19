@@ -7,7 +7,7 @@ public class Paging {
 	   private int beginPage;
 	   private int endPage;
 	   private int displayRow = 8;
-	   private int displayPage = 6;
+	   private int displayPage = 5;
 	   boolean prev;
 	   boolean next;
 	   private int startNum;
