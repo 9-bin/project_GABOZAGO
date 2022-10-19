@@ -13,15 +13,13 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <title>Insert title here</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <style>
-#example-table-3{
-	   table-layout:fixed;
-	   width: 90%;
+table, th, td{
+   border: 1px solid black;
+   border-collapse: collapse;
+   text-align: center;
 }
-
-#example-table-3, th, td{
-   display : inline-block;
-   white-space : nowrap;
-   overflow : hidden;
+table{
+   width: 90%;
 }
 /* 테이블 스크롤바 */
 #scrollBar { 
