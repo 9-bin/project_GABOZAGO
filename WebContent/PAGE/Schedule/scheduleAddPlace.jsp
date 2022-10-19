@@ -128,7 +128,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
        	</div>
 
     </div>
- 
+ </div>
 </body>
 <script src="Script/scheduleInsertPlace.js"></script>
 </html>

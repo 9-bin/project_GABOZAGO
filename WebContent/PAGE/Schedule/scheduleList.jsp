@@ -27,8 +27,8 @@ List<ScheduleVo> list = (List<ScheduleVo>) request.getAttribute("scheduleList");
             <div style="float: left; width: 100%; height: 150px; margin-top: 20px;">
             	<button type="submit" class="btn btn-outline btn-primary pull-right" id="selectBtn" style="float: right">여행만들기</button><br><br>
                 <form action="scheduleNext.do" method="post">
-					<input type="text" placeholder="일정 이름" name="schedulename">
-                	<input type="submit" value="+ 새 일정 만들기" style="font-size: 20px; text-align: center;">
+					<input type="text" placeholder="일정 이름" name="schedulename" >
+                	<input type="submit" value="+ 새 일정 만들기" class="btn btn-outline btn-primary pull-right" id="selectBtn">
                 </form>
             </div>
                         <!-- 목록 보여주기 -->
