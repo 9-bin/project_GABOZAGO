@@ -59,7 +59,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 			  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 			</div>
 	</form>
-	<form action="planList.do" name="sfrm" >
+	
 		<br>
 		<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 			<tr style="font-size: 10px;">
@@ -74,8 +74,8 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 				for (GuideVo gVo : list) {
 			%>
 			<tr>
-				<%-- <td width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td> --%>
-				<td onclick="marking<%=a%>()" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %></td>
+				<%-- <td width="50"><%=gVo.getPlacenum() %></td> --%>
+				<td onclick="marking<%=a%>()" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
 				<td id="scrollBar" width="185" style="overflow: auto;"><%=gVo.getAdress()%></td>
 			</tr>
 			<%
@@ -85,7 +85,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 			}
 			%>
 		</table>
-	</form>
+	
 </div>
 <jsp:include page="./guidePaging.jsp" flush = "false">
 <jsp:param value="${paging.page}" name="page"/>

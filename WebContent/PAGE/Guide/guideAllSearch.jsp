@@ -72,41 +72,33 @@ table{
 				  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 				</div>
 					</form>
-					<form action="planList.do" name="sfrm" >
-						<table>
-							<tr>
-								<th>
-									일정 이름: <input type="text" name="Sname" value="${Sname}" aria-label="일정 이름 쓰기">
-								</th>
-								<td>
-									<button type="submit" class="btn btn-outline btn-primary pull-right" 
-									id="selectBtn" name="add" style="float: right" onclick="return addPlace()">일정추가</button>
-								</td>
-							</tr>
-						</table>
+					
+						
 						<br>
 						<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 							<tr style="font-size: 10px;">
-								<th>일정추가</th>
+								
 								<th>이름</th>
 								<th>주소</th>
 							</tr>
 							<%
 							if (list != null) {
+								int a = 1;
+								int b = 1;
 								for (GuideVo gVo : list) {
 							%>
 							<tr>
-								<td><input type="radio" name="placenum" value="<%=gVo.getPlacenum() %>"><%=gVo.getPlacenum() %></td>
-								<td><%=gVo.getPlacename() %></td>
-								<td><%=gVo.getAdress()%></td>
+								<td onclick="marking<%=a%>()" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>
+								<td id="scrollBar" width="185" style="overflow: auto;"><%=gVo.getAdress()%></td>
 							</tr>
 							<%
-						
+									a+=1;
+									b+=2;
 								}
 							}
 							%>
 						</table>
-					</form>
+					
 				</div>
 				<jsp:include page="./gaPaging.jsp" flush = "false">
 				<jsp:param value="${paging.page}" name="page"/>
@@ -124,7 +116,7 @@ table{
         
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-     		<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
+     		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
        	</div>
 
     </div>

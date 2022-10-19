@@ -78,16 +78,19 @@ table{
 					</tr>
 					<%
 					if (list != null) {
+						int a = 1;
+						int b = 1;
 						for (GuideVo gVo : list) {
 					%>
 						<tr>
-							<th id="th_name" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %></td>
+							<th onclick="marking<%=a%>()" id="th_name" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
 							<th id="scrollBar" width="185" style="overflow: auto;"><%=gVo.getAdress()%></td>
 				
 						</tr>
 				
 					<%
-				
+					a+=1;
+					b+=2;
 						}
 					}
 					%>

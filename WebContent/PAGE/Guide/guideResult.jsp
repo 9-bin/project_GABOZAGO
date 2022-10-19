@@ -89,7 +89,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					%>
 						<tr>
 							<%-- <td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>--%>
-							 <td onclick="marking<%=a%>()" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
+							 <td onclick="marking<%=a%>()" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
 							<td id="scrollBar" width="185" style="overflow: auto;"><%=gVo.getAdress()%></td>
 						</tr>
 				
