@@ -63,7 +63,10 @@ System.out.println("jsp userId " + userId);
 								for (GuideVo gVo : list) {
 							%>
 							<tr>
-								<td onclick="center<%=a%>()" id="Place<%=a%>"><%=gVo.getPlacename() %></td>
+								<td onclick="center<%=a%>()" id="Place<%=a%>"><%=gVo.getPlacename() %>
+								<input type="hidden" id="latitude<%=a%>" value="<%=gVo.getLatitude()%>">
+							<input type="hidden" id="longtiude<%=a%>" value="<%=gVo.getLongtiude()%>">
+							<input type="hidden" id="Pn<%=a%>" value="<%=gVo.getPlacename()%>"></td>
 								<td id="Adress<%=a%>"><%=gVo.getAdress()%></td>
 								<td><input type="button" onclick="deletePlace<%=a%>()" value="삭제">
 								<input type="hidden" id="Placenum<%=a%>" value="<%=gVo.getPlacenum()%>"></td>

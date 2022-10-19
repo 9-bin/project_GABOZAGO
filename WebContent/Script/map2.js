@@ -51,11 +51,11 @@ coordinates = [];
 
 
 function center1(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude1').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude1').value);
+	var Latitude = parseFloat(document.getElementById('latitude1').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude1').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
@@ -88,11 +88,11 @@ function center1(){
 }
 
 function center2(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude2').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude2').value);
+	var Latitude = parseFloat(document.getElementById('latitude2').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude2').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
@@ -125,11 +125,11 @@ function center2(){
 }
 
 function center3(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude3').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude3').value);
+	var Latitude = parseFloat(document.getElementById('latitude3').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude3').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
@@ -161,11 +161,11 @@ function center3(){
   Path.setMap(map);
 }
 function center4(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude4').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude4').value);
+	var Latitude = parseFloat(document.getElementById('latitude4').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude4').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
@@ -197,11 +197,11 @@ function center4(){
   Path.setMap(map);
 }
 function center5(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude5').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude5').value);
+	var Latitude = parseFloat(document.getElementById('latitude5').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude5').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
@@ -233,11 +233,11 @@ function center5(){
   Path.setMap(map);
 }
 function center6(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude6').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude6').value);
+	var Latitude = parseFloat(document.getElementById('latitude6').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude6').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
@@ -269,11 +269,11 @@ function center6(){
   Path.setMap(map);
 }
 function center7(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude7').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude7').value);
+	var Latitude = parseFloat(document.getElementById('latitude7').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude7').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
@@ -305,11 +305,11 @@ function center7(){
   Path.setMap(map);
 }
 function center8(){
-	var Latitude1 = parseFloat(document.getElementById('Latitude8').value);
-	var Longtiude1 = parseFloat(document.getElementById('Longtiude8').value);
+	var Latitude = parseFloat(document.getElementById('latitude8').value);
+	var Longtiude = parseFloat(document.getElementById('longtiude8').value);
 	const myLatLng ={
-				lat: Latitude1,
-				lng: Longtiude1
+				lat: Latitude,
+				lng: Longtiude
 	};
       var mapOptions = {
       streetViewControl: false,
