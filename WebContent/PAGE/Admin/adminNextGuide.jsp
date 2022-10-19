@@ -10,7 +10,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가이드정보관리</title>
+<title>가이드정보관리받아</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 
 
@@ -30,7 +30,8 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 
         	<!-- 선택창 -->
         	<div id="select" style="width: 700px; height: 150px; margin: auto;">
-        	        		<form action="adminGuideSearch.do" method="post">
+        	
+        		<form action="adminGuideSearch.do" method="post">
         			<div> 
 	        			<select class="form-select" name="local"
                                     aria-label="Floating label select example">
@@ -60,6 +61,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					  <button class="btn btn-outline-secondary" type="submit" id="button-addon2">검색</button>
 					</div>
 				</form>
+			
         	
         	<!-- 버튼 -->
         	<form action="deleteGuideOK.do">
@@ -77,7 +79,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					    <th class="tg-c3ow" width="100">장소번호</th>
 					    <th class="tg-c3ow" width="50">지역</th>
 					    <th class="tg-c3ow" width="150">업체명</th>
-					    <th class="tg-c3ow" width="200">주소</th>
+					    <th class="tg-c3ow" width="250">주소</th>
 					    <th class="tg-c3ow" width="50">종류</th>
 					    <th class="tg-c3ow" width="100">삭제</th>
 					  </tr>
@@ -94,7 +96,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 						</div></td>
 					    <td class="tg-c3ow" width="50" height="50"><%=gVo.getLocal() %></td>
 					    <td class="tg-c3ow" width="150" height="50"><%=gVo.getPlacename() %></td>
-					    <td class="tg-c3ow" width="200" height="50"><%=gVo.getAdress() %></td>
+					    <td class="tg-c3ow" width="250" height="50"><%=gVo.getAdress() %></td>
 					    <td class="tg-c3ow" width="50" height="50"> <%=gVo.getPlacetype() %></td>
 					    <td class="tg-c3ow" width="100" height="50" >
 					    <input type="submit" value="삭제"></td>
@@ -108,7 +110,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
         		</div>
         		</form>
         		<br>
-        	<jsp:include page="./adminGuideAllPaging.jsp" flush = "false">
+        	<jsp:include page="./adminGuideSearchPaging.jsp" flush = "false">
 			<jsp:param value="${paging.page}" name="page"/>
 			<jsp:param value="${paging.beginPage}" name="beginPage"/>
 			<jsp:param value="${paging.endPage}" name="endPage"/>

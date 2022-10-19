@@ -14,6 +14,8 @@ import com.command.Command;
 import com.command.adMemberSearchOKCommand;
 import com.command.adminGuideDeleteCommand;
 import com.command.adminGuideInsertCommand;
+import com.command.adminGuideSearchCommand;
+import com.command.adminGuideSearchOKCommand;
 import com.command.adminMemberCommand;
 import com.command.adminMemberSearchCommand;
 import com.command.adminUserDeleteCommand;
@@ -411,6 +413,26 @@ public class Controller extends HttpServlet {
 			command = new adminGuideDeleteCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Admin/deleteGuideOK.jsp";
+			break;
+			
+		case "/adminGuideSearch.do":
+			System.out.println("controller yuna adminkeword : " + request.getParameter("adminkeword") + " | " + request.getParameter("local"));
+			request.setAttribute("placetype", request.getParameter("placetype"));
+			request.setAttribute("key", request.getParameter("adminkeword"));
+			request.setAttribute("location", request.getParameter("local"));
+			command = new adminGuideSearchCommand();
+			ViewPage = "/PAGE/Admin/adminGuideSearch.jsp";
+			break;
+			
+		case "/adminGuideSearchOK.do":
+			request.setAttribute("Local", session.getAttribute("Local"));
+			request.setAttribute("type", session.getAttribute("Type"));
+			request.setAttribute("key", session.getAttribute("Key"));
+			System.out.println("controller yuna searchOK : " + session.getAttribute("Local") + " | " + 
+												session.getAttribute("Type") + " | " + session.getAttribute("Key"));
+			command = new adminGuideSearchOKCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/adminNextGuide.jsp";
 			break;
 			
 			
