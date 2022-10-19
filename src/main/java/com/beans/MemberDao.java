@@ -389,5 +389,51 @@ public class MemberDao {
 	}
 	
 	
+	// 관리자 페이지에서 회원 검색
+	public List<MemberVo> searchMember(Paging paging, String type, String keyword) throws SQLException {
+		List<MemberVo> list = null;
+		int startNum = paging.getStartNum();
+		int endNum = paging.getEndNum();
+		
+		String SQL_SEARCH_MEM = "SELECT * FROM (SELECT * FROM "
+				+ "( SELECT ROWNUM row_num, member1.* from member1 "
+				+ "WHERE " + type + " LIKE ?) "
+				+ "where row_num >= ? ) where row_num <= ?";
+		
+		try {
+			pstmt = conn.prepareStatement(SQL_SEARCH_MEM);
+			
+			pstmt.setString(1, "%"+keyword+"%");
+			pstmt.setInt(2, startNum);
+			pstmt.setInt(3, endNum);
+			
+			rs = pstmt.executeQuery();
+			list = getUser(rs);
+		} finally {
+			close();
+		}
+		return list;
+	}
+	
+	// 검색한 회원 리스트 개수 ( 페이징 ) 
+	public int getMemberCount(String type, String keyword) {
+		int count = 0;
+		
+		String SQL_SEARCH_MEM_COUNT = "select COUNT(*) as count from member1 where "+ type +" like ?";
+		
+		try {
+			pstmt = conn.prepareStatement(SQL_SEARCH_MEM_COUNT);
+			pstmt.setString(1, "%"+keyword+"%");
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				count = rs.getInt("count");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 
 }

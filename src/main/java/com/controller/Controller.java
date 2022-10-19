@@ -11,9 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.command.Command;
+import com.command.adMemberSearchOKCommand;
 import com.command.adminGuideDeleteCommand;
 import com.command.adminGuideInsertCommand;
 import com.command.adminMemberCommand;
+import com.command.adminMemberSearchCommand;
 import com.command.adminUserDeleteCommand;
 import com.command.adminUserInfoCommand;
 import com.command.adminUserUpdateCommand;
@@ -367,6 +369,23 @@ public class Controller extends HttpServlet {
 		
 		case "/adminMember.do":
 			command = new adminMemberCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/adminMember.jsp";
+			break;
+			
+		case "/memberSearch.do":
+			System.out.println("controller guideSearch : " + request.getParameter("guideSearch") + " | " + request.getParameter("guideKeyword"));
+			request.setAttribute("Type", request.getParameter("searchMember"));
+			request.setAttribute("keyword", request.getParameter("memberKeyword"));
+			command = new adminMemberSearchCommand();
+			command.execute(request, response);
+			ViewPage = "/PAGE/Admin/adminMemberSearch.jsp";
+			break;
+
+		case "/memberSearchOK.do":
+			request.setAttribute("type", session.getAttribute("Type"));
+			request.setAttribute("key", session.getAttribute("Key"));
+			command = new adMemberSearchOKCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Admin/adminMember.jsp";
 			break;

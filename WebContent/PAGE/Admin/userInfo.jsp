@@ -21,7 +21,7 @@
 <!--영역 나누기-->
     <div class="view" style=" width: 100vw; height: 100vh; background-color: whitesmoke;">
     		<!-- 어드민메뉴/로그인 -->
-    		<div class="left" style="float: left; background-color: whitesmoke;">
+    		<div style="float: left; background-color: whitesmoke;">
 			<jsp:include page="../../Module/menu/adminMenu.jsp" flush="false"/>
 			</div>
             

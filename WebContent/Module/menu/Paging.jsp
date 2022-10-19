@@ -16,7 +16,7 @@
 </head>
 <body>
 <div id="paging">
-   <c:url var="action" value="memList.do"/>
+   <c:url var="action" value="adminMember.do"/>
    <c:if test="${param.prev}">
    <a href="${action}?page=${param.beginPage-1}">prev</a>
    </c:if>

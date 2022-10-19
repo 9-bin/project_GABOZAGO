@@ -47,9 +47,6 @@
                     <a class="nav-link active" aria-current="page" href="adminGuide.do">가이드정보관리</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminForbidden.do">포스팅관리(금지어)</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="adminMember.do">회원관리</a>
                 </li>
                 <hr>
