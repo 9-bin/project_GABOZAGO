@@ -1,6 +1,7 @@
 <%@page import="com.beans.GuideVo"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%
 List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 %> 
@@ -10,25 +11,44 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
 <style>
-table, th, td{
-   border: 1px solid black;
-   border-collapse: collapse;
-   text-align: center;
+#example-table-3{
+	   table-layout:fixed;
+	   width: 90%;
 }
-table{
-   width: 100%;
+
+#example-table-3, th, td{
+   display : inline-block;
+   white-space : nowrap;
+   overflow : hidden;
+}
+/* 테이블 스크롤바 */
+#scrollBar { 
+  overflow-y: scroll;
+}
+#scrollBar::-webkit-scrollbar {
+    width: 1px;  /* 스크롤바의 너비 */
+}
+
+#scrollBar::-webkit-scrollbar-thumb {
+    height: 2px; /* 스크롤바의 길이 */
+    background: #B2CCFF; /* 스크롤바의 색상 */
+    border-radius: 10px;
+}
+#scrollBar::-webkit-scrollbar-track {
+    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
 }
 </style>
-
 </head>
-<body>
-<div class="row" style="width: 100%">
 
-<table id="example-table-3" width="100%" class="table table-bordered table-hover text-center">
-	<tr>
-		<th>이름</th>
-		<th>선택</th>
+<body>
+<div class="row" style="width: 90%">
+
+<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
+	<tr style="font-size: 10px;">
+		<th id="th_name" width="100" style="overflow: hidden;">이름</th>
+		<th id="scrollBar" width="185" style="overflow: auto;">선택</th>
 	</tr>
 	<%
 	if (list != null) {
@@ -38,8 +58,8 @@ table{
 		for (GuideVo gVo : list) {
 	%>
 		<tr>
-			<td onclick="marking<%=c%>()"><%=gVo.getPlacename()%><input type="hidden" id="Latitude<%=c%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=c%>" value="<%=gVo.getLongtiude()%>"></td>
-			<td>
+			<td onclick="marking<%=c%>()" id="th_name" style="overflow: hidden;"><%=gVo.getPlacename()%><input type="hidden" id="Latitude<%=c%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=c%>" value="<%=gVo.getLongtiude()%>"></td>
+			<td id="scrollBar" width="185" style="overflow: auto;">
 				<button id="<%=a%>" onclick="startPlace<%=c%>()" value="<%=gVo.getPlacename()%>">출발지</button>
   				<button id="<%=b%>" onclick="endPlace<%=c%>()" value="<%=gVo.getPlacename()%>">도착지</button>
 			</td>
