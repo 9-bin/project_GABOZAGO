@@ -83,7 +83,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					<tr>
 						<!-- <th width="50">장소번호</th> -->
 						<th id="th_name" width="100" style="overflow: hidden;">이름</th>
-						<th id="scrollBar" width="200" style="overflow: auto;">주소</th>
+						<th id="scrollBar" width="185" style="overflow: auto;">주소</th>
 					</tr>
 					<%
 					if (list != null) {
@@ -94,7 +94,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 						<tr>
 							<%-- <td onclick="marking<%=a%>()" width="50"><%=gVo.getPlacenum() %><input type="hidden" id="Latitude<%=a%>" value="<%=gVo.getLatitude()%>"> <input type="hidden" id="Longtiude<%=a%>" value="<%=gVo.getLongtiude()%>"><input type="hidden" id="<%=b%>" value="<%=gVo.getPlacename()%>"></td>--%>
 							 <td onclick="marking<%=a%>()" width="100" style="overflow: hidden;"><%=gVo.getPlacename() %><input type="hidden" id="<%=a%>" value="<%=gVo.getPlacename() %>"></td>
-							<td id="scrollBar" width="200" style="overflow: auto;"><%=gVo.getAdress()%></td>
+							<td id="scrollBar" width="185" style="overflow: auto;"><%=gVo.getAdress()%></td>
 						</tr>
 				
 					<%
