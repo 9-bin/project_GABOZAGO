@@ -84,8 +84,8 @@ table{
        		</div>
 			<!-- info -->
         	<div class="info" style="background-color: white;">
-        		<div style="margin: auto; border:1px solid black; width: 360px; height:67vh;">
-					<div style="float: left; width: 100%; height: 700px;margin: auto;">
+        		<div style="margin: auto; border:1px solid black; width: 360px; height:60vh;">
+					<div style="float: left; width: 100%; height: 100%;margin: auto;">
             			<jsp:include page="../../PAGE/Traffic/trafficResult.jsp"></jsp:include>
             		</div>
 				</div>
