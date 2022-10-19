@@ -60,13 +60,6 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 			</div>
 	</form>
 	<form action="planList.do" name="sfrm" >
-		<table width="90%">
-			<tr>
-				<th>
-					일정 이름: <input type="text" name="Sname" value="${Sname}" aria-label="일정 이름 쓰기">
-				</th>
-			</tr>
-		</table>
 		<br>
 		<table id="example-table-3" width="90%" class="table table-bordered table-hover text-center">
 			<tr style="font-size: 10px;">
