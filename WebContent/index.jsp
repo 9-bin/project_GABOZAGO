@@ -105,6 +105,10 @@ button {
         opacity: 0;
     }
 }
+.right{
+	  background: url(/PJ_GABOZAGO/Image/index.png);
+	  background-size: cover;
+}
 
 </style>
 <body>
@@ -148,7 +152,7 @@ button {
 
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-			<img style="width: 100%; height: 100%; id="images" src="/PJ_GABOZAGO/Image/index.png">
+			<!-- <img style="width: 100%; height: 100%; id="images" src="/PJ_GABOZAGO/Image/index.png"> -->
         </div>
 
     </div>

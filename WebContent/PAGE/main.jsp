@@ -160,23 +160,23 @@ button {
         </div>
         <!--1-2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%;  height: 100vh; background-color: whitesmoke;">
-			<img id="images" src="/PJ_GABOZAGO/Image/truck-front-fill.svg">
+			<img id="images" src="/PJ_GABOZAGO/Image/start.png">
         </div>
 
     </div>
 </body>
 <script>
 function images1(){
-	document.getElementById("images").src="/PJ_GABOZAGO/Image/truck-front-fill.svg"
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/start.png"
 }
 function schedule(){
-	document.getElementById("images").src="/PJ_GABOZAGO/Image/car-front-fill.svg"
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/schedule.png"
 }
 function guide(){
-	document.getElementById("images").src="/PJ_GABOZAGO/Image/car-front-fill.svg"
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide.png"
 }
 function traffic(){
-	document.getElementById("images").src="/PJ_GABOZAGO/Image/car-front-fill.svg"
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/bus.png"
 }
 </script>
 </html>
