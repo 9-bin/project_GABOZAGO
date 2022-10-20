@@ -114,6 +114,11 @@ button {
     }
 }
 
+.right{
+	  background: url(/COPY_get/Image/main.png);
+	  background-size: cover;
+}
+
 </style>
 <body>
 <!--영역 나누기-->
@@ -159,7 +164,7 @@ button {
             </div>
         </div>
         <!--1-2(오른쪽)--> 
-        <div class="right" style="float: right; width: 70%;  height: 100vh; background-color: whitesmoke;">
+        <div class="right" style="float: right; width: 70%;  height: 100vh;">
 			<%-- <jsp:include page="../Module/menu/map.jsp" flush="false"/> --%>
         </div>
 
