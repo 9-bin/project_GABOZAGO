@@ -56,11 +56,11 @@
         <!-- 메뉴 내부 항목 -->
         <div class="offcanvas-body small">
             <ul class="nav flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="adminGuide.do">가이드정보관리</a>
+            	<li class="nav-item">
+                    <a class="nav-link" href="adminMember.do">회원관리</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="adminMember.do">회원관리</a>
+                    <a class="nav-link active" aria-current="page" href="adminGuide.do">가이드정보관리</a>
                 </li>
                 <hr>
                 <li class="nav-item" id="admin">

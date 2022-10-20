@@ -79,7 +79,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					    <th class="tg-c3ow" width="100">장소번호</th>
 					    <th class="tg-c3ow" width="50">지역</th>
 					    <th class="tg-c3ow" width="150">업체명</th>
-					    <th class="tg-c3ow" width="200">주소</th>
+					    <th class="tg-c3ow" width="250">주소</th>
 					    <th class="tg-c3ow" width="50">종류</th>
 					    <th class="tg-c3ow" width="100">삭제</th>
 					  </tr>
@@ -96,7 +96,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 						</div></td>
 					    <td class="tg-c3ow" width="50" height="50"><%=gVo.getLocal() %></td>
 					    <td class="tg-c3ow" width="150" height="50"><%=gVo.getPlacename() %></td>
-					    <td class="tg-c3ow" width="200" height="50"><%=gVo.getAdress() %></td>
+					    <td class="tg-c3ow" width="250" height="50"><%=gVo.getAdress() %></td>
 					    <td class="tg-c3ow" width="50" height="50"> <%=gVo.getPlacetype() %></td>
 					    <td class="tg-c3ow" width="100" height="50" >
 					    <input type="submit" value="삭제"></td>
