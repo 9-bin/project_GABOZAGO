@@ -91,7 +91,7 @@ List<MemberVo> list = (List<MemberVo>) request.getAttribute("memberList");
         		
         		</div>
         	<div>
-		<jsp:include page="/Module/menu/Paging.jsp">
+		<jsp:include page="/Module/menu/memberSearchPaging.jsp">
 		<jsp:param value="${paging.page}" name="page"/>
 		<jsp:param value="${paging.beginPage}" name="beginPage"/>
 		<jsp:param value="${paging.endPage}" name="endPage"/>

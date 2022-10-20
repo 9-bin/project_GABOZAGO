@@ -20,8 +20,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 <!-- 메뉴 버튼 -->
-<div>
-	<div style="margin: 5% 0 0 2%;">
+<div style="margin: 1% 0 0 2%;">
+	<div>
 		<div>
 			<button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight" style="float: left;">
 				<!-- 버튼 아이콘 (부트 스트랩) --> 
@@ -35,6 +35,7 @@
 <!-- 페이지 이름 영역 -->
 	<div>
 		<p>
+			<div style="height: 5px;"></div>
 			<span style="border-radius: 15px 15px 15px 0; border: 3px solid #394653; padding: 0.5em 0.4em; color: #333b42; margin: 0 50px 0 100px;font-size: 16.5px;">
                 <a href="main.do" style=" text-decoration: none; "><strong>GABOZAGO</strong></a>
 			</span>

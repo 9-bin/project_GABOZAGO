@@ -20,39 +20,40 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 <!--영역 나누기-->
     <div class="view" style=" width: 100vw; height: 100vh; background-color: whitesmoke;">
     		<!-- 어드민메뉴/로그인 -->
+			<div style="float: left; background-color: whitesmoke;">
 			<jsp:include page="../../Module/menu/adminMenu.jsp" flush="false"/>
+            </div>
             
             <!-- 관리자 상단 선택 영역 탭  -->
-            <div style="width: 700px; height: 100px; margin-top: 10px;">
+            <div style="width: 700px; height: 10px;"></div> 
+            <div style="width: 700px; height: 100px; margin: auto;">
             	<p><span style=" border-radius: 15px 15px 0 0; border-bottom: 2px solid #B2E0F7; 
             	padding: 0.5em; background: #D8EFFB;">가이드정보관리</span></p>
             </div>
 
         	<!-- 선택창 -->
         	<div id="select" style="width: 700px; height: 150px; margin: auto;">
-        	
-        		<form action="adminGuideSearch.do" method="post">
-        			<div> 
-	        			<select class="form-select" name="local"
-                                    aria-label="Floating label select example">
-                                    <option selected>지역을 선택해주세요</option>
-                                    <option value="1">강원도</option>
+        	        		<form action="adminGuideSearch.do" method="post">
+        			<div class="input-group mb-3"> 
+        			 	<label class="input-group-text" for="inputGroupSelect01">지역</label>
+	        			<select class="form-select" name="local" 
+	        				aria-label="Floating label select example">
+                                    <option value="1" selected>강원도</option>
                                     <option value="2">경상도</option>
                                     <option value="3">수도권</option>
                                     <option value="4">전라도</option>
                                     <option value="5">제주도</option>
                                     <option value="6">충청도</option>
-                                </select>
-	        		</div>
-	        		<div class="form-floating" style="margin-top: 20px;">
-						<select class="form-select"  name="placetype"
-                                    aria-label="Floating label select example">
+                        </select>
+                        <label class="input-group-text" for="inputGroupSelect01">타입</label>
+						<select class="form-select"  name="placetype" 
+							aria-label="Floating label select example">
                                     <option value="1" selected>관광지</option>
                                     <option value="2">레포츠</option>
                                     <option value="3">문화시설</option>
                                     <option value="4">숙박시설</option>
                                     <option value="5">음식점</option>
-                                </select>
+                        </select>
 					</div>
 					
 	        		<div class="input-group mb-3"> <!-- 검색창 -->

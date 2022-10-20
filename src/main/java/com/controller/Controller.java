@@ -1,6 +1,7 @@
 package com.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -66,6 +67,8 @@ public class Controller extends HttpServlet {
 
 	protected void doAction(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter writer = response.getWriter();
 		HttpSession session = request.getSession();
 		
 		Command command = null;
@@ -161,6 +164,10 @@ public class Controller extends HttpServlet {
 // 가이드
 		case "/guide.do":
 			ViewPage = "/PAGE/Guide/guide.jsp";
+			if (session.getAttribute("userId") == null) {
+				writer.println("<script>alert('로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
+				writer.close();
+			}
 			break;
 		case "/guideAll.do":
 			command = new guideAllCommand();
@@ -220,6 +227,10 @@ public class Controller extends HttpServlet {
 			
 // 일정
 		case "/schedule.do":
+			if (session.getAttribute("userId") == null) {
+				writer.println("<script>alert('로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
+				writer.close();
+			}
 			request.setAttribute("userId", session.getAttribute("userId"));
 			command = new planAllCommand();
 			command.execute(request, response);
@@ -304,6 +315,10 @@ public class Controller extends HttpServlet {
 // 교통
 		case "/traffic.do":
 			ViewPage = "/PAGE/Traffic/traffic.jsp";
+			if (session.getAttribute("userId") == null) {
+				writer.println("<script>alert('로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
+				writer.close();
+			}
 			break;
 			
 		case "/trafficNext.do":
@@ -370,6 +385,12 @@ public class Controller extends HttpServlet {
 			break;
 		
 		case "/adminMember.do":
+			int ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
+			if (ADMIN != 1) {
+				writer.println("<script>alert('관리자 로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
+				writer.close();
+				break;
+			}
 			command = new adminMemberCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Admin/adminMember.jsp";
@@ -394,6 +415,12 @@ public class Controller extends HttpServlet {
 			
 		// 가이드 
 		case "/adminGuide.do":
+			ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
+			if (ADMIN != 1) {
+				writer.println("<script>alert('관리자 로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
+				writer.close();
+				break;
+			}
 			command = new guideAdminCommand();	// 가이드 장소 목록
 			command.execute(request, response);
 			ViewPage = "/PAGE/Admin/adminGuide.jsp";
