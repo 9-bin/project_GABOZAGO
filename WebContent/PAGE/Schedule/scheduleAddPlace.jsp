@@ -76,7 +76,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 					<table>
 						<tr>
 							<th>
-								일정 이름: ${schedulename}<input id="schedulename" type="hidden" value="${schedulename}">
+								<a href="scheduleNext.do?schedulename=${schedulename}">${schedulename}</a><input id="schedulename" type="hidden" value="${schedulename}">
 							</th>
 						</tr>
 					</table>
@@ -121,13 +121,13 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 
         </div>
 
-     </div>
+        
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
      		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
        	</div>
 
- 
+    </div>
  </div>
 </body>
 <script src="Script/scheduleInsertPlace.js"></script>

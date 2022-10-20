@@ -114,11 +114,6 @@ button {
     }
 }
 
-.right{
-	  background: url(/COPY_get/Image/main.png);
-	  background-size: cover;
-}
-
 </style>
 <body>
 <!--영역 나누기-->
@@ -139,7 +134,7 @@ button {
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="일정" 
-                            onclick="location.href='schedule.do'"></td>
+                            onclick="location.href='schedule.do'" onmouseover="schedule()" onmouseout="images1()"></td>
                         </tr>
                     </table>
             </div>
@@ -148,7 +143,7 @@ button {
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="가이드" 
-                            onclick="location.href='guide.do'"></td>
+                            onclick="location.href='guide.do'" onmouseover="guide()" onmouseout="images1()"></td>
                         </tr>
                     </table>
             </div>
@@ -158,16 +153,30 @@ button {
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="교통" 
-                            onclick="location.href='traffic.do'"></td>
+                            onclick="location.href='traffic.do'" onmouseover="traffic()" onmouseout="images1()"></td>
                         </tr>
                     </table>
             </div>
         </div>
         <!--1-2(오른쪽)--> 
-        <div class="right" style="float: right; width: 70%;  height: 100vh;">
-			<%-- <jsp:include page="../Module/menu/map.jsp" flush="false"/> --%>
+        <div class="right" style="float: right; width: 70%;  height: 100vh; background-color: whitesmoke;">
+			<img id="images" src="/PJ_GABOZAGO/Image/truck-front-fill.svg">
         </div>
 
     </div>
 </body>
+<script>
+function images1(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/truck-front-fill.svg"
+}
+function schedule(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/car-front-fill.svg"
+}
+function guide(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/car-front-fill.svg"
+}
+function traffic(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/car-front-fill.svg"
+}
+</script>
 </html>
