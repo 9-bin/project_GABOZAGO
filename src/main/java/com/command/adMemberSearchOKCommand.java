@@ -16,21 +16,21 @@ public class adMemberSearchOKCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		System.out.println("memberSearchOKcom : " + request.getAttribute("type") + " | " + request.getAttribute("key"));
 		
-		String type = (String)request.getAttribute("type");
-		String key = (String)request.getAttribute("key");
+		String Type = (String)request.getAttribute("type");
+		String Key = (String)request.getAttribute("key");
 		
 		List<MemberVo> list = null;
 		int page = 1;
 		
-		if (request.getParameter("Page") != null) {
-			page = Integer.parseInt(request.getParameter("Page"));
+		if (request.getParameter("page") != null) {
+			page = Integer.parseInt(request.getParameter("page"));
 		}
 		
 		Paging paging = new Paging();
 		int count = 0;
 		
 		try {
-			count = new MemberDao().getMemberCount(type, key);
+			count = new MemberDao().getMemberCount(Type, Key);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -39,7 +39,7 @@ public class adMemberSearchOKCommand implements Command {
 		paging.setTotalCount(count);
 		
 		try {
-			list = new MemberDao().searchMember(paging, type, key);
+			list = new MemberDao().searchMember(paging, Type, Key);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

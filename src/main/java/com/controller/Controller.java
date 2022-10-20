@@ -71,6 +71,7 @@ public class Controller extends HttpServlet {
 		PrintWriter writer = response.getWriter();
 		HttpSession session = request.getSession();
 		
+		int ADMIN = 0; 	// 관리자 기본 0으로 세팅(관리자 페이지 접근 제한 위해 설정)
 		Command command = null;
 		String ViewPage = null;			// 넘겨줄 페이지(jsp)
 		
@@ -385,36 +386,47 @@ public class Controller extends HttpServlet {
 			break;
 		
 		case "/adminMember.do":
-			int ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
-			if (ADMIN != 1) {
+			if (session.getAttribute("admin") != null) {
+				ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
+			}
+			if (ADMIN != 1) { 
 				writer.println("<script>alert('관리자 로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
 				writer.close();
 				break;
 			}
+			
 			command = new adminMemberCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Admin/adminMember.jsp";
 			break;
 			
 		case "/memberSearch.do":
-			System.out.println("controller guideSearch : " + request.getParameter("guideSearch") + " | " + request.getParameter("guideKeyword"));
+			System.out.println("controller memberSearch : " + request.getParameter("memberSearch") + " | " + request.getParameter("guideKeyword"));
 			request.setAttribute("Type", request.getParameter("searchMember"));
 			request.setAttribute("keyword", request.getParameter("memberKeyword"));
 			command = new adminMemberSearchCommand();
 			command.execute(request, response);
-			ViewPage = "/PAGE/Admin/adminMemberSearch.jsp";
+			session.setAttribute("Type", request.getAttribute("type"));
+			session.setAttribute("Key", request.getAttribute("key"));
+			System.out.println("controller memberSearch : " + session.getAttribute("Type"));
+			request.getRequestDispatcher("memberSearchOK.do").forward(request, response);
 			break;
-
-		case "/memberSearchOK.do":
+			
+		
+		case "/memberSearchOK.do":	
 			request.setAttribute("type", session.getAttribute("Type"));
 			request.setAttribute("key", session.getAttribute("Key"));
+			System.out.println("controller memberSearchOK se: " + request.getAttribute("type"));
 			command = new adMemberSearchOKCommand();
 			command.execute(request, response);
-			ViewPage = "/PAGE/Admin/adminMember.jsp";
+			ViewPage = "/PAGE/Admin/adminNextMember.jsp";
 			break;
 			
 		// 가이드 
 		case "/adminGuide.do":
+			if (session.getAttribute("admin") != null) {
+				ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
+			}
 			ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
 			if (ADMIN != 1) {
 				writer.println("<script>alert('관리자 로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
