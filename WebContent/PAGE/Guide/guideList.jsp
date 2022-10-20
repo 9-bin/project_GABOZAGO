@@ -9,7 +9,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>가이드</title>
 <script type="text/javascript" src="Script/selectPlace.js"></script>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <style>

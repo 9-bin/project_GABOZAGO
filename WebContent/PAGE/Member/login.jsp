@@ -5,7 +5,7 @@
 <head>
 <link href="" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
-<title>GABOZAGO</title>
+<title>로그인</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>

@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>GABOZAGO</title>
+<title>교통</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 <style>
 table, th, td{

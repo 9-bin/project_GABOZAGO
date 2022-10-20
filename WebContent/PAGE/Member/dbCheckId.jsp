@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>아이디중복확인</title>
 </head>
 <body>
 <b><font size="4" color="gray">아이디 중복 확인</font></b>

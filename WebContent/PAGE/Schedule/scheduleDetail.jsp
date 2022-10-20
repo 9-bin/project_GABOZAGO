@@ -15,7 +15,7 @@ System.out.println("jsp userId " + userId);
 <html>
 <head>
 <meta charset="UTF-8">
-<title>작성중인 일정표</title>
+<title>내 일정</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>

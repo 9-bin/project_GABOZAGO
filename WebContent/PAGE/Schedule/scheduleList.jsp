@@ -8,7 +8,7 @@ List<ScheduleVo> list = (List<ScheduleVo>) request.getAttribute("scheduleList");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>일정생성하기</title>
+<title>내 일정</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>

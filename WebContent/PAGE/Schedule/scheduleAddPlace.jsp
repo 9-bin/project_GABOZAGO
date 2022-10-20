@@ -10,7 +10,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가이드</title>
+<title>내 일정</title>
 <style>
 #example-table-3{
 	   table-layout:fixed;

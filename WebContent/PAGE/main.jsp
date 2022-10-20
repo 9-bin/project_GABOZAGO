@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>홈 화면</title>
+<title>메인</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>
@@ -128,49 +128,36 @@ button {
 				<jsp:include page="../Module/menu/menu.jsp" flush="false"/>
                     <hr>
             </div>
-            <!-- 페이지이동1 "가이드" -->
-            <div style="float: left; width: 100%; height: 184px;">
-
-                    <table style=" margin:auto; " >
-                        <tr>
-                            <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="가이드" 
-                            onclick="location.href='guide.do'"></td>
-                        </tr>
-
-                    </table>
-
             
-            </div>
-            <!-- 페이지이동2 "교통"-->
+            <!-- 페이지이동1 "일정"-->
             <div style="float: left; width: 100%; height: 184px;">
-                
-                    <table style=" margin:auto; " >
-                        <tr>
-                            <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="교통" 
-                            onclick="location.href='traffic.do'"></td>
-                        </tr>
-
-                    </table>
-       
-            
-            </div>
-            
-            <!-- 페이지이동3 "일정"-->
-            <div style="float: left; width: 100%; height: 184px;">
-               
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="일정" 
                             onclick="location.href='schedule.do'"></td>
                         </tr>
-
                     </table>
-
-            
+            </div>
+            <!-- 페이지이동2 "가이드" -->
+            <div style="float: left; width: 100%; height: 184px;">
+                    <table style=" margin:auto; " >
+                        <tr>
+                            <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="가이드" 
+                            onclick="location.href='guide.do'"></td>
+                        </tr>
+                    </table>
             </div>
             
+            <!-- 페이지이동3 "교통"-->
+            <div style="float: left; width: 100%; height: 184px;">
+                    <table style=" margin:auto; " >
+                        <tr>
+                            <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="교통" 
+                            onclick="location.href='traffic.do'"></td>
+                        </tr>
+                    </table>
+            </div>
         </div>
-
         <!--1-2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%;  height: 100vh; background-color: whitesmoke;">
 			<%-- <jsp:include page="../Module/menu/map.jsp" flush="false"/> --%>

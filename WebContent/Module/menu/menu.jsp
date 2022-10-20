@@ -73,11 +73,11 @@
 			<li class="nav-item">
    				<a class="nav-link active" aria-current="page" href="schedule.do">일정</a>
 	   		</li>
-		    <li class="nav-item">
-		   		<a class="nav-link" href="traffic.do">교통</a>
+	   		<li class="nav-item">
+		   		<a class="nav-link" href="guide.do">가이드</a>
 		    </li>
 		    <li class="nav-item">
-		   		<a class="nav-link" href="guide.do">가이드</a>
+		   		<a class="nav-link" href="traffic.do">교통</a>
 		    </li>
 		    <br>
 		    <li class="nav-item">
