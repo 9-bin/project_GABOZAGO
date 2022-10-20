@@ -80,12 +80,15 @@
 		   		<a class="nav-link" href="traffic.do">교통</a>
 		    </li>
 		    <br>
+<!--		    
 		    <li class="nav-item">
-			    <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a>  <!-- 공유 기능 필요 -->
+			    <a class="nav-link" href="#" onclick="alert('로그인해주세요')">공유하기</a> 
 			 </li>
-<!-- 			 <li class="nav-item">
+ 		
+			 <li class="nav-item">
    				<a class="nav-link" href="community.do">커뮤니티</a>
-		   	 </li> -->
+		   	 </li> 
+		   	 -->
 		  	 <hr>
 		     <li class="nav-item userInfo" id="userinfo"> 
 		     	<a class="nav-link" href="correction.do">회원정보 수정</a>

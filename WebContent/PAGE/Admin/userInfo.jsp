@@ -44,7 +44,7 @@
 	        	<div class="btn-group" style="float: right;">
 				  <a href="adminUserUpdate.do?id=<%=userid%>" class="btn btn-primary">수정</a>
 				  &nbsp; &nbsp; &nbsp; &nbsp; 
-				  <a href="adminUserDelete.do?id=<%=userid%>" class="btn btn-primary" >삭제</a>
+				  <a href="#" onclick="checkdel();" class="btn btn-primary" >삭제</a>
 				</div>
 			</div>
         	
@@ -89,5 +89,15 @@
 
 </div>
 </body>
+<script type="text/javascript">
+	function checkdel() {
+		if (confirm("회원 '<%= userid %>' 님 을 삭제하시겠습니까?")) {
+			location.href = "adminUserDelete.do?id=<%=userid%>";
+			return true;
+		} else {
+			return false;
+		}
+	}
 
+</script>
 </html>
