@@ -11,33 +11,7 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<style>
-table, th, td{
-   border: 1px solid black;
-   border-collapse: collapse;
-   text-align: center;
-}
-table{
-   width: 90%;
-}
-/* 테이블 스크롤바 */
-#scrollBar { 
-  overflow-y: scroll;
-}
-#scrollBar::-webkit-scrollbar {
-    width: 1px;  /* 스크롤바의 너비 */
-}
 
-#scrollBar::-webkit-scrollbar-thumb {
-    height: 2px; /* 스크롤바의 길이 */
-    background: #B2CCFF; /* 스크롤바의 색상 */
-    border-radius: 10px;
-}
-#scrollBar::-webkit-scrollbar-track {
-    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
-}
-</style>
 </head>
 
 <body>

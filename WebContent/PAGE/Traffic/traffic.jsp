@@ -6,33 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>교통</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
-<style>
-table, th, td{
-   border: 1px solid black;
-   border-collapse: collapse;
-   text-align: center;
-}
-table{
-   width: 90%;
-}
-/* 테이블 스크롤바 */
-#scrollBar { 
-  overflow-y: scroll;
-}
-#scrollBar::-webkit-scrollbar {
-    width: 1px;  /* 스크롤바의 너비 */
-}
 
-#scrollBar::-webkit-scrollbar-thumb {
-    height: 2px; /* 스크롤바의 길이 */
-    background: #B2CCFF; /* 스크롤바의 색상 */
-    border-radius: 10px;
-}
-#scrollBar::-webkit-scrollbar-track {
-    background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
-}
-</style>
 </head>
 
 <body>
@@ -77,9 +51,9 @@ table{
 				</form>
 			</div>
         		<!-- 교통 수단 -->
-       		<div style="height: 90px;">
+       		<div style="height: 110px;">
        			<div style="margin:auto; width: 25%;">
-       				<input onclick='newPage()' type="image" src="/PJ_GABOZAGO/Image/truck-front-fill.svg" class="btn btn-primary" value="대중교통" style="width: 100%;">
+       				<input onclick='newPage()' type="image" src="/PJ_GABOZAGO/Image/direction.png" class="btn btn-primary" value="대중교통" style="width: 100%;">
        			</div>
        		</div>
 			<!-- info -->
