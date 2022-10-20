@@ -5,7 +5,7 @@ public class A {
 // 오라클 드라이버 연결
 	public static final String driver = "oracle.jdbc.driver.OracleDriver";
 	
-	public static final String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+	public static final String url = "jdbc:oracle:thin:@192.168.0.159:1521:orcl";
 	
 	public static final String user = "ora_user";
 	

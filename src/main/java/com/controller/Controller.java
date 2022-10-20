@@ -427,7 +427,6 @@ public class Controller extends HttpServlet {
 			if (session.getAttribute("admin") != null) {
 				ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
 			}
-			ADMIN = Integer.parseInt(String.valueOf(session.getAttribute("admin")));
 			if (ADMIN != 1) {
 				writer.println("<script>alert('관리자 로그인 후 접근 가능합니다.'); location.href='index.do'; </script>"); 
 				writer.close();
