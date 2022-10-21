@@ -49,7 +49,7 @@ table{
             <!-- 메뉴 -->
             <div style="float: left; width: 100%; height: 100px;">
                 <!-- 부트스트랩 활용 include -->
-				<jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
+				<jsp:include page="../../Module/menu/searchMenu.jsp" flush="false"/>
                     <hr>
             </div>
             <!-- 가이드 리스트 -->

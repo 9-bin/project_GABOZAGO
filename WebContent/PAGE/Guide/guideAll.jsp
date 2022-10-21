@@ -16,7 +16,7 @@
 	
 
 	           <!-- 부트스트랩 활용 include -->
-				<jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
+				<jsp:include page="../../Module/menu/searchMenu.jsp" flush="false"/>
 	               <hr>
 
         
