@@ -4,7 +4,6 @@
 <html>
 
 <head>
-    <link href="" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>회원가입</title>
 </head>

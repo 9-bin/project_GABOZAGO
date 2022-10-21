@@ -38,7 +38,7 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
     background: rgba(33, 122, 244, .1);  /*스크롤바 뒷 배경 색상*/
 }
 </style>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+
 </head>
 <!--영역 나누기-->
     <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">

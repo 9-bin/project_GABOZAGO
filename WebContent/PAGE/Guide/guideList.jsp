@@ -11,7 +11,6 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
 <meta charset="UTF-8">
 <title>가이드</title>
 <script type="text/javascript" src="Script/selectPlace.js"></script>
-<link href="css/style.css" rel="stylesheet" type="text/css">
 <style>
 #example-table-3{
 	   table-layout:fixed;

@@ -6,7 +6,6 @@
 <link href="" rel="stylesheet" type="text/css">
 <meta charset="UTF-8">
 <title>로그인</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>
 @charset "UTF-8";

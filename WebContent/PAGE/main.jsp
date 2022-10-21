@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>메인 페이지</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>
 @charset "UTF-8";

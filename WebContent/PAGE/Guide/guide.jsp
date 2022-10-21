@@ -5,7 +5,6 @@
 <head>
 <meta charset="UTF-8">
 <title>가이드</title>
-<link href="/css/button.css" rel="stylesheet" type="text/css">
 </head>
 <style>
 @charset "UTF-8";

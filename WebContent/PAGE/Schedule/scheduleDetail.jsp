@@ -16,7 +16,6 @@ System.out.println("jsp userId " + userId);
 <head>
 <meta charset="UTF-8">
 <title>내 일정</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <!--영역 나누기-->
