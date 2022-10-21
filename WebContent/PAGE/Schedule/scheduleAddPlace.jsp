@@ -120,14 +120,14 @@ List<GuideVo> list = (List<GuideVo>) request.getAttribute("guideList");
             
 
         </div>
-
+</div>
         
         <!--2(오른쪽)--> 
         <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
      		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
        	</div>
 
-    </div>
+    
  </div>
 </body>
 <script src="Script/scheduleInsertPlace.js"></script>
