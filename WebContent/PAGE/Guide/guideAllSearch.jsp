@@ -40,8 +40,8 @@ table{
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<!--영역 나누기-->
-    <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
+    <!--영역 나누기-->
+    <div class="view" style=" width: 100vw; height: 100vh; background-color:whitesmoke">
     	<!--영역 안에서 세로로 나누기-->    
         <!--1(왼쪽)-->
         <div class="left" style="float: left; width: 384px; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
@@ -98,7 +98,6 @@ table{
 							}
 							%>
 						</table>
-					
 				</div>
 				<jsp:include page="./gaPaging.jsp" flush = "false">
 				<jsp:param value="${paging.page}" name="page"/>
@@ -108,14 +107,10 @@ table{
 				<jsp:param value="${paging.next}" name="next"/>
 				</jsp:include>
 			</div>
-
-            
-
         </div>
-
         
-        <!--2(오른쪽)--> 
-        <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
+        <!--1-2(오른쪽)--> 
+        <div class="right" style="position:absolute; left:384px; width: 70%;  height: 100%; background-color: whitesmoke;">
      		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
        	</div>
 

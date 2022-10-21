@@ -112,10 +112,10 @@ button {
 </style>
 <body>
     <!--영역 나누기-->
-    <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
-    	<!--영역 안에서 세로로 나누기-->    
+    <div class="view" style=" width: 100vw; height: 100vh; background-color:whitesmoke">
+    	<!--영역 안에서 세로로 나누기-->
         <!--1(왼쪽)-->
-        <div class="left" style="float: left; width: 30%; height: 100vh;background-color: whitesmoke;">
+        <div class="left" style="float: left; width: 384px; height: 100vh; background-color:whitesmoke;border-right: 5px double #DCDCDC;">
 			<!-- 높이 650px / 5 = 130px 영역 나누기 -->
 			<!-- 1번/2번 메뉴 -->
             <div style="float: left; width: 100%; height: 260px;">
@@ -149,8 +149,8 @@ button {
 
         </div>
 
-        <!--2(오른쪽)--> 
-        <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
+        <!--1-2(오른쪽)--> 
+        <div class="right" style="position:absolute; left:384px; width: 70%;  height: 100%; background-color: whitesmoke;">
 			<!-- <img style="width: 100%; height: 100%; id="images" src="/PJ_GABOZAGO/Image/index.png"> -->
         </div>
 
