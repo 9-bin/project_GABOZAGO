@@ -40,11 +40,9 @@
         <div class="offcanvas-header">
                <!-- 로그인부분 -->
 		    <div class="btn" style="padding: none; border: none;">
-		        <form action="login.do" method="post">
-		            <button id="btn_login" type="submit" style="padding:none;border: none; background: none; ">
-		                <img src="/PJ_GABOZAGO/Image/btn_logout1.png" style="width:25px; height: 25px;">
-		            </button>
-		    	</form> 
+	            <button id="btn_login" onclick="DDAN()" style="padding:none;border: none; background: none; ">
+	                <img src="/PJ_GABOZAGO/Image/btn_logout1.png" style="width:25px; height: 25px;">
+	            </button>
 		    </div>
 		    
 		    <div>
@@ -76,5 +74,9 @@
 
 
 </body>
-
+<script type="text/javascript">
+	function DDAN() {
+		window.open("${contextPath}/PJ_GABOZAGO/PAGE/Admin/DDAN.jsp", "", "width = 350, height = 480");
+	}
+</script>
 </html>
