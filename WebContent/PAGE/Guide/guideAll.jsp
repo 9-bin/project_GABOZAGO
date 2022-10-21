@@ -4,8 +4,8 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>가이드</title>
-<link href="css/style.css" rel="stylesheet" type="text/css">
+<title>가이드 전체 목록</title>
+
 </head>
 <body>
 <!--영역 나누기-->

@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>index 페이지</title>
+<title>GABOZAGO!</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>

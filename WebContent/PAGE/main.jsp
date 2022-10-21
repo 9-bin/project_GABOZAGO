@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>메인</title>
+<title>메인 페이지</title>
 <link href="css/style.css" rel="stylesheet" type="text/css">
 </head>
 <style>
@@ -130,7 +130,7 @@ button {
             </div>
             
             <!-- 페이지이동1 "일정"-->
-            <div style="float: left; width: 100%; height: 184px;">
+            <div style="float: left; width: 100%; height: 184px; margin-top: 90px;">
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="일정" 
@@ -149,7 +149,7 @@ button {
             </div>
             
             <!-- 페이지이동3 "교통"-->
-            <div style="float: left; width: 100%; height: 184px;">
+            <div style="float: left; width: 100%; height: 100px;">
                     <table style=" margin:auto; " >
                         <tr>
                             <td><input class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="교통" 

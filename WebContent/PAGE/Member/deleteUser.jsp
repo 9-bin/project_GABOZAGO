@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>유저삭제</title>
+<title>회원 탈퇴</title>
 </head>
 <body>
 
@@ -12,7 +12,8 @@
 <div class="view" style=" width: 100vw; height: 100vh; background-color: yellow;">
 	<!--영역 안에서 세로로 나누기-->    
     <!--1(왼쪽)-->
-    <div class="left" style="float: left; width: 30%; height: 100vh;background-color: whitesmoke;">
+    <div class="left" style="float: left; width: 100%; height: 100vh;background-color: whitesmoke;">
+    <div style="margin: auto; background-color: whitesmoke; width: 50%;" >
 	      <!-- 메뉴 -->
 	    <jsp:include page="../../Module/menu/menu.jsp" flush="false"/>
 	      
@@ -26,17 +27,17 @@
 	           <!--  수정!  -->
 				<div style="width: 100%; height: 70%; margin-left: 5px">
 					<div class="input-group mb-3" style="margin-top: 20px;">
-	  	      			<span class="input-group-text" id="" basic-addon1">아 이 디</span>
+	  	      			<span class="input-group-text" id="basic-addon1">아 이 디</span>
 	                    	<input type="text" class="form-control" value="${userId}" aria-label="아 이 디"
 	                       		aria-describedby="basic-addon1" name="userid" readonly="readonly">
 	                </div>
 	                <div class="input-group mb-3" style="margin-top: 20px;">
-	                    <span class="input-group-text" id="" basic-addon1">이 메 일</span>
+	                    <span class="input-group-text" id="basic-addon1">이 메 일</span>
 	                    <input type="text" class="form-control" value="${email}" aria-label="이 메 일"
 	                        aria-describedby="basic-addon1" name="email">
 	                </div>
 	                <div class="input-group mb-3" style="margin-top: 20px;">
-	                    <span class="input-group-text" id="" basic-addon1">전 화 번 호</span>
+	                    <span class="input-group-text" id="basic-addon1">전 화 번 호</span>
 	                    <input type="text" class="form-control" value="${phone}" aria-label="전 화 번 호"
 	                        aria-describedby="basic-addon1" name="phone">
 	                </div>
@@ -49,10 +50,13 @@
 		</form>
 	</div>
 			<!--1-2(오른쪽)-->
+<%--
     <div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
-<%-- 		<jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
+ 		<jsp:include page="../../Module/menu/map.jsp" flush="false"/> 
 	</div>
+--%>
 
+</div>
 </div>
 </body>
 <script type="text/javascript">
