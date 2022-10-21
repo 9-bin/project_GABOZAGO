@@ -2,7 +2,10 @@
  
 <!DOCTYPE html>
 <% 
- 	Integer admin = (Integer)session.getAttribute("admin"); 
+	int admin = 0;
+	if (session.getAttribute("admin") != null) {
+		admin = Integer.parseInt(String.valueOf(session.getAttribute("admin")));	
+	}
 	String userid = (String)session.getAttribute("userId");
 	String Name = (String)session.getAttribute("name");
 	System.out.println("menu : " + Name);

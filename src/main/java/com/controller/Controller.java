@@ -382,6 +382,7 @@ public class Controller extends HttpServlet {
 		case "/adminUpdateOK.do":
 			command = new adminUserUpdateOKCommand();
 			command.execute(request, response);
+			session.setAttribute("admin", request.getAttribute("Admin"));
 			ViewPage = "/PAGE/Admin/adminUserUpdateOK.jsp";
 			break;
 		
@@ -394,7 +395,6 @@ public class Controller extends HttpServlet {
 				writer.close();
 				break;
 			}
-			
 			command = new adminMemberCommand();
 			command.execute(request, response);
 			ViewPage = "/PAGE/Admin/adminMember.jsp";

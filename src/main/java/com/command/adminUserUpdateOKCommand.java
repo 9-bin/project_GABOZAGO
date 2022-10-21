@@ -41,6 +41,7 @@ public class adminUserUpdateOKCommand implements Command {
 			e.printStackTrace();
 		}
 		
+		request.setAttribute("Admin", admin);
 		request.setAttribute("cnt", cnt);
 	}
 
