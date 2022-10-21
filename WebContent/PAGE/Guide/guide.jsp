@@ -130,14 +130,21 @@ button {
 
 		<!-- 가이드 리스트 -->		
 		<div style="float: left; width: 100%; height: 700px;margin: 20px; text-align: center;">
-			<input class="w-btn w-btn-gra1 w-btn-gra-anim" type="button" value="전체 목록" onclick="location.href='guideAll.do'"><br><br><br>
+			<input class="w-btn w-btn-gra1 w-btn-gra-anim" type="button" value="전체 목록" onclick="location.href='guideAll.do'"
+			onmouseover="guide_1()" onmouseout="images1()"><br><br><br>
 			<form action="guideNext.do">
-				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="1" name="local">강원도</button> <br><br><br>
-				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="2" name="local">경상도</button> <br><br><br>
-				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="3" name="local">수도권</button> <br><br><br>
-				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="4" name="local">전라도</button> <br><br><br>
-				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="5" name="local">제주도</button> <br><br><br>
-				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="6" name="local">충청도</button> 
+				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="1" name="local"
+				onmouseover="guide_2()" onmouseout="images1()">강원도</button> <br><br><br>
+				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="2" name="local"
+				onmouseover="guide_3()" onmouseout="images1()">경상도</button> <br><br><br>
+				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="3" name="local"
+				onmouseover="guide_4()" onmouseout="images1()">수도권</button> <br><br><br>
+				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="4" name="local"
+				onmouseover="guide_5()" onmouseout="images1()">전라도</button> <br><br><br>
+				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="5" name="local"
+				onmouseover="guide_6()" onmouseout="images1()">제주도</button> <br><br><br>
+				<button class="w-btn w-btn-gra1 w-btn-gra-anim" type="submit" value="6" name="local"
+				onmouseover="guide_7()" onmouseout="images1()">충청도</button> 
 			</form>
 		</div>
 		<input type="hidden" id="markerLat" value="36.1676050697">
@@ -148,11 +155,39 @@ button {
 	<!--2(오른쪽)-->
 	<div class="right" style="float: right; width: 70%; height: 100vh; background-color: whitesmoke;">
 		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
+		<img id="images" src="/PJ_GABOZAGO/Image/guide_1.png">
     </div>
 
 </div>
 
  
 </body>
+<script>
+function images1(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_1.png"
+}
+function guide_2(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_2.png"
+}
+function guide_3(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_3.png"
+}
+function guide_4(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_4.png"
+}
+function guide_5(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_5.png"
+}
+function guide_6(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_6.png"
+}
+function guide_7(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_7.png"
+}
+function guide_8(){
+	document.getElementById("images").src="/PJ_GABOZAGO/Image/guide_8.png"
+}
+
+</script>
 
 </html>
