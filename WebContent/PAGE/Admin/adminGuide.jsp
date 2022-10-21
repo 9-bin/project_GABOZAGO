@@ -91,8 +91,8 @@ List<GuideVo> list = (List<GuideVo>)request.getAttribute("guideList");
 					<tbody>
 					  <tr>
 					    <td class="tg-c3ow" width="100" height="50"><div class="form-check">
-  							<input type="radio" name= "placenum" value="<%=gVo.getPlacenum() %>">
-  							<%=gVo.getPlacenum() %>
+  							<input type="text" name= "placenum" readonly="readonly"  style="border:0; width:50px; background-color: whitesmoke; "
+  							value="<%=gVo.getPlacenum() %>">
 						</div></td>
 					    <td class="tg-c3ow" width="50" height="50"><%=gVo.getLocal() %></td>
 					    <td class="tg-c3ow" width="150" height="50"><%=gVo.getPlacename() %></td>
