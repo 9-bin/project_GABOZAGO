@@ -143,7 +143,10 @@ public class Controller extends HttpServlet {
 		case "/deleteUserOK.do":
 			command = new deleteUserCommand();
 			command.execute(request, response);
-			session.invalidate();		// 세션 삭제
+			Object result = request.getAttribute("count");
+			if (result.equals(1)) {
+				session.invalidate();		// 세션 삭제
+			}
 			ViewPage = "/PAGE/Member/deleteUserOK.jsp";
 			break;
 			
@@ -382,7 +385,6 @@ public class Controller extends HttpServlet {
 		case "/adminUpdateOK.do":
 			command = new adminUserUpdateOKCommand();
 			command.execute(request, response);
-			session.setAttribute("admin", request.getAttribute("Admin"));
 			ViewPage = "/PAGE/Admin/adminUserUpdateOK.jsp";
 			break;
 		

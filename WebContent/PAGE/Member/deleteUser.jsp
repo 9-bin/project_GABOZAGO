@@ -21,6 +21,7 @@
 		<form action="deleteUserOK.do" name="frm" onsubmit="return checkCorrect(this)">
 			<div style="margin: 80px 15px 5px 15px; height: 50px;">
 	              <h1 span style="border-bottom: 3px solid steelblue"> 회원 탈퇴 </h1>
+	              <h5> *생성해 둔 일정을 모두 삭제하여야 탈퇴가 가능합니다*  </h5>
 	        </div> 
 	          <!-- 회원 정보 수정 입력창 영역 -->
 	        <div style="width:95%; height:200px; margin: 60px 5px 5px 5px;">

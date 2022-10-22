@@ -1,5 +1,7 @@
 package com.command;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +14,6 @@ public class deleteUserCommand implements Command {
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		int cnt = 0;
-		MemberVo mVo = new MemberVo();
 		
 		String userid = (String)request.getParameter("userid");
 		
@@ -21,11 +22,14 @@ public class deleteUserCommand implements Command {
 		try {
 			cnt = new MemberDao().deleteMember(userid);
 			System.out.println("delUserCommand2 : " + cnt);
-		} catch (Exception e) {
+			if (cnt == -1) {
+				cnt = 0;	
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			request.setAttribute("count", cnt);
 		}
-		
-		request.setAttribute("count", cnt);
 		
 	}
 }

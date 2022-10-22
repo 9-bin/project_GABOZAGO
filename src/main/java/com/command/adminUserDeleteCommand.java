@@ -1,5 +1,7 @@
 package com.command;
 
+import java.sql.SQLException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,11 +19,14 @@ public class adminUserDeleteCommand implements Command {
 		try {
 			cnt = new MemberDao().deleteMember(userid);
 			System.out.println("adminDeleteCommand cnt : " + cnt);
-		} catch (Exception e) {
+			if (cnt == -1) {
+				cnt = 0;	
+			}
+		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			request.setAttribute("count", cnt);
 		}
-		
-		request.setAttribute("count", cnt);
 	}
 
 }

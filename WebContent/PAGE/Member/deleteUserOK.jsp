@@ -17,7 +17,7 @@
 	}
 	if (result.equals(0)){
 		  out.println("<script>");
-	      out.println("alert('회원 탈퇴에 실패하였습니다.')");
+	      out.println("alert('회원 탈퇴에 실패하였습니다.  (일정 존재 여부를 확인해주세요!)')");
 	      out.println("location.href = 'deleteUser.do'");
 	      out.println("</script>");
 	}
