@@ -11,7 +11,7 @@ public class adminUserDeleteCommand implements Command {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		int cnt = -1;
+		int cnt = 0;
 		String userid = request.getParameter("id");
 		
 		System.out.println("admindeleteCommand id : " + userid);
@@ -22,6 +22,7 @@ public class adminUserDeleteCommand implements Command {
 			if (cnt == -1) {
 				cnt = 0;	
 			}
+//			System.out.println("adminDeleteCommand cnt2 : " + cnt);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
