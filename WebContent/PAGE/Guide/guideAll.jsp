@@ -32,7 +32,7 @@
         
         <!--1-2(오른쪽)--> 
         <div class="right" style="position:absolute; left:384px; width: 70%;  height: 100%; background-color: whitesmoke;">
-     		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
+     		<jsp:include page="../../Module/menu/map.jsp" flush="false"/>
        	</div>
 
     </div>

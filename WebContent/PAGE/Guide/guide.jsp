@@ -153,7 +153,6 @@ button {
 
     <!--1-2(오른쪽)--> 
     <div class="right" style="position:absolute; left:384px; width: 70%;  height: 100%; background-color: whitesmoke;">
-		<%-- <jsp:include page="../../Module/menu/map.jsp" flush="false"/> --%>
 		<img id="images" src="/PJ_GABOZAGO/Image/guide_1.png">
     </div>
 
